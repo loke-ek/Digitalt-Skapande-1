@@ -1,14 +1,14 @@
 using UnityEngine;
 
-public class enemyMovement : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
-    Rigidbody2D enemyRb;
-
     public float moveSpeed = 2f;
     public float moveTime = 1f;
     public float waitTime = 1f;
+    public BoxCollider2D roamArea;
 
-    public BoxCollider2D cage;
+    public Transform field; 
+    public float rotationSpeed = 180f; 
 
     private Vector2 moveDirection;
     private float moveTimer;
@@ -25,6 +25,7 @@ public class enemyMovement : MonoBehaviour
         {
             Move();
             moveTimer -= Time.deltaTime;
+            RotateFOV();
         }
         else
         {
@@ -40,7 +41,7 @@ public class enemyMovement : MonoBehaviour
     {
         Vector3 newPos = transform.position + (Vector3)moveDirection * moveSpeed * Time.deltaTime;
 
-        if (cage.bounds.Contains(newPos))
+        if (roamArea.bounds.Contains(newPos))
         {
             transform.position = newPos;
         }
@@ -52,9 +53,8 @@ public class enemyMovement : MonoBehaviour
 
     void ChooseNewDirection()
     {
-        int random = Random.Range(0, 4);
-
-        switch (random)
+        int rand = Random.Range(0, 4);
+        switch (rand)
         {
             case 0: moveDirection = Vector2.up; break;
             case 1: moveDirection = Vector2.down; break;
@@ -62,17 +62,18 @@ public class enemyMovement : MonoBehaviour
             case 3: moveDirection = Vector2.right; break;
         }
 
-        FaceDirection(moveDirection);
-
         moveTimer = moveTime;
         waitTimer = waitTime;
     }
 
-    void FaceDirection(Vector2 dir)
+    void RotateFOV()
     {
-        if (dir == Vector2.left)
-            transform.localScale = new Vector3(-1, 1, 1);
-        else if (dir == Vector2.right)
-            transform.localScale = new Vector3(1, 1, 1);
+        if (moveDirection == Vector2.zero) return;
+
+
+        float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+        Quaternion targetRotation = Quaternion.Euler(0, 0, angle - 90);
+
+        field.rotation = Quaternion.RotateTowards(field.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 }
