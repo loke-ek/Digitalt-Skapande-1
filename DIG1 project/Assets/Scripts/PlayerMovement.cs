@@ -9,7 +9,6 @@ public class Movement : MonoBehaviour
 
     InputAction moveAction;
     InputAction dashAction;
-    InputAction interactAction;
     Vector2 moveVector;
 
     [Header("Movement Settings")]
@@ -25,7 +24,6 @@ public class Movement : MonoBehaviour
         playerRb = GetComponent<Rigidbody2D>();
         moveAction = InputSystem.actions.FindAction("Move");
         dashAction = InputSystem.actions.FindAction("Jump");
-        interactAction = InputSystem.actions.FindAction("Interact");
     }
 
     
