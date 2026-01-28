@@ -18,10 +18,19 @@ public class Movement : MonoBehaviour
     [SerializeField] float dashSpeed;
     [SerializeField] bool isDashing;
 
+    [Header("Sprites")]
+    public Sprite Forward;
+    public Sprite Backward;
+    public Sprite Left;
+    public Sprite Right;
+    Vector2 lastMoveDir = Vector2.down; // default facing forward
+    SpriteRenderer PlayerSR;
 
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
+        PlayerSR = GetComponent<SpriteRenderer>();
+
         moveAction = InputSystem.actions.FindAction("Move");
         dashAction = InputSystem.actions.FindAction("Jump");
     }
@@ -30,6 +39,7 @@ public class Movement : MonoBehaviour
     void Update()
     {
         ReadPlayerMoveInput();
+        SpriteChange();
     }
 
     private void FixedUpdate()
@@ -51,7 +61,8 @@ public class Movement : MonoBehaviour
         {
             StartCoroutine(Dashcor());
         }
-
+        //makes it stay in the right sprite when it stops mvoing
+        lastMoveDir = moveVector;
     }
 
     void MovePlayer()
@@ -76,6 +87,27 @@ public class Movement : MonoBehaviour
         isDashing = false;
 
         yield return new WaitForSeconds(2f);
+    }
+
+    void SpriteChange()
+    {
+        Vector2 dir = moveVector != Vector2.zero ? moveVector : lastMoveDir;
+
+        // Horizontal movement has priority
+        if (Mathf.Abs(moveVector.x) > Mathf.Abs(moveVector.y))
+        {
+            if (moveVector.x > 0)
+                PlayerSR.sprite = Right;
+            else
+                PlayerSR.sprite = Left;
+        }
+        else
+        {
+            if (moveVector.y > 0)
+                PlayerSR.sprite = Backward; // up
+            else
+                PlayerSR.sprite = Forward;  // down
+        }
     }
 
 }

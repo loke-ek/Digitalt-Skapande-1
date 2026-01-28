@@ -9,6 +9,7 @@ TagManager:
   - Field
   - Enemy
   - Key
+  - Vision
   layers:
   - Default
   - TransparentFX

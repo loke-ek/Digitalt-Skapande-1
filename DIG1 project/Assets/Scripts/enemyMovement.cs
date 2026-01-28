@@ -26,6 +26,7 @@ public class enemyMovement : MonoBehaviour
 
     void Update()
     {
+        //if timer is gone they start moving
         if (moveTimer > 0)
         {
             Move();
