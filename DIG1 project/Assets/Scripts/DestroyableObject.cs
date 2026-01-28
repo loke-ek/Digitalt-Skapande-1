@@ -14,13 +14,12 @@ public class DestroyableObject : MonoBehaviour
 
     //reference to the circle thing that shows up when we can interact
     public GameObject prompt;
-    public GameObject explosionParticles;
 
 
 
     void Start()
     {
-        prompt.SetActive(true);
+        prompt.SetActive(false);
 
         interactAction = InputSystem.actions.FindAction("Interact");
 
@@ -39,7 +38,6 @@ public class DestroyableObject : MonoBehaviour
     //destroys the object and plays explosion particles
     public void DestroyObject()
     {
-        Instantiate(explosionParticles, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
