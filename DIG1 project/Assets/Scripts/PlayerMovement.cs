@@ -7,8 +7,9 @@ public class Movement : MonoBehaviour
 {
     Rigidbody2D playerRb;
 
-    InputAction moveInput;
+    InputAction moveAction;
     InputAction dashAction;
+    InputAction interactAction;
     Vector2 moveVector;
 
     [Header("Movement Settings")]
@@ -22,8 +23,9 @@ public class Movement : MonoBehaviour
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
-        moveInput = InputSystem.actions.FindAction("Move");
+        moveAction = InputSystem.actions.FindAction("Move");
         dashAction = InputSystem.actions.FindAction("Jump");
+        interactAction = InputSystem.actions.FindAction("Interact");
     }
 
     
@@ -43,7 +45,7 @@ public class Movement : MonoBehaviour
     {
         // movement
         {
-            moveVector = moveInput.ReadValue<Vector2>();
+            moveVector = moveAction.ReadValue<Vector2>();
         }
 
         // dashing
