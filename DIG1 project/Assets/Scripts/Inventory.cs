@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class inventory : MonoBehaviour
 {
-    public int keys;
-    public int KeyCard;
+    public int Keys;
+    public int KeyCards;
 
     [SerializeField] public TextMeshProUGUI KeyCardText;
-    [SerializeField] public TextMeshProUGUI keyText;
+    [SerializeField] public TextMeshProUGUI KeyText;
 
     [SerializeField] private ParticleSystem Particle;
 
@@ -17,12 +17,10 @@ public class inventory : MonoBehaviour
 
     private void Start()
     {
-        KeyCard = 0;
-        keys = 0;
-        keyText.text = "x" + keys.ToString();
-        KeyCardText.text = "x" + KeyCard.ToString();
-
-        PlayerPrefs.SetInt("TotalGems", 0);
+        KeyCards = 0;
+        Keys = 0;
+        //keyText.text = "x" + keys.ToString();
+        //KeyCardText.text = "x" + KeyCards.ToString();
     }
 
     private void Update()
@@ -34,18 +32,18 @@ public class inventory : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("KeyCard"))
         {
-            //FindAnyObjectByType<AudioManeger>().PlaySound(3);
-            keys++;
-            keyText.text = "x" + keys.ToString();
-            SpawnParticles();
+            //FindAnyObjectByType<AudioManeger>().PlaySound();
+            KeyCards++;
+            //KeyCardText.text = "x" + KeyCards.ToString();
+            //SpawnParticles();
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("Key"))
         {
-            //FindAnyObjectByType<AudioManeger>().PlaySound(3);
-            keys++;
-            keyText.text = "x" + keys.ToString();
-            SpawnParticles();
+            //FindAnyObjectByType<AudioManeger>().PlaySound();
+            Keys++;
+            //KeyText.text = "x" + Keys.ToString();
+            //SpawnParticles();
             Destroy(collision.gameObject);
         }
 
