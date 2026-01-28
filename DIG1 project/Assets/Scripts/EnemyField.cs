@@ -1,24 +1,24 @@
 using UnityEngine;
 
-public class enemyMovement : MonoBehaviour
+public class EnemyField : MonoBehaviour
 {
     public float moveSpeed = 2f;
     public float moveTime = 1f;
     public float waitTime = 1f;
 
-    public Sprite Right;
-    public Sprite Left;
+    public Sprite Forward;
+    public Sprite Backward;
 
     private SpriteRenderer sr;
 
-    private Vector2 moveDirection = Vector2.right;
+    private Vector2 moveDirection = Vector2.up;
     private float moveTimer;
     private float waitTimer;
 
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
-        sr.sprite = Right;
+        sr.sprite = Forward;
 
         moveTimer = moveTime;
         waitTimer = waitTime;
@@ -49,13 +49,16 @@ public class enemyMovement : MonoBehaviour
 
     void TurnAround()
     {
+        // Flip direction
         moveDirection = -moveDirection;
 
-        if (moveDirection == Vector2.right)
-            sr.sprite = Right;
+        // Change sprite
+        if (moveDirection == Vector2.up)
+            sr.sprite = Forward;
         else
-            sr.sprite = Left;
+            sr.sprite = Backward;
 
+        // Reset timers
         moveTimer = moveTime;
         waitTimer = waitTime;
     }
