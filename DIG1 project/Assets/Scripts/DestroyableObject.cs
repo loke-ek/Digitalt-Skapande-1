@@ -8,7 +8,6 @@ public class DestroyableObject : MonoBehaviour
 
     private bool playerInRange;
 
-    public int objectHp;
 
     //lets us interact with the object
     InputAction interactAction;
@@ -18,30 +17,24 @@ public class DestroyableObject : MonoBehaviour
     public GameObject explosionParticles;
 
 
+
     void Start()
     {
-        prompt.SetActive(false);
+        prompt.SetActive(true);
 
         interactAction = InputSystem.actions.FindAction("Interact");
+
     }
 
     private void Update()
     {
-        
-    }
-
-    public void OnTrigger2D(Collider2D other)
-    {
         if (playerInRange && interactAction.WasPerformedThisFrame())
         {
-            objectHp--;
-            if (objectHp <= 0)
-            {
-                DestroyObject();
-            }
-
+            DestroyObject();
         }
     }
+
+  
 
     //destroys the object and plays explosion particles
     public void DestroyObject()
@@ -50,9 +43,9 @@ public class DestroyableObject : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             prompt.SetActive(true);
             playerInRange = true;
@@ -60,14 +53,13 @@ public class DestroyableObject : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D other)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             prompt.SetActive(false);
             playerInRange = false;
         }
     }
-
 
 }
