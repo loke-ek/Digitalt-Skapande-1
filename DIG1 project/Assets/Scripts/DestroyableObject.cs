@@ -1,11 +1,14 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class DestroyableObject : MonoBehaviour
 {
-    Rigidbody2D enemyRb;
+    Rigidbody2D objectRb;
 
     private bool playerInRange;
+
+    public int objectHp;
 
     //lets us interact with the object
     InputAction interactAction;
@@ -24,9 +27,19 @@ public class DestroyableObject : MonoBehaviour
 
     private void Update()
     {
+        
+    }
+
+    public void OnTrigger2D(Collider2D other)
+    {
         if (playerInRange && interactAction.WasPerformedThisFrame())
         {
-            DestroyObject();
+            objectHp--;
+            if (objectHp <= 0)
+            {
+                DestroyObject();
+            }
+
         }
     }
 
@@ -37,7 +50,7 @@ public class DestroyableObject : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
@@ -47,7 +60,7 @@ public class DestroyableObject : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    private void OnCollisionExit2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
