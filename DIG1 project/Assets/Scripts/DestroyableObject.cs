@@ -20,7 +20,7 @@ public class DestroyableObject : MonoBehaviour
 
     void Start()
     {
-        prompt.SetActive(true);
+        prompt.SetActive(false);
 
         interactAction = InputSystem.actions.FindAction("Interact");
 
