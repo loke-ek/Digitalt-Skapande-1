@@ -332,7 +332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
   moveSpeed: 7
-  dashSpeed: 3
+  dashSpeed: 20
   isDashing: 0
   Forward: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   Backward: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
