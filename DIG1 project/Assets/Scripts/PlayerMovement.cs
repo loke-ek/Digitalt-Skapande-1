@@ -26,6 +26,8 @@ public class Movement : MonoBehaviour
     Vector2 lastMoveDir = Vector2.down; // default facing forward
     SpriteRenderer PlayerSR;
 
+    AudioManager audioManager;
+
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
