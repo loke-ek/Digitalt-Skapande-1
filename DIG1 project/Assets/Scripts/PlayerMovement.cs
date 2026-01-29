@@ -28,6 +28,10 @@ public class Movement : MonoBehaviour
 
     AudioManager audioManager;
 
+    [Header("Stun mecanic")]
+    bool canMove = true;
+
+
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
@@ -41,14 +45,16 @@ public class Movement : MonoBehaviour
     
     void Update()
     {
+        if (!canMove) return;
+
         ReadPlayerMoveInput();
         SpriteChange();
     }
 
     private void FixedUpdate()
     {
-        MovePlayer();
-       
+        if (!canMove) return;
+        MovePlayer();       
     }
 
 
@@ -116,6 +122,16 @@ public class Movement : MonoBehaviour
     public void PlayFootStep()
     {
         audioManager.PlaySound(0);
+    }
+    public void Freeze()
+    {
+        canMove = false;
+        playerRb.linearVelocity = Vector2.zero;
+    }
+
+    public void Unfreeze()
+    {
+        canMove = true;
     }
 
 

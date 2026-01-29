@@ -7,55 +7,78 @@ public class FakeChest : MonoBehaviour
     public Sprite Open;
 
     private SpriteRenderer sr;
-    private bool isOn = false;
-    private bool playerInRange = false;
 
     public GameObject uiText;
+    public GameObject WorkText;
 
-    public bool IsOn => isOn;
+    public int mashRequired = 10;
 
-    private void Start()
+    private bool playerInRange;
+    private bool trappingPlayer;
+    private bool hasTrappedPlayer; //one-time per chest
+
+    private int mashCount;
+    private Movement playerMovement;
+
+    void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         sr.sprite = Closed;
 
+        uiText.SetActive(false);
+        WorkText.SetActive(false);
     }
 
     void Update()
     {
-        if (playerInRange && Keyboard.current.eKey.wasPressedThisFrame)
+        // Normal interaction (only if this chest hasn't trapped yet)
+        if (playerInRange && !hasTrappedPlayer && !trappingPlayer &&
+            Keyboard.current.eKey.wasPressedThisFrame)
         {
-            ToggleChest();
-
+            OpenAndTrap();
         }
 
-        if (playerInRange)
+        // Mash to escape phase
+        if (trappingPlayer)
         {
-            uiText.SetActive(true);
+            if (Keyboard.current.spaceKey.wasPressedThisFrame)
+            {
+                mashCount++;
 
-        }
-        else
-        {
-            uiText.SetActive(false);
-        }
-    }
-    private void ToggleChest()
-    {
-        isOn = !isOn;
-        if (isOn)
-        {
-            sr.sprite = Open;
-
-        }
-        else
-        {
-            sr.sprite = Closed;
-            { 
-             
-            
+                if (mashCount >= mashRequired)
+                {
+                    ReleasePlayer();
+                }
             }
-
+            return;
         }
+
+        // Show prompt only if usable
+        uiText.SetActive(playerInRange && !hasTrappedPlayer);
+    }
+
+    void OpenAndTrap()
+    {
+        sr.sprite = Open;
+        uiText.SetActive(false);
+        WorkText.SetActive(true);
+
+        trappingPlayer = true;
+        mashCount = 0;
+
+        if (playerMovement != null)
+            playerMovement.Freeze();
+    }
+
+    void ReleasePlayer()
+    {
+        trappingPlayer = false;
+        hasTrappedPlayer = true; //permanently spent chest
+
+        WorkText.SetActive(false);
+
+        if (playerMovement != null)
+            playerMovement.Unfreeze();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -63,8 +86,10 @@ public class FakeChest : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerInRange = true;
+            playerMovement = collision.GetComponent<Movement>();
         }
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -72,5 +97,5 @@ public class FakeChest : MonoBehaviour
             playerInRange = false;
         }
     }
-
 }
+
