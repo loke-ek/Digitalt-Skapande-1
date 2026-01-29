@@ -32,7 +32,7 @@ public class inventory : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("KeyCard"))
         {
-            //FindAnyObjectByType<AudioManeger>().PlaySound();
+            FindAnyObjectByType<AudioManager>().PlaySound(5);
             KeyCards++;
             //KeyCardText.text = "x" + KeyCards.ToString();
             //SpawnParticles();
@@ -40,7 +40,7 @@ public class inventory : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Key"))
         {
-            //FindAnyObjectByType<AudioManeger>().PlaySound();
+            FindAnyObjectByType<AudioManager>().PlaySound(5);
             Keys++;
             //KeyText.text = "x" + Keys.ToString();
             //SpawnParticles();
