@@ -10,7 +10,7 @@ public class Chest : MonoBehaviour
     private bool isOn = false;
     private bool playerInRange = false;
 
-    //public GameObject uiText;
+    public GameObject uiText;
 
     public bool IsOn => isOn;
 
@@ -31,12 +31,12 @@ public class Chest : MonoBehaviour
 
         if (playerInRange)
         {
-            //uiText.SetActive(true);
+            uiText.SetActive(true);
 
         }
         else
         {
-            //uiText.SetActive(false);
+            uiText.SetActive(false);
         }
     }
     private void ToggleChest()
