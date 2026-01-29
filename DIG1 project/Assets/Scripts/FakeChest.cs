@@ -1,3 +1,4 @@
+using System.IO;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,6 +20,7 @@ public class FakeChest : MonoBehaviour
 
     private int mashCount;
     private Movement playerMovement;
+    private PlayerStatsScript Stress;
 
     void Start()
     {
@@ -36,6 +38,7 @@ public class FakeChest : MonoBehaviour
             Keyboard.current.eKey.wasPressedThisFrame)
         {
             OpenAndTrap();
+            stress = Mathf.Min(stress + rechargeRate * Time.deltaTime, 100f);
         }
 
         // Mash to escape phase
