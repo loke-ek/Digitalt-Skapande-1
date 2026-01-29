@@ -25,8 +25,8 @@ public class Chest : MonoBehaviour
     {
         if (playerInRange && Keyboard.current.eKey.wasPressedThisFrame)
         {
+            FindAnyObjectByType<AudioManager>().PlaySound(3);
             ToggleChest();
-
         }
 
         if (playerInRange)
