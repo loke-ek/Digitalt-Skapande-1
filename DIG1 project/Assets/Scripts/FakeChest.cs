@@ -38,7 +38,7 @@ public class FakeChest : MonoBehaviour
             Keyboard.current.eKey.wasPressedThisFrame)
         {
             OpenAndTrap();
-            stress = Mathf.Min(stress + rechargeRate * Time.deltaTime, 100f);
+            //stress = Mathf.Min(stress + rechargeRate * Time.deltaTime, 100f);
         }
 
         // Mash to escape phase
@@ -48,6 +48,11 @@ public class FakeChest : MonoBehaviour
             {
                 mashCount++;
 
+                // Trigger camera shake
+                var cameraShake = FindAnyObjectByType<CameraShake>();
+                if (cameraShake != null)
+                    cameraShake.Shake(0.1f, 0.08f);
+
                 if (mashCount >= mashRequired)
                 {
                     ReleasePlayer();
@@ -55,6 +60,7 @@ public class FakeChest : MonoBehaviour
             }
             return;
         }
+
 
         // Show prompt only if usable
         uiText.SetActive(playerInRange && !hasTrappedPlayer);
