@@ -32,6 +32,7 @@ public class Movement : MonoBehaviour
     {
         playerRb = GetComponent<Rigidbody2D>();
         PlayerSR = GetComponent<SpriteRenderer>();
+        audioManager = FindAnyObjectByType<AudioManager>();
 
         moveAction = InputSystem.actions.FindAction("Move");
         dashAction = InputSystem.actions.FindAction("Jump");
@@ -111,5 +112,11 @@ public class Movement : MonoBehaviour
                 PlayerSR.sprite = Forward;  // down
         }
     }
+
+    public void PlayFootStep()
+    {
+        audioManager.PlaySound(0);
+    }
+
 
 }
