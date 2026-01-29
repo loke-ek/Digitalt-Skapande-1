@@ -29,6 +29,7 @@ public class DestroyableObject : MonoBehaviour
     {
         if (playerInRange && interactAction.WasPerformedThisFrame())
         {
+            FindAnyObjectByType<AudioManager>().PlaySound(6);
             DestroyObject();
         }
     }
