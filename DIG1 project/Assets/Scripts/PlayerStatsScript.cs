@@ -5,9 +5,12 @@ public class PlayerStatsScript : MonoBehaviour
 {
     [SerializeField] float stress;
     [SerializeField] Image stressBar;
+
     [SerializeField] float sugar;
     [SerializeField] Image sugarBar;
-    float rechargeRate = 10.0f;
+
+    [SerializeField] float rechargeRate = 10.0f;
+    [SerializeField] float candyValue = 10;
 
     private void Update()
     {
@@ -18,7 +21,16 @@ public class PlayerStatsScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // inget
+        if (collision.gameObject.CompareTag("Candy"))
+        {
+            Debug.Log("Pick up candy");
+            sugar += candyValue;
+            Destroy(collision.gameObject);
+        }
+        else
+        {
+            Debug.Log("No candy found");
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -28,11 +40,6 @@ public class PlayerStatsScript : MonoBehaviour
             Debug.Log("charging");
             stress = Mathf.Min(stress + rechargeRate * Time.deltaTime, 100f);
         }
-        else
-        {
-            Debug.Log("not touching Vision");
-        }
-        
     }
 
 }

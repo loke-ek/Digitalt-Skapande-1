@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Vision
+  - Candy
   layers:
   - Default
   - TransparentFX
