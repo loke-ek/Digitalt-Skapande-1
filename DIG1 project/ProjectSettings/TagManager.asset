@@ -4,8 +4,12 @@
 TagManager:
   serializedVersion: 3
   tags:
+  - wall
+  - KeyCard
+  - Field
+  - Enemy
+  - Key
   - Vision
-  - Candy
   layers:
   - Default
   - TransparentFX
