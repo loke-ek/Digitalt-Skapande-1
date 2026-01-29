@@ -1,9 +1,12 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerStatsScript : MonoBehaviour
 {
-    [SerializeField] float stress;
+    SpriteRenderer playerSr;
+
+    [SerializeField] public float stress;
     [SerializeField] Image stressBar;
 
     [SerializeField] float sugar;
@@ -11,43 +14,52 @@ public class PlayerStatsScript : MonoBehaviour
 
     [SerializeField] float rechargeRate = 10.0f;
 
-    [SerializeField] GameObject candyA;
-    [SerializeField] GameObject candyB;
-    private PickupCandyA pickupCandyA_s;
-
-
     private void Start()
     {
-        pickupCandyA_s = candyA.GetComponent<PickupCandyA>();
+        playerSr = GetComponent<SpriteRenderer>();
     }
+
     private void Update()
     {
         stressBar.fillAmount = stress / 100; // uppdaterar stressbar
         sugarBar.fillAmount = sugar / 100; // uppdaterar sugarbar
+
+        if(sugar >= 100)
+        {
+            StartCoroutine(InvisibilityCor());
+        }
     }
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Candy"))
+        if (collision.gameObject.CompareTag("CandyA"))
         {
-            Debug.Log("Pick up candy");
-            // sugar += (lägger till candyValue:n som den typen av candy);
+            sugar += 15;
             Destroy(collision.gameObject);
         }
-        else
+        if (collision.gameObject.CompareTag("CandyB"))
         {
-            Debug.Log("No candy found");
+            sugar += 30;
+            Destroy(collision.gameObject);
         }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Vision"))
+        if (collision.gameObject.CompareTag("Vision") && playerSr.enabled == true)
         {
             Debug.Log("charging");
             stress = Mathf.Min(stress + rechargeRate * Time.deltaTime, 100f);
         }
+    }
+
+    IEnumerator InvisibilityCor()
+    {
+        Debug.Log("started coroutine");
+        playerSr.enabled = false;
+        yield return new WaitForSeconds(3);
+        playerSr.enabled = true;
     }
 
 }

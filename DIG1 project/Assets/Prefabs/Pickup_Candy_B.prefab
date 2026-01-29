@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4925551595808342557}
   m_Layer: 0
   m_Name: Pickup_Candy_B
-  m_TagString: Untagged
+  m_TagString: CandyB
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.72975636, g: 0, b: 1, a: 1}
+  m_Color: {r: 0.6784314, g: 1, b: 0.1843137, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -179,4 +179,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f65de5f6cccd894bbbde70682c2bd0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  candyValue: 20
+  candyValue: 35
