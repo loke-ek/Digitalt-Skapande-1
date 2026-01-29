@@ -22,5 +22,10 @@ public class AudioManager : MonoBehaviour
 
     }
 
+    //Clip1: Footstep
+    //Clip2: Dash
+    //Clip3: ItemPickup
+    //Clip4: Candyrush
+    //Clip5: Chest opens/destroyable objects
 }
 
