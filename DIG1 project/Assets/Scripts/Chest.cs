@@ -14,6 +14,8 @@ public class Chest : MonoBehaviour
 
     public bool IsOn => isOn;
 
+    private bool hasOpened;
+
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -23,13 +25,13 @@ public class Chest : MonoBehaviour
 
     void Update()
     {
-        if (playerInRange && Keyboard.current.eKey.wasPressedThisFrame)
+        if (playerInRange && !hasOpened && Keyboard.current.eKey.wasPressedThisFrame)
         {
             ToggleChest();
 
         }
 
-        if (playerInRange)
+        if (playerInRange && !hasOpened)
         {
             uiText.SetActive(true);
 
@@ -42,6 +44,7 @@ public class Chest : MonoBehaviour
     private void ToggleChest()
     {
         isOn = !isOn;
+        hasOpened = true;
         if (isOn)
         {
             sr.sprite = Open;
