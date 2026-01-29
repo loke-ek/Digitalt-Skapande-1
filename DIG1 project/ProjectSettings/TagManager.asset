@@ -10,6 +10,9 @@ TagManager:
   - Enemy
   - Key
   - Vision
+  - CandyA
+  - CandyB
+  - CandyC
   layers:
   - Default
   - TransparentFX

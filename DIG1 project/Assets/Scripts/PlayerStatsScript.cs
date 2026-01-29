@@ -10,8 +10,16 @@ public class PlayerStatsScript : MonoBehaviour
     [SerializeField] Image sugarBar;
 
     [SerializeField] float rechargeRate = 10.0f;
-    [SerializeField] float candyValue = 10;
 
+    [SerializeField] GameObject candyA;
+    [SerializeField] GameObject candyB;
+    private PickupCandyA pickupCandyA_s;
+
+
+    private void Start()
+    {
+        pickupCandyA_s = candyA.GetComponent<PickupCandyA>();
+    }
     private void Update()
     {
         stressBar.fillAmount = stress / 100; // uppdaterar stressbar
@@ -24,7 +32,7 @@ public class PlayerStatsScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Candy"))
         {
             Debug.Log("Pick up candy");
-            sugar += candyValue;
+            // sugar += (lägger till candyValue:n som den typen av candy);
             Destroy(collision.gameObject);
         }
         else
