@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Chest : MonoBehaviour
+public class FakeChest : MonoBehaviour
 {
     public Sprite Closed;
     public Sprite Open;
@@ -50,6 +50,10 @@ public class Chest : MonoBehaviour
         else
         {
             sr.sprite = Closed;
+            { 
+             
+            
+            }
 
         }
     }
@@ -68,4 +72,5 @@ public class Chest : MonoBehaviour
             playerInRange = false;
         }
     }
+
 }
