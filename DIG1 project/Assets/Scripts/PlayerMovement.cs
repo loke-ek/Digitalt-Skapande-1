@@ -28,10 +28,15 @@ public class Movement : MonoBehaviour
 
     AudioManager audioManager;
 
+    [Header("Stun mecanic")]
+    bool canMove = true;
+
+
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
         PlayerSR = GetComponent<SpriteRenderer>();
+        audioManager = FindAnyObjectByType<AudioManager>();
 
         moveAction = InputSystem.actions.FindAction("Move");
         dashAction = InputSystem.actions.FindAction("Jump");
@@ -40,14 +45,16 @@ public class Movement : MonoBehaviour
     
     void Update()
     {
+        if (!canMove) return;
+
         ReadPlayerMoveInput();
         SpriteChange();
     }
 
     private void FixedUpdate()
     {
-        MovePlayer();
-       
+        if (!canMove) return;
+        MovePlayer();       
     }
 
 
@@ -111,5 +118,21 @@ public class Movement : MonoBehaviour
                 PlayerSR.sprite = Forward;  // down
         }
     }
+
+    public void PlayFootStep()
+    {
+        audioManager.PlaySound(0);
+    }
+    public void Freeze()
+    {
+        canMove = false;
+        playerRb.linearVelocity = Vector2.zero;
+    }
+
+    public void Unfreeze()
+    {
+        canMove = true;
+    }
+
 
 }

@@ -22,10 +22,15 @@ public class AudioManager : MonoBehaviour
 
     }
 
-    //Clip1: Footstep
-    //Clip2: Dash
-    //Clip3: ItemPickup
-    //Clip4: Candyrush
-    //Clip5: Chest opens/destroyable objects
+
+    //Element1: Candy pickup -
+    //Element2: Candyrush -
+    //Element4: Player in enemy fov - 
+     
+    //-------Completed--------
+    //Element0: Footstep
+    //Element3: Chest opens
+    //Element5: Key pickup 
+    //Element6: Destroyed object 
 }
 
