@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using System.Collections;
 
 public class Chest : MonoBehaviour
 {
@@ -7,15 +9,11 @@ public class Chest : MonoBehaviour
     public Sprite Open;
 
     private SpriteRenderer sr;
-    private bool isOn = false;
     private bool playerInRange = false;
+    private bool hasOpened = false;
 
     public GameObject uiText;
-
-    public bool IsOn => isOn;
-
-    private bool hasOpened;
-
+    public Image candyPic;          // UI Image (from Canvas)
     private PlayerStatsScript sugar;
 
     private void Start()
@@ -23,61 +21,52 @@ public class Chest : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         sr.sprite = Closed;
 
+        if (candyPic != null)
+            candyPic.gameObject.SetActive(false);
     }
 
     void Update()
     {
         if (playerInRange && !hasOpened && Keyboard.current.eKey.wasPressedThisFrame)
-        {            
-            ToggleChest();
+        {
+            OpenChest();
             FindAnyObjectByType<AudioManager>().PlaySound(3);
         }
 
-        if (playerInRange && !hasOpened)
-        {
-            uiText.SetActive(true);
-
-        }
-        else
-        {
-            uiText.SetActive(false);
-        }
+        uiText.SetActive(playerInRange && !hasOpened);
     }
-    private void ToggleChest()
-    {
-        isOn = !isOn;
-        hasOpened = true;
-        if (isOn)
-        {
-            sr.sprite = Open;
-            Candy();
-        }
-        else
-        {
-            sr.sprite = Closed;
 
-        }
+    private void OpenChest()
+    {
+        hasOpened = true;
+        sr.sprite = Open;
+
+        Candy();
+        StartCoroutine(ShowCandyPic());
+    }
+
+    private IEnumerator ShowCandyPic()
+    {
+        candyPic.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        candyPic.gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
-        {
             playerInRange = true;
-        }
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
-        {
             playerInRange = false;
-        }
     }
 
     private void Candy()
     {
-
-
-
+        sugar.sugar += 30;
     }
+    
 }
