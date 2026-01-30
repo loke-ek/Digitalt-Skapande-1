@@ -26,6 +26,7 @@ public class PlayerStatsScript : MonoBehaviour
 
         if(sugar >= 100)
         {
+            FindAnyObjectByType<AudioManager>().PlaySound(2);
             StartCoroutine(InvisibilityCor());
         }
     }
@@ -35,11 +36,13 @@ public class PlayerStatsScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("CandyA"))
         {
+            FindAnyObjectByType<AudioManager>().PlaySound(1);
             sugar += 15;
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("CandyB"))
         {
+            FindAnyObjectByType<AudioManager>().PlaySound(1);
             sugar += 30;
             Destroy(collision.gameObject);
         }

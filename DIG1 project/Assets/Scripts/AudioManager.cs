@@ -23,13 +23,16 @@ public class AudioManager : MonoBehaviour
     }
 
 
-    //Element1: Candy pickup -
-    //Element2: Candyrush -
-    //Element4: Player in enemy fov - 
-     
+
+
+
+
     //-------Completed--------
     //Element0: Footstep
+    //Element1: Candy pickup 
+    //Element2: Candyrush 
     //Element3: Chest opens
+    //Element4: Player in enemy fov 
     //Element5: Key pickup 
     //Element6: Destroyed object 
 }
