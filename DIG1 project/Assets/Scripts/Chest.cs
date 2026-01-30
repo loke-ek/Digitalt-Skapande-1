@@ -66,7 +66,7 @@ public class Chest : MonoBehaviour
 
     private void Candy()
     {
-        //sugar.sugar += 30;
+        sugar.CandyB();
     }
     
 }
