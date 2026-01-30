@@ -5,11 +5,9 @@ using UnityEngine.UI;
 
 public class inventory : MonoBehaviour
 {
-    public int Keys;
     public int KeyCards;
 
     [SerializeField] public TextMeshProUGUI KeyCardText;
-    [SerializeField] public TextMeshProUGUI KeyText;
 
     [SerializeField] private ParticleSystem Particle;
 
@@ -18,8 +16,6 @@ public class inventory : MonoBehaviour
     private void Start()
     {
         KeyCards = 0;
-        Keys = 0;
-        //keyText.text = "x" + keys.ToString();
         //KeyCardText.text = "x" + KeyCards.ToString();
     }
 
@@ -38,15 +34,6 @@ public class inventory : MonoBehaviour
             //SpawnParticles();
             Destroy(collision.gameObject);
         }
-        if (collision.gameObject.CompareTag("Key"))
-        {
-            FindAnyObjectByType<AudioManager>().PlaySound(5);
-            Keys++;
-            //KeyText.text = "x" + Keys.ToString();
-            //SpawnParticles();
-            Destroy(collision.gameObject);
-        }
-
     }
 
     private void SpawnParticles()
