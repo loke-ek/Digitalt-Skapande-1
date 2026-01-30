@@ -49,6 +49,7 @@ public class PlayerStatsScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Vision") && playerSr.enabled == true)
         {
+            FindAnyObjectByType<AudioManager>().PlaySound(4);
             Debug.Log("charging");
             stress = Mathf.Min(stress + rechargeRate * Time.deltaTime, 100f);
         }
