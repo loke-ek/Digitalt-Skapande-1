@@ -7,10 +7,10 @@ public class PlayerStatsScript : MonoBehaviour
     SpriteRenderer playerSr;
 
     [SerializeField] public float stress;
-    [SerializeField] Image stressBar;
+    [SerializeField] public Image stressBar;
 
-    [SerializeField] float sugar;
-    [SerializeField] Image sugarBar;
+    [SerializeField] public float sugar;
+    [SerializeField] public Image sugarBar;
 
     [SerializeField] public float rechargeRate = 10.0f;
 
