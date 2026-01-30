@@ -44,7 +44,7 @@ public class PlayerStatsScript : MonoBehaviour
         if (collision.gameObject.CompareTag("CandyB"))
         {
             // FindAnyObjectByType<AudioManager>().PlaySound(1);
-            sugar += 30;
+            CandyB();
             Destroy(collision.gameObject);
         }
     }
@@ -65,6 +65,11 @@ public class PlayerStatsScript : MonoBehaviour
         playerSr.enabled = false;
         yield return new WaitForSeconds(3);
         playerSr.enabled = true;
+    }
+
+    public void CandyB()
+    {
+        sugar += 30;
     }
 
 }
