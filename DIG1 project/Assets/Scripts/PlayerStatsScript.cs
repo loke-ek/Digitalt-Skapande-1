@@ -26,8 +26,9 @@ public class PlayerStatsScript : MonoBehaviour
 
         if(sugar >= 100)
         {
-            FindAnyObjectByType<AudioManager>().PlaySound(2);
+            // FindAnyObjectByType<AudioManager>().PlaySound(2);
             StartCoroutine(InvisibilityCor());
+            sugar = 0;
         }
     }
 
@@ -36,13 +37,13 @@ public class PlayerStatsScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("CandyA"))
         {
-            FindAnyObjectByType<AudioManager>().PlaySound(1);
+            // FindAnyObjectByType<AudioManager>().PlaySound(1);
             sugar += 15;
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("CandyB"))
         {
-            FindAnyObjectByType<AudioManager>().PlaySound(1);
+            // FindAnyObjectByType<AudioManager>().PlaySound(1);
             sugar += 30;
             Destroy(collision.gameObject);
         }
@@ -52,7 +53,7 @@ public class PlayerStatsScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Vision") && playerSr.enabled == true)
         {
-            FindAnyObjectByType<AudioManager>().PlaySound(4);
+            // FindAnyObjectByType<AudioManager>().PlaySound(4);
             Debug.Log("charging");
             stress = Mathf.Min(stress + rechargeRate * Time.deltaTime, 100f);
         }
