@@ -16,6 +16,8 @@ public class Chest : MonoBehaviour
 
     private bool hasOpened;
 
+    private PlayerStatsScript sugar;
+
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -48,7 +50,7 @@ public class Chest : MonoBehaviour
         if (isOn)
         {
             sr.sprite = Open;
-
+            Candy();
         }
         else
         {
@@ -70,5 +72,12 @@ public class Chest : MonoBehaviour
         {
             playerInRange = false;
         }
+    }
+
+    private void Candy()
+    {
+
+
+
     }
 }
