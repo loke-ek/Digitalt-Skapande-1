@@ -38,7 +38,7 @@ public class FakeChest : MonoBehaviour
             Keyboard.current.eKey.wasPressedThisFrame)
         {
             OpenAndTrap();
-            //stress = Mathf.Min(stress + rechargeRate * Time.deltaTime, 100f);
+            Stress.stress = Mathf.Min(Stress.stress + Stress.rechargeRate * Time.deltaTime, 100f);
         }
 
         // Mash to escape phase

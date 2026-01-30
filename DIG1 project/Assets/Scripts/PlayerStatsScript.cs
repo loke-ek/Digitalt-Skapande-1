@@ -12,7 +12,7 @@ public class PlayerStatsScript : MonoBehaviour
     [SerializeField] float sugar;
     [SerializeField] Image sugarBar;
 
-    [SerializeField] float rechargeRate = 10.0f;
+    [SerializeField] public float rechargeRate = 10.0f;
 
     private void Start()
     {
