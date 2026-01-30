@@ -28,7 +28,7 @@ public class inventory : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("KeyCard"))
         {
-            FindAnyObjectByType<AudioManager>().PlaySound(5);
+            //FindAnyObjectByType<AudioManager>().PlaySound(5);
             KeyCards++;
             //KeyCardText.text = "x" + KeyCards.ToString();
             //SpawnParticles();

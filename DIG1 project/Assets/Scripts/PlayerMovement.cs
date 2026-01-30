@@ -36,7 +36,7 @@ public class Movement : MonoBehaviour
     {
         playerRb = GetComponent<Rigidbody2D>();
         PlayerSR = GetComponent<SpriteRenderer>();
-        audioManager = FindAnyObjectByType<AudioManager>();
+        //audioManager = FindAnyObjectByType<AudioManager>();
 
         moveAction = InputSystem.actions.FindAction("Move");
         dashAction = InputSystem.actions.FindAction("Jump");
