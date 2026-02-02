@@ -1152,7 +1152,7 @@ MonoBehaviour:
   stressBar: {fileID: 827000113}
   sugar: 0
   sugarBar: {fileID: 573890271}
-  rechargeRate: 10
+  rechargeRate: 12
 --- !u!50 &1730632487
 Rigidbody2D:
   serializedVersion: 5
@@ -1378,6 +1378,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CandyBar_bg
       objectReference: {fileID: 0}
+    - target: {fileID: 2559444784143185108, guid: f0778df6ee9617f47a81adbb89cf1c6d, type: 3}
+      propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3833703989767132874, guid: f0778df6ee9617f47a81adbb89cf1c6d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1474,6 +1478,18 @@ PrefabInstance:
     - target: {fileID: 1618563306124521737, guid: c9c75689d212eed48847cbea86540eeb, type: 3}
       propertyPath: m_Name
       value: StressBar_bg
+      objectReference: {fileID: 0}
+    - target: {fileID: 2652765907363890593, guid: c9c75689d212eed48847cbea86540eeb, type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2652765907363890593, guid: c9c75689d212eed48847cbea86540eeb, type: 3}
+      propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2652765907363890593, guid: c9c75689d212eed48847cbea86540eeb, type: 3}
+      propertyPath: m_FillMethod
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3435845366301273219, guid: c9c75689d212eed48847cbea86540eeb, type: 3}
       propertyPath: m_Pivot.x
