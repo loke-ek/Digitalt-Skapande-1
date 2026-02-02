@@ -10,6 +10,11 @@ public class StartButton : MonoBehaviour
         SceneManager.LoadScene("Office");
     }
 
+    public void OnWinClick()
+    {
+        SceneManager.LoadScene("StartMenu");
+    }
+
     public void OnExitClick()
     {
 #if UNITY_EDITOR
