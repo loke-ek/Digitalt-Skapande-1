@@ -921,9 +921,9 @@ RectTransform:
   m_AnchoredPosition: {x: -650, y: 105}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1317227617 stripped
+--- !u!114 &827000113 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7981444825589777988, guid: c9c75689d212eed48847cbea86540eeb, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2652765907363890593, guid: c9c75689d212eed48847cbea86540eeb, type: 3}
   m_PrefabInstance: {fileID: 8048949430436879707}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -1149,7 +1149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   stress: 0
-  stressBar: {fileID: 1317227617}
+  stressBar: {fileID: 827000113}
   sugar: 0
   sugarBar: {fileID: 573890271}
   rechargeRate: 10
@@ -1440,11 +1440,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3833703989767132874, guid: f0778df6ee9617f47a81adbb89cf1c6d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -703
+      value: -751
       objectReference: {fileID: 0}
     - target: {fileID: 3833703989767132874, guid: f0778df6ee9617f47a81adbb89cf1c6d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 482
+      value: 480
       objectReference: {fileID: 0}
     - target: {fileID: 3833703989767132874, guid: f0778df6ee9617f47a81adbb89cf1c6d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1537,11 +1537,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3435845366301273219, guid: c9c75689d212eed48847cbea86540eeb, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -773
+      value: -739
       objectReference: {fileID: 0}
     - target: {fileID: 3435845366301273219, guid: c9c75689d212eed48847cbea86540eeb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 431
+      value: 418
       objectReference: {fileID: 0}
     - target: {fileID: 3435845366301273219, guid: c9c75689d212eed48847cbea86540eeb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
