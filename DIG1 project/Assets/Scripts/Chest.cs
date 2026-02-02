@@ -41,8 +41,8 @@ public class Chest : MonoBehaviour
         hasOpened = true;
         sr.sprite = Open;
 
-        Candy();
         StartCoroutine(ShowCandyPic());
+        Candy();
     }
 
     private IEnumerator ShowCandyPic()
@@ -66,7 +66,7 @@ public class Chest : MonoBehaviour
 
     private void Candy()
     {
-        //sugar.sugar += 30;
+        sugar.CandyB();
     }
     
 }
