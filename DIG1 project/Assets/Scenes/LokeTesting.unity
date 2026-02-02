@@ -331,17 +331,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3014620102564181199, guid: 3e090e23b6294d44faa6731a02a18ea4, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3014620102564181199, guid: 3e090e23b6294d44faa6731a02a18ea4, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3014620102564181199, guid: 3e090e23b6294d44faa6731a02a18ea4, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4029102734502184880, guid: 3e090e23b6294d44faa6731a02a18ea4, type: 3}
       propertyPath: m_Name
       value: Pickup_Candy_A
-      objectReference: {fileID: 0}
-    - target: {fileID: 4029102734502184880, guid: 3e090e23b6294d44faa6731a02a18ea4, type: 3}
-      propertyPath: m_TagString
-      value: CandyA
-      objectReference: {fileID: 0}
-    - target: {fileID: 4925551595808342557, guid: 3e090e23b6294d44faa6731a02a18ea4, type: 3}
-      propertyPath: candyValue
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7949987887173770726, guid: 3e090e23b6294d44faa6731a02a18ea4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1179,7 +1183,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 0
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1730632488
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1522,6 +1526,14 @@ PrefabInstance:
     - target: {fileID: 3435845366301273219, guid: c9c75689d212eed48847cbea86540eeb, type: 3}
       propertyPath: m_SizeDelta.y
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3435845366301273219, guid: c9c75689d212eed48847cbea86540eeb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 3435845366301273219, guid: c9c75689d212eed48847cbea86540eeb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.43
       objectReference: {fileID: 0}
     - target: {fileID: 3435845366301273219, guid: c9c75689d212eed48847cbea86540eeb, type: 3}
       propertyPath: m_LocalPosition.x
