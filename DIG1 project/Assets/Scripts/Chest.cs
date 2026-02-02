@@ -23,6 +23,8 @@ public class Chest : MonoBehaviour
 
         if (candyPic != null)
             candyPic.gameObject.SetActive(false);
+
+
     }
 
     void Update()
@@ -42,7 +44,8 @@ public class Chest : MonoBehaviour
         sr.sprite = Open;
 
         StartCoroutine(ShowCandyPic());
-        Candy();
+        sugar.CandyB(); 
+        
     }
 
     private IEnumerator ShowCandyPic()
@@ -55,6 +58,9 @@ public class Chest : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
+        {
+            sugar=collision.gameObject.GetComponent<PlayerStatsScript>();
+        }
             playerInRange = true;
     }
 
@@ -64,9 +70,4 @@ public class Chest : MonoBehaviour
             playerInRange = false;
     }
 
-    private void Candy()
-    {
-        sugar.CandyB();
-    }
-    
 }

@@ -38,6 +38,11 @@ public class FakeChest : MonoBehaviour
             Keyboard.current.eKey.wasPressedThisFrame)
         {
             OpenAndTrap();
+           
+        }
+
+        if(trappingPlayer)
+        {
             Stress.stress = Mathf.Min(Stress.stress + Stress.rechargeRate * Time.deltaTime, 100f);
         }
 
@@ -96,6 +101,10 @@ public class FakeChest : MonoBehaviour
         {
             playerInRange = true;
             playerMovement = collision.GetComponent<Movement>();
+        }
+        if (collision.CompareTag("Player"))
+        {
+            Stress = collision.gameObject.GetComponent<PlayerStatsScript>();
         }
     }
 
