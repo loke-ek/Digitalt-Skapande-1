@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class KeyCard : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class KeyCard : MonoBehaviour
             {
                 tempInventory.KeyCards--;
                 //tempInventory.KeyCardText.text = "x" + tempInventory.KeyCards.ToString();
-                Debug.Log("You unlocked teh door");
+                SceneManager.LoadScene("WinScene");
             }
         }
     }
