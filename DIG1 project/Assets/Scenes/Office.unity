@@ -250,7 +250,7 @@ MonoBehaviour:
   stressBar: {fileID: 817520872}
   sugar: 0
   sugarBar: {fileID: 893981500}
-  rechargeRate: 10
+  rechargeRate: 7.5
 --- !u!61 &110118184
 BoxCollider2D:
   m_ObjectHideFlags: 0
