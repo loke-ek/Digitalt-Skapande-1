@@ -29,6 +29,7 @@ public class PlayerStatsScript : MonoBehaviour
             // FindAnyObjectByType<AudioManager>().PlaySound(2);
             StartCoroutine(InvisibilityCor());
             sugar = 0;
+            stress = 0;
         }
     }
 
