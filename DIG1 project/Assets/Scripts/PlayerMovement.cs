@@ -1,8 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
 
 public class Movement : MonoBehaviour
 {
@@ -10,134 +8,157 @@ public class Movement : MonoBehaviour
 
     InputAction moveAction;
     InputAction dashAction;
-    Vector2 moveVector;
 
-    Animator animator;
+    Vector2 moveVector;
+    Vector2 lastMoveDir = Vector2.down;
 
     [Header("Movement Settings")]
-    [SerializeField] float moveSpeed;
+    [SerializeField] float moveSpeed = 5f;
 
     [Header("Dash Settings")]
-    [SerializeField] float dashSpeed;
+    [SerializeField] float dashSpeed = 10f;
     [SerializeField] bool isDashing;
 
-    [Header("Sprites")]
+    [Header("Idle Sprites")]
     public Sprite Forward;
     public Sprite Backward;
     public Sprite Left;
     public Sprite Right;
-    Vector2 lastMoveDir = Vector2.down; // default facing forward
-    SpriteRenderer PlayerSR;
 
-    AudioManager audioManager;
+    [Header("Idle Renderer (on main player)")]
+    public SpriteRenderer idleRenderer;
 
-    [Header("Stun mecanic")]
+    [Header("Directional Animators (children)")]
+    public GameObject animUpObj;
+    public GameObject animDownObj;
+    public GameObject animLeftObj;
+    public GameObject animRightObj;
+
     bool canMove = true;
-
 
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
-        PlayerSR = GetComponent<SpriteRenderer>();
-        //audioManager = FindAnyObjectByType<AudioManager>();
 
         moveAction = InputSystem.actions.FindAction("Move");
         dashAction = InputSystem.actions.FindAction("Jump");
 
-        animator = GetComponent<Animator>();
+        // If you forgot to assign it manually
+        if (idleRenderer == null)
+            idleRenderer = GetComponent<SpriteRenderer>();
     }
-
 
     void Update()
     {
         if (!canMove) return;
 
         ReadPlayerMoveInput();
-        SpriteChange();
+        UpdateVisuals();
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         if (!canMove) return;
-        MovePlayer();       
-    }
 
+        MovePlayer();
+    }
 
     void ReadPlayerMoveInput()
     {
-        // movement
-        {
-            moveVector = moveAction.ReadValue<Vector2>();
-        }
+        moveVector = moveAction.ReadValue<Vector2>();
 
-        // dashing
+        // ONLY update lastMoveDir if actually moving
+        if (moveVector != Vector2.zero)
+            lastMoveDir = moveVector;
+
         if (dashAction.WasPerformedThisFrame())
-        {
             StartCoroutine(Dashcor());
-        }
-        //makes it stay in the right sprite when it stops mvoing
-        lastMoveDir = moveVector;
     }
 
     void MovePlayer()
-    { 
-        
-        // dashing 
-        if (isDashing)
-        {
-            playerRb.linearVelocity = moveVector * dashSpeed;
-        }
-        else
-        {
-            playerRb.linearVelocity = moveVector * moveSpeed;
-        }
+    {
+        float speed = isDashing ? dashSpeed : moveSpeed;
+        playerRb.linearVelocity = moveVector * speed;
     }
 
     IEnumerator Dashcor()
     {
-        //dashing cooldown
         isDashing = true;
         yield return new WaitForSeconds(0.1f);
         isDashing = false;
-
-        yield return new WaitForSeconds(2f);
     }
 
-    void SpriteChange()
+    void UpdateVisuals()
     {
-        Vector2 dir = moveVector != Vector2.zero ? moveVector : lastMoveDir;
+        bool isMoving = moveVector != Vector2.zero;
 
-        // Horizontal movement has priority
-        if (Mathf.Abs(moveVector.x) > Mathf.Abs(moveVector.y))
+        // Use move direction if moving, otherwise last direction
+        Vector2 dir = isMoving ? moveVector : lastMoveDir;
+
+        // Pick direction (horizontal priority)
+        bool horizontal = Mathf.Abs(dir.x) > Mathf.Abs(dir.y);
+
+        if (isMoving)
         {
-            if (moveVector.x > 0)
-                PlayerSR.sprite = Right;
+            // Hide idle sprite when moving
+            idleRenderer.enabled = false;
+
+            // Enable only one animation object
+            if (horizontal)
+            {
+                if (dir.x > 0) EnableOnly(animRightObj);
+                else EnableOnly(animLeftObj);
+            }
             else
-                PlayerSR.sprite = Left;
+            {
+                if (dir.y > 0) EnableOnly(animUpObj);
+                else EnableOnly(animDownObj);
+            }
         }
         else
         {
-            if (moveVector.y > 0)
-                PlayerSR.sprite = Backward; // up
+            // Not moving: disable all animators and show idle sprite
+            DisableAllAnimObjects();
+            idleRenderer.enabled = true;
+
+            if (horizontal)
+            {
+                idleRenderer.sprite = dir.x > 0 ? Right : Left;
+            }
             else
-                PlayerSR.sprite = Forward;  // down
+            {
+                idleRenderer.sprite = dir.y > 0 ? Backward : Forward;
+            }
         }
     }
 
-    public void PlayFootStep()
+    void EnableOnly(GameObject obj)
     {
-        audioManager.PlaySound(0);
+        animUpObj.SetActive(obj == animUpObj);
+        animDownObj.SetActive(obj == animDownObj);
+        animLeftObj.SetActive(obj == animLeftObj);
+        animRightObj.SetActive(obj == animRightObj);
     }
+
+    void DisableAllAnimObjects()
+    {
+        animUpObj.SetActive(false);
+        animDownObj.SetActive(false);
+        animLeftObj.SetActive(false);
+        animRightObj.SetActive(false);
+    }
+
     public void Freeze()
     {
         canMove = false;
         playerRb.linearVelocity = Vector2.zero;
+        DisableAllAnimObjects();
+        idleRenderer.enabled = true;
     }
 
     public void Unfreeze()
     {
         canMove = true;
     }
-
-
 }
+
