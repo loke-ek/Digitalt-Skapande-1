@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class Movement : MonoBehaviour
 {
     Rigidbody2D playerRb;
@@ -10,6 +11,8 @@ public class Movement : MonoBehaviour
     InputAction moveAction;
     InputAction dashAction;
     Vector2 moveVector;
+
+    Animator animator;
 
     [Header("Movement Settings")]
     [SerializeField] float moveSpeed;
@@ -40,9 +43,11 @@ public class Movement : MonoBehaviour
 
         moveAction = InputSystem.actions.FindAction("Move");
         dashAction = InputSystem.actions.FindAction("Jump");
+
+        animator = GetComponent<Animator>();
     }
 
-    
+
     void Update()
     {
         if (!canMove) return;
