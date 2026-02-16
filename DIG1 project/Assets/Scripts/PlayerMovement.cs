@@ -28,11 +28,11 @@ public class Movement : MonoBehaviour
     [Header("Idle Renderer (on main player)")]
     public SpriteRenderer idleRenderer;
 
-    [Header("Directional Animators (children)")]
-    public GameObject animUpObj;
-    public GameObject animDownObj;
-    public GameObject animLeftObj;
-    public GameObject animRightObj;
+    [Header("Directional Animators")]
+    public GameObject animUp;
+    public GameObject animDown;
+    public GameObject animLeft;
+    public GameObject animRight;
 
     bool canMove = true;
 
@@ -106,13 +106,13 @@ public class Movement : MonoBehaviour
             // Enable only one animation object
             if (horizontal)
             {
-                if (dir.x > 0) EnableOnly(animRightObj);
-                else EnableOnly(animLeftObj);
+                if (dir.x > 0) EnableOnly(animRight);
+                else EnableOnly(animLeft);
             }
             else
             {
-                if (dir.y > 0) EnableOnly(animUpObj);
-                else EnableOnly(animDownObj);
+                if (dir.y > 0) EnableOnly(animUp);
+                else EnableOnly(animDown);
             }
         }
         else
@@ -134,18 +134,18 @@ public class Movement : MonoBehaviour
 
     void EnableOnly(GameObject obj)
     {
-        animUpObj.SetActive(obj == animUpObj);
-        animDownObj.SetActive(obj == animDownObj);
-        animLeftObj.SetActive(obj == animLeftObj);
-        animRightObj.SetActive(obj == animRightObj);
+        animUp.SetActive(obj == animUp);
+        animDown.SetActive(obj == animDown);
+        animLeft.SetActive(obj == animLeft);
+        animRight.SetActive(obj == animRight);
     }
 
     void DisableAllAnimObjects()
     {
-        animUpObj.SetActive(false);
-        animDownObj.SetActive(false);
-        animLeftObj.SetActive(false);
-        animRightObj.SetActive(false);
+        animUp.SetActive(false);
+        animDown.SetActive(false);
+        animLeft.SetActive(false);
+        animRight.SetActive(false);
     }
 
     public void Freeze()
