@@ -1134,7 +1134,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7040008397022034747, guid: 294924d8b80e0274baec1a25945b33a9, type: 3}
       propertyPath: m_Name
-      value: froggie left cut 1 (1)
+      value: froggie left cut 1
       objectReference: {fileID: 0}
     - target: {fileID: 7040008397022034747, guid: 294924d8b80e0274baec1a25945b33a9, type: 3}
       propertyPath: m_IsActive
@@ -1383,6 +1383,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7759680803241124344, guid: f2e7bf2d7b990f54c98899881378bd38, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8132074374939810661, guid: f2e7bf2d7b990f54c98899881378bd38, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8132074374939810661, guid: f2e7bf2d7b990f54c98899881378bd38, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8132074374939810661, guid: f2e7bf2d7b990f54c98899881378bd38, type: 3}
+      propertyPath: m_DrawMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8132074374939810661, guid: f2e7bf2d7b990f54c98899881378bd38, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8132074374939810661, guid: f2e7bf2d7b990f54c98899881378bd38, type: 3}
+      propertyPath: m_MaskInteraction
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8748383834553430311, guid: f2e7bf2d7b990f54c98899881378bd38, type: 3}

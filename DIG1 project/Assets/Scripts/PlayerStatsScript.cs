@@ -14,9 +14,13 @@ public class PlayerStatsScript : MonoBehaviour
 
     [SerializeField] public float rechargeRate = 10.0f;
 
+    Movement movement;
+
+
     private void Start()
     {
         playerSr = GetComponent<SpriteRenderer>();
+        movement = GetComponent<Movement>();
     }
 
     private void Update()
@@ -63,10 +67,12 @@ public class PlayerStatsScript : MonoBehaviour
     IEnumerator InvisibilityCor()
     {
         Debug.Log("started coroutine");
-        playerSr.enabled = false;
+        movement.SetInvisible(true);
         yield return new WaitForSeconds(3);
-        playerSr.enabled = true;
+        movement.SetInvisible(false);
+
     }
+
 
     public void CandyB()
     {

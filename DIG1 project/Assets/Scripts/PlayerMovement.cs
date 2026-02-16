@@ -35,6 +35,8 @@ public class Movement : MonoBehaviour
     public GameObject animRight;
 
     bool canMove = true;
+    bool isInvisible = false;
+
 
     void Start()
     {
@@ -91,6 +93,8 @@ public class Movement : MonoBehaviour
     void UpdateVisuals()
     {
         bool isMoving = moveVector != Vector2.zero;
+
+        if (isInvisible) return;
 
         // Use move direction if moving, otherwise last direction
         Vector2 dir = isMoving ? moveVector : lastMoveDir;
@@ -160,5 +164,17 @@ public class Movement : MonoBehaviour
     {
         canMove = true;
     }
+
+    public void SetInvisible(bool invisible)
+    {
+        isInvisible = invisible;
+
+        if (invisible)
+        {
+            idleRenderer.enabled = false;
+            DisableAllAnimObjects();
+        }
+    }
+
 }
 
