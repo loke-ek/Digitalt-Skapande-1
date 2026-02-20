@@ -18,20 +18,12 @@ public class StartMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+        Debug.Log("Quits game");
     }
 
     public void LoadGameOver()
     {
         SceneManager.LoadScene("DeathScene");
     }
-    public void OnExitClick()
-    {
-#if UNITY_EDITOR
-        {
-            UnityEditor.EditorApplication.isPlaying = false;
-#endif
-        
-            Application.Quit();
-        }
-    }
+    
 }
