@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyUpDown : MonoBehaviour
+public class EnemyField : MonoBehaviour
 {
     public float moveSpeed = 2f;
     public float moveTime = 1f;
