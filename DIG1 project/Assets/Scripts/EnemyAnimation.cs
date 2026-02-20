@@ -1,15 +1,13 @@
 using UnityEngine;
 
-public class EnemyField : MonoBehaviour
+public class EnemyAnimation : MonoBehaviour
 {
     public float moveSpeed = 2f;
     public float moveTime = 1f;
     public float waitTime = 1f;
 
-    public Sprite Forward;
-    public Sprite Backward;
-
-    private SpriteRenderer sr;
+    public GameObject characterUp;
+    public GameObject characterDown;
 
     private Vector2 moveDirection = Vector2.up;
     private float moveTimer;
@@ -17,11 +15,11 @@ public class EnemyField : MonoBehaviour
 
     void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
-        sr.sprite = Forward;
-
         moveTimer = moveTime;
         waitTimer = waitTime;
+
+        characterUp.SetActive(true);
+        characterDown.SetActive(false);
     }
 
     void Update()
@@ -49,16 +47,19 @@ public class EnemyField : MonoBehaviour
 
     void TurnAround()
     {
-        // Flip direction
         moveDirection = -moveDirection;
 
-        // Change sprite
-        if (moveDirection == Vector2.up)
-            sr.sprite = Forward;
+        if (moveDirection.y > 0)
+        {
+            characterUp.SetActive(true);
+            characterDown.SetActive(false);
+        }
         else
-            sr.sprite = Backward;
+        {
+            characterUp.SetActive(false);
+            characterDown.SetActive(true);
+        }
 
-        // Reset timers
         moveTimer = moveTime;
         waitTimer = waitTime;
     }
