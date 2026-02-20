@@ -35,12 +35,6 @@ public class PlayerStatsScript : MonoBehaviour
             sugar = 0;
             stress = 0;
         }
-
-        if(stress >= 100)
-        {
-            
-        }
-
         
     }
 
