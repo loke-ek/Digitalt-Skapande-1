@@ -700,6 +700,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keycard
       objectReference: {fileID: 0}
+    - target: {fileID: 1337869826145247448, guid: ed7afda57432b514cb063f9f7ca1e732, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6027236300991384008, guid: ed7afda57432b514cb063f9f7ca1e732, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.6
