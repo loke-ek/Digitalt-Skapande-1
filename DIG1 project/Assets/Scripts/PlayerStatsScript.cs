@@ -1,10 +1,13 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerStatsScript : MonoBehaviour
 {
     SpriteRenderer playerSr;
+
+    [SerializeField] StartMenu sceneManager_s;
 
     [SerializeField] public float stress;
     [SerializeField] public Image stressBar;
@@ -36,6 +39,10 @@ public class PlayerStatsScript : MonoBehaviour
             stress = 0;
         }
         
+        if(stress >= 100)
+        {
+            SceneManager.LoadScene("DeathScene");
+        }
     }
 
 

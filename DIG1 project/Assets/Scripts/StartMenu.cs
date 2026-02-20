@@ -5,15 +5,6 @@ using System.Collections;
 
 public class StartMenu : MonoBehaviour
 {
-    [SerializeField] PlayerStatsScript playerStatsScript_s;
-
-    private void Update()
-    {
-        if(playerStatsScript_s.stress >= 100)
-        {
-            LoadGameOver();
-        }
-    }
     public void OnStartClick()
     {
         SceneManager.LoadScene("Office");
@@ -26,7 +17,7 @@ public class StartMenu : MonoBehaviour
 
     public void QuitGame()
     {
-        //Application.Quit();
+        Application.Quit();
     }
 
     public void LoadGameOver()

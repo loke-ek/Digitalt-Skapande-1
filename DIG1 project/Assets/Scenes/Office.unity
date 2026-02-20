@@ -3147,6 +3147,10 @@ PrefabInstance:
       propertyPath: stressBar
       value: 
       objectReference: {fileID: 817520872}
+    - target: {fileID: 160795311926525173, guid: 85f2ec4e0a13931429f408cb96025c1a, type: 3}
+      propertyPath: rechargeRate
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5980261196708772998, guid: 85f2ec4e0a13931429f408cb96025c1a, type: 3}
       propertyPath: m_Name
       value: MainCharacter
