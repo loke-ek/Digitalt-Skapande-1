@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyUpDown : MonoBehaviour
+public class EnemyUpAndDown : MonoBehaviour
 {
     public float moveSpeed = 2f;
     public float moveTime = 1f;
@@ -12,7 +12,6 @@ public class EnemyUpDown : MonoBehaviour
     private Vector2 moveDirection = Vector2.up;
     private float moveTimer;
     private float waitTimer;
-
 
     void Start()
     {
