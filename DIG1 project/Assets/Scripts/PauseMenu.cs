@@ -5,14 +5,12 @@ public class PauseMenu : MonoBehaviour
 {
 
     public GameObject pausePanel;
+    public GameObject optionsPanel;
 
     public void Start()
     {
-    }
-
-    public void Update()
-    {
-        
+        pausePanel.SetActive(false);
+        optionsPanel.SetActive(false);
     }
 
     public void Pause()
@@ -27,6 +25,20 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    public void Options()
+    {
+        optionsPanel.SetActive(true);
+    }
+
+    public void Back()
+    {
+        optionsPanel.SetActive(false);
+    }
+    
+    public void SetVolume(float volume)
+    {
+        AudioListener.volume = volume;
+    }
 
 }
 
