@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 
 
-public class StartButton : MonoBehaviour
+public class StartMenu : MonoBehaviour
 {
     [SerializeField] PlayerStatsScript playerStatsScript_s;
 

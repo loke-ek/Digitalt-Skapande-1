@@ -12,14 +12,11 @@ public class DestroyableObject : MonoBehaviour
     //lets us interact with the object
     InputAction interactAction;
 
-    //reference to the circle thing that shows up when we can interact
-    public GameObject prompt;
 
 
 
     void Start()
     {
-        prompt.SetActive(false);
 
         interactAction = InputSystem.actions.FindAction("Interact");
 
@@ -27,14 +24,17 @@ public class DestroyableObject : MonoBehaviour
 
     private void Update()
     {
+        ObjectDisappear();
+    }
+
+    public void ObjectDisappear()
+    {
         if (playerInRange && interactAction.WasPerformedThisFrame())
         {
             FindAnyObjectByType<AudioManager>().PlaySound(6);
             DestroyObject();
         }
     }
-
-  
 
     //destroys the object and plays explosion particles
     public void DestroyObject()
@@ -46,9 +46,7 @@ public class DestroyableObject : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            prompt.SetActive(true);
             playerInRange = true;
-
         }
     }
 
@@ -56,7 +54,6 @@ public class DestroyableObject : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            prompt.SetActive(false);
             playerInRange = false;
         }
     }
