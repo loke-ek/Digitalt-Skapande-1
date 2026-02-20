@@ -5,6 +5,15 @@ using System.Collections;
 
 public class StartButton : MonoBehaviour
 {
+    [SerializeField] PlayerStatsScript playerStatsScript_s;
+
+    private void Update()
+    {
+        if(playerStatsScript_s.stress >= 100)
+        {
+            LoadGameOver();
+        }
+    }
     public void OnStartClick()
     {
         SceneManager.LoadScene("Office");

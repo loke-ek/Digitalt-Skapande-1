@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class PlayerStatsScript : MonoBehaviour
 {
     SpriteRenderer playerSr;
-    [SerializeField] public StartButton StartMenu_s;
 
     [SerializeField] public float stress;
     [SerializeField] public Image stressBar;
@@ -39,13 +38,10 @@ public class PlayerStatsScript : MonoBehaviour
 
         if(stress >= 100)
         {
-            StartMenu_s.LoadGameOver();
-            Debug.Log("stress 100");
+            
         }
-        else
-        {
-            Debug.Log("stress under 100");
-        }
+
+        
     }
 
 
