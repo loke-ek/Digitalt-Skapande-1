@@ -15,6 +15,15 @@ public class StartButton : MonoBehaviour
         SceneManager.LoadScene("StartMenu");
     }
 
+    public void QuitGame()
+    {
+        //Application.Quit();
+    }
+
+    public void LoadGameOver()
+    {
+        SceneManager.LoadScene("DeathScene");
+    }
     public void OnExitClick()
     {
 #if UNITY_EDITOR
