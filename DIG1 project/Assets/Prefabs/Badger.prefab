@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 2056865963057973747}
   - component: {fileID: 6649865969978548749}
   - component: {fileID: 5147166098110711620}
-  - component: {fileID: 685025161210752566}
-  - component: {fileID: 50653162965740349}
   - component: {fileID: 955070352469263020}
   m_Layer: 0
   m_Name: Badger
@@ -162,40 +160,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &685025161210752566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1512993529966425750}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d43f5b51a01d0f4799fdd532500902c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  moveSpeed: 0.5
-  moveTime: 1
-  waitTime: 1
-  Right: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  Left: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
---- !u!114 &50653162965740349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1512993529966425750}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c15a52eaab5501548b838bbc0e461cca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  moveSpeed: 2
-  moveTime: 1
-  waitTime: 1
-  animatorUp: {fileID: 0}
-  animatorDown: {fileID: 0}
 --- !u!114 &955070352469263020
 MonoBehaviour:
   m_ObjectHideFlags: 0
