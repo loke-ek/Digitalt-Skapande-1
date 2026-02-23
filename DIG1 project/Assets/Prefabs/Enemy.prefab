@@ -319,5 +319,5 @@ MonoBehaviour:
   moveSpeed: 2
   moveTime: 1
   waitTime: 1
-  Forward: {fileID: -2135585597343286014, guid: 5aa8b770bc43046bc8d993d0d5b7f4a5, type: 3}
-  Backward: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  animatorUp: {fileID: 0}
+  animatorDown: {fileID: 0}
