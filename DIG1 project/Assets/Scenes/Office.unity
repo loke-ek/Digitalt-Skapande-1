@@ -309,11 +309,11 @@ PrefabInstance:
       objectReference: {fileID: 1159135991}
     - target: {fileID: 5259992928835418377, guid: 1df48b636aba9bf4898a37b408224ba9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.0325403
+      value: 7.67
       objectReference: {fileID: 0}
     - target: {fileID: 5259992928835418377, guid: 1df48b636aba9bf4898a37b408224ba9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.35
+      value: -2.12
       objectReference: {fileID: 0}
     - target: {fileID: 5259992928835418377, guid: 1df48b636aba9bf4898a37b408224ba9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -359,17 +359,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 1df48b636aba9bf4898a37b408224ba9, type: 3}
---- !u!114 &234670233 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 160795311926525173, guid: 85f2ec4e0a13931429f408cb96025c1a, type: 3}
-  m_PrefabInstance: {fileID: 8180460129443213225}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1371655f2953e04597edc2c81fa4b7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerStatsScript
 --- !u!1 &518914251
 GameObject:
   m_ObjectHideFlags: 0
@@ -1977,7 +1966,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a36b8bc152b30042b81106ec5adbd9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StartMenu
-  playerStatsScript_s: {fileID: 234670233}
 --- !u!4 &1723937229
 Transform:
   m_ObjectHideFlags: 0
