@@ -1,46 +1,50 @@
-
 using UnityEngine;
+using UnityEngine.InputSystem;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class PauseMenu : MonoBehaviour
 {
+    InputAction pauseAction;
 
-    public GameObject pausePanel;
-    public GameObject optionsPanel;
+    public GameObject pauseMenuPanel;
+    private bool isPaused;
 
-    public void Start()
+
+    private void Start()
     {
-        pausePanel.SetActive(false);
-        optionsPanel.SetActive(false);
+        pauseAction = InputSystem.actions.FindAction("Next");
     }
 
-    public void Pause()
+
+    void Update()
     {
-        pausePanel.SetActive(true);
+        OnButtonPress();
+    }
+
+    public void OnButtonPress()
+    {
+        if (pauseAction.WasPerformedThisFrame() && isPaused == false)
+        {
+            PauseGame();
+        }
+        else if (pauseAction.WasPerformedThisFrame() && isPaused == true)
+        {
+            ResumeGame();
+        }
+    }
+
+
+    void PauseGame()
+    {
+        pauseMenuPanel.SetActive(true);
         Time.timeScale = 0f;
+        isPaused = true;
     }
 
-    public void Resume()
+    void ResumeGame()
     {
-        pausePanel.SetActive(false);
+        pauseMenuPanel.SetActive(false);
         Time.timeScale = 1f;
+        isPaused = false;
     }
-
-    public void Options()
-    {
-        optionsPanel.SetActive(true);
-    }
-
-    public void Back()
-    {
-        optionsPanel.SetActive(false);
-    }
-    
-    public void SetVolume(float volume)
-    {
-        AudioListener.volume = volume;
-    }
-
 }
-
-
-
