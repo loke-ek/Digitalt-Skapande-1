@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerStatsScript : MonoBehaviour
 {
@@ -19,11 +21,30 @@ public class PlayerStatsScript : MonoBehaviour
 
     Movement movement;
 
+    [SerializeField] private Volume globalVolume;
+
+    private Vignette vignette;
+
+    private float maxIntensity = 0.53f;
+    private float maxSmoothness = 0.16f;
+
+    private float lastStress;
+    private float vignetteFadeSpeed = 2f;
+
 
     private void Start()
     {
         playerSr = GetComponent<SpriteRenderer>();
         movement = GetComponent<Movement>();
+
+        if (globalVolume.profile.TryGet(out vignette))
+        {
+            vignette.intensity.overrideState = true;
+            vignette.smoothness.overrideState = true;
+
+            vignette.intensity.value = 0f;
+            vignette.smoothness.value = 0f;
+        }
     }
 
     private void Update()
@@ -31,7 +52,12 @@ public class PlayerStatsScript : MonoBehaviour
         stressBar.fillAmount = stress / 100; // uppdaterar stressbar
         sugarBar.fillAmount = sugar / 100; // uppdaterar sugarbar
 
-        if(sugar >= 100)
+        if (vignette != null)
+        {
+            vignette.intensity.value = 0.53f;
+        }
+
+        if (sugar >= 100)
         {
             // FindAnyObjectByType<AudioManager>().PlaySound(2);
             StartCoroutine(InvisibilityCor());
@@ -43,6 +69,9 @@ public class PlayerStatsScript : MonoBehaviour
         {
             SceneManager.LoadScene("DeathScene");
         }
+
+        HandleVignette();
+        lastStress = stress;
     }
 
 
@@ -85,6 +114,29 @@ public class PlayerStatsScript : MonoBehaviour
     public void CandyB()
     {
         sugar += 30;
+    }
+
+    void HandleVignette()
+    {
+        if (vignette == null) return;
+
+        // Check if stress is increasing
+        bool stressRising = stress > lastStress;
+
+        if (stressRising)
+        {
+            // Normalize stress (0–100  0–1)
+            float normalizedStress = stress / 100f;
+
+            vignette.intensity.value = Mathf.Lerp(0f, maxIntensity, normalizedStress);
+            vignette.smoothness.value = Mathf.Lerp(0f, maxSmoothness, normalizedStress);
+        }
+        else
+        {
+            // Fade out smoothly
+            vignette.intensity.value = Mathf.Lerp(vignette.intensity.value, 0f, Time.deltaTime * vignetteFadeSpeed);
+            vignette.smoothness.value = Mathf.Lerp(vignette.smoothness.value, 0f, Time.deltaTime * vignetteFadeSpeed);
+        }
     }
 
 }
