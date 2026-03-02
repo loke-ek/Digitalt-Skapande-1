@@ -13,6 +13,7 @@ TagManager:
   - CandyA
   - CandyB
   - CandyC
+  - PaperGame
   layers:
   - Default
   - TransparentFX
