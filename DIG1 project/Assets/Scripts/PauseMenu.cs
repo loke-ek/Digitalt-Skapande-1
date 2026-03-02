@@ -6,21 +6,29 @@ public class PauseMenu : MonoBehaviour
 {
     InputAction pauseAction;
 
-    public GameObject pauseMenuPanel;
+    public GameObject pauseMenu;
+    public GameObject optionsMenu;
+
     private bool isPaused;
 
 
     private void Start()
     {
         pauseAction = InputSystem.actions.FindAction("Next");
+
+        pauseMenu.SetActive(false);
     }
 
 
     void Update()
     {
         OnButtonPress();
+
+
     }
 
+
+    //lets you pause and unpause by pressing esc
     public void OnButtonPress()
     {
         if (pauseAction.WasPerformedThisFrame() && isPaused == false)
@@ -33,17 +41,31 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-
-    void PauseGame()
+    public void ExitOptions()
     {
-        pauseMenuPanel.SetActive(true);
+        optionsMenu.SetActive(false);
+    }
+
+    public void LoadOptions()
+    { 
+        optionsMenu.SetActive(true);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void PauseGame()
+    {
+        pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
     }
 
-    void ResumeGame()
+    public void ResumeGame()
     {
-        pauseMenuPanel.SetActive(false);
+        pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
     }
