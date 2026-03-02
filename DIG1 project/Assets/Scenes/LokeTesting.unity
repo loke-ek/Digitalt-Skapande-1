@@ -186,6 +186,7 @@ GameObject:
   m_Component:
   - component: {fileID: 161320244}
   - component: {fileID: 161320245}
+  - component: {fileID: 161320246}
   m_Layer: 0
   m_Name: cover_painting
   m_TagString: Untagged
@@ -267,6 +268,20 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &161320246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161320243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9ea43a2f27a5940add0742561285be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  paintingRemoved: {fileID: 4059493155405343675, guid: 82bddd11005cbfc40adf0f8cb40e37b6, type: 3}
+  paintingNormal: {fileID: -8931006568290191025, guid: aaf3b4b2ea3221543a44a619830ee3a2, type: 3}
 --- !u!1 &281570568
 GameObject:
   m_ObjectHideFlags: 0
