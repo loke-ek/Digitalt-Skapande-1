@@ -37,6 +37,7 @@ public class Movement : MonoBehaviour
     bool canMove = true;
     bool isInvisible = false;
 
+    public bool canOpenPaperGame = false;
 
     void Start()
     {
@@ -173,6 +174,23 @@ public class Movement : MonoBehaviour
         {
             idleRenderer.enabled = false;
             DisableAllAnimObjects();
+        }
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("PaperGame"))
+        {
+            canOpenPaperGame = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("PaperGame"))
+        {
+            canOpenPaperGame = false;
         }
     }
 
