@@ -23,13 +23,15 @@ public class PlayerStatsScript : MonoBehaviour
 
     [SerializeField] private Volume globalVolume;
 
+    private bool isStressRising;
+
     private Vignette vignette;
 
     private float maxIntensity = 0.53f;
     private float maxSmoothness = 0.16f;
 
     private float lastStress;
-    private float vignetteFadeSpeed = 2f;
+
 
 
     private void Start()
@@ -52,10 +54,6 @@ public class PlayerStatsScript : MonoBehaviour
         stressBar.fillAmount = stress / 100; // uppdaterar stressbar
         sugarBar.fillAmount = sugar / 100; // uppdaterar sugarbar
 
-        if (vignette != null)
-        {
-            vignette.intensity.value = 0.53f;
-        }
 
         if (sugar >= 100)
         {
@@ -90,14 +88,22 @@ public class PlayerStatsScript : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
-
+   
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Vision") && playerSr.enabled == true)
         {
             // FindAnyObjectByType<AudioManager>().PlaySound(4);
-            Debug.Log("charging");
             stress = Mathf.Min(stress + rechargeRate * Time.deltaTime, 100f);
+            isStressRising = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Vision"))
+        {
+            isStressRising = false;
         }
     }
 
@@ -120,22 +126,35 @@ public class PlayerStatsScript : MonoBehaviour
     {
         if (vignette == null) return;
 
-        // Check if stress is increasing
-        bool stressRising = stress > lastStress;
-
-        if (stressRising)
+        if (isStressRising)
         {
-            // Normalize stress (0–100  0–1)
-            float normalizedStress = stress / 100f;
+            vignette.color.value = Color.red;
 
-            vignette.intensity.value = Mathf.Lerp(0f, maxIntensity, normalizedStress);
-            vignette.smoothness.value = Mathf.Lerp(0f, maxSmoothness, normalizedStress);
+            vignette.intensity.value = Mathf.MoveTowards(
+                vignette.intensity.value,
+                maxIntensity,
+                Time.deltaTime * 4f
+            );
+
+            vignette.smoothness.value = Mathf.MoveTowards(
+                vignette.smoothness.value,
+                maxSmoothness,
+                Time.deltaTime * 4f
+            );
         }
         else
         {
-            // Fade out smoothly
-            vignette.intensity.value = Mathf.Lerp(vignette.intensity.value, 0f, Time.deltaTime * vignetteFadeSpeed);
-            vignette.smoothness.value = Mathf.Lerp(vignette.smoothness.value, 0f, Time.deltaTime * vignetteFadeSpeed);
+            vignette.intensity.value = Mathf.MoveTowards(
+                vignette.intensity.value,
+                0f,
+                Time.deltaTime * 4f
+            );
+
+            vignette.smoothness.value = Mathf.MoveTowards(
+                vignette.smoothness.value,
+                0f,
+                Time.deltaTime * 4f
+            );
         }
     }
 
