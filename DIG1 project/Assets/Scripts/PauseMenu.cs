@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEditor.Searcher.SearcherWindow.Alignment;
+using UnityEngine.Audio;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenu;
     public GameObject optionsMenu;
+    public AudioMixer audioMixer;
 
     private bool isPaused;
 
@@ -25,8 +27,6 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {
         OnButtonPress();
-
-
     }
 
 
@@ -43,21 +43,25 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    //for exiting the options menu
     public void ExitOptions()
     {
         optionsMenu.SetActive(false);
     }
 
+    //for loading the options menu
     public void LoadOptions()
     { 
         optionsMenu.SetActive(true);
     }
 
+    //for quitting the game
     public void QuitGame()
     {
         Application.Quit();
     }
 
+    //for pausing the game
     public void PauseGame()
     {
         pauseMenu.SetActive(true);
@@ -65,10 +69,16 @@ public class PauseMenu : MonoBehaviour
         isPaused = true;
     }
 
+    //for resuming the game
     public void ResumeGame()
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+    }
+
+    public void SetVolume(float volume)
+    {
+        audioMixer.SetFloat("volume", volume);
     }
 }
