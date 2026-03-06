@@ -17,6 +17,8 @@ public class PauseMenu : MonoBehaviour
         pauseAction = InputSystem.actions.FindAction("Next");
 
         pauseMenu.SetActive(false);
+        optionsMenu.SetActive(false);
+
     }
 
 
