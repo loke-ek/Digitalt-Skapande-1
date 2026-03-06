@@ -1,34 +1,39 @@
 using Microsoft.Unity.VisualStudio.Editor;
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Painting : MonoBehaviour
 {
-    [SerializeField] public Sprite paintingRemoved;
-    [SerializeField] public Sprite paintingNormal;
 
     [SerializeField] bool inRange;
-    bool interacted = false;
 
-    [SerializeField] SpriteRenderer painting_sr;
+    [Header("Sprites")]
+
+    [SerializeField] int hiddenType;
+    [SerializeField] List <Sprite> hiddenSprites;
+    [SerializeField] SpriteRenderer hidden_sr;
+
+    [SerializeField] public Sprite coverRemoved;
+    [SerializeField] public Sprite coverNormal;
+    [SerializeField] SpriteRenderer cover_sr;
 
     void Start()
     {
-        painting_sr.sprite = paintingNormal;
+        cover_sr.sprite = coverNormal;
+
+        hiddenType = Random.Range(0, hiddenSprites.Count);
+        hidden_sr.sprite = hiddenSprites[hiddenType];
     }
 
 
     void Update()
     {
-        if(inRange && !interacted && Keyboard.current.eKey.wasPressedThisFrame)
+        if(inRange && Keyboard.current.eKey.wasPressedThisFrame)
         {
-            painting_sr.sprite = paintingRemoved;
-            interacted = true;
-        }
-        if(inRange && interacted && Keyboard.current.eKey.wasPressedThisFrame)
-        {
-            painting_sr.sprite = paintingNormal;
-            interacted = false;
+            Debug.Log("removes cover");
+            cover_sr.sprite = coverRemoved;
         }
     }
 
