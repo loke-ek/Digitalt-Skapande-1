@@ -11,7 +11,7 @@ public class Painting : MonoBehaviour
 
     [Header("Sprites")]
 
-    [SerializeField] int hiddenType;
+    [SerializeField] public int hiddenType;
     [SerializeField] List <Sprite> hiddenSprites;
     [SerializeField] SpriteRenderer hidden_sr;
 
