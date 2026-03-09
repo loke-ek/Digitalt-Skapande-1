@@ -689,6 +689,7 @@ MonoBehaviour:
   animDown: {fileID: 0}
   animLeft: {fileID: 0}
   animRight: {fileID: 0}
+  canOpenPaperGame: 0
 --- !u!114 &187514021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -930,7 +931,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 963464451}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: SetVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &283085391
 GameObject:
   m_ObjectHideFlags: 0
@@ -2194,6 +2207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
   pauseMenu: {fileID: 1618694821}
   optionsMenu: {fileID: 599322324}
+  audioMixer: {fileID: 0}
 --- !u!4 &963464452
 Transform:
   m_ObjectHideFlags: 0
