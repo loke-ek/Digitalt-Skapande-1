@@ -19,20 +19,14 @@ public class Movement : MonoBehaviour
     [SerializeField] float dashSpeed = 10f;
     [SerializeField] bool isDashing;
 
-    [Header("Idle Sprites")]
-    public Sprite Forward;
-    public Sprite Backward;
-    public Sprite Left;
-    public Sprite Right;
-
-    [Header("Idle Renderer (on main player)")]
-    public SpriteRenderer idleRenderer;
-
     [Header("Directional Animators")]
     public GameObject animUp;
     public GameObject animDown;
-    public GameObject animLeft;
-    public GameObject animRight;
+    public GameObject animSide;
+
+    Animator animUpA;
+    Animator animDownA;
+    Animator animSideA;
 
     bool canMove = true;
     bool isInvisible = false;
@@ -46,13 +40,16 @@ public class Movement : MonoBehaviour
         moveAction = InputSystem.actions.FindAction("Move");
         dashAction = InputSystem.actions.FindAction("Jump");
 
-        // If you forgot to assign it manually
-        if (idleRenderer == null)
-            idleRenderer = GetComponent<SpriteRenderer>();
+        animUpA = animUp.GetComponent<Animator>();
+        animDownA = animDown.GetComponent<Animator>();
+        animSideA = animSide.GetComponent<Animator>();
+
     }
 
     void Update()
     {
+        Debug.Log("Update running");
+
         if (!canMove) return;
 
         ReadPlayerMoveInput();
@@ -93,72 +90,55 @@ public class Movement : MonoBehaviour
 
     void UpdateVisuals()
     {
-        bool isMoving = moveVector != Vector2.zero;
-
         if (isInvisible) return;
 
-        // Use move direction if moving, otherwise last direction
+        bool isMoving = moveVector.sqrMagnitude > 0.01f;
+
         Vector2 dir = isMoving ? moveVector : lastMoveDir;
 
-        // Pick direction (horizontal priority)
         bool horizontal = Mathf.Abs(dir.x) > Mathf.Abs(dir.y);
 
-        if (isMoving)
-        {
-            // Hide idle sprite when moving
-            idleRenderer.enabled = false;
+        // Always reset all animators' isMoving bool
+        animUpA.SetBool("isMoving", false);
+        animDownA.SetBool("isMoving", false);
+        animSideA.SetBool("isMoving", false);
 
-            // Enable only one animation object
-            if (horizontal)
-            {
-                if (dir.x > 0) EnableOnly(animRight);
-                else EnableOnly(animLeft);
-            }
-            else
-            {
-                if (dir.y > 0) EnableOnly(animUp);
-                else EnableOnly(animDown);
-            }
+        // Hide all SpriteRenderers first
+        animUp.GetComponent<SpriteRenderer>().enabled = false;
+        animDown.GetComponent<SpriteRenderer>().enabled = false;
+        animSide.GetComponent<SpriteRenderer>().enabled = false;
+
+        if (horizontal)
+        {
+            animSideA.SetBool("isMoving", isMoving);
+
+            SpriteRenderer sr = animSide.GetComponent<SpriteRenderer>();
+            sr.flipX = dir.x < 0;
+            sr.enabled = true; // Only this direction visible
         }
         else
         {
-            // Not moving: disable all animators and show idle sprite
-            DisableAllAnimObjects();
-            idleRenderer.enabled = true;
-
-            if (horizontal)
+            if (dir.y > 0)
             {
-                idleRenderer.sprite = dir.x > 0 ? Right : Left;
+                animUpA.SetBool("isMoving", isMoving);
+                animUp.GetComponent<SpriteRenderer>().enabled = true;
             }
             else
             {
-                idleRenderer.sprite = dir.y > 0 ? Backward : Forward;
+                animDownA.SetBool("isMoving", isMoving);
+                animDown.GetComponent<SpriteRenderer>().enabled = true;
             }
         }
     }
 
-    void EnableOnly(GameObject obj)
-    {
-        animUp.SetActive(obj == animUp);
-        animDown.SetActive(obj == animDown);
-        animLeft.SetActive(obj == animLeft);
-        animRight.SetActive(obj == animRight);
-    }
 
-    void DisableAllAnimObjects()
-    {
-        animUp.SetActive(false);
-        animDown.SetActive(false);
-        animLeft.SetActive(false);
-        animRight.SetActive(false);
-    }
 
     public void Freeze()
     {
         canMove = false;
         playerRb.linearVelocity = Vector2.zero;
-        DisableAllAnimObjects();
-        idleRenderer.enabled = true;
+
+
     }
 
     public void Unfreeze()
@@ -172,8 +152,7 @@ public class Movement : MonoBehaviour
 
         if (invisible)
         {
-            idleRenderer.enabled = false;
-            DisableAllAnimObjects();
+            Debug.Log("invisible");
         }
     }
 
