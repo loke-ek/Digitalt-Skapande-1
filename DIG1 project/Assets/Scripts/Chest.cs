@@ -32,7 +32,7 @@ public class Chest : MonoBehaviour
         if (playerInRange && !hasOpened && Keyboard.current.eKey.wasPressedThisFrame)
         {
             OpenChest();
-            //FindAnyObjectByType<AudioManager>().PlaySound(3);
+            FindAnyObjectByType<AudioManager>().PlaySound(3);
         }
 
         uiText.SetActive(playerInRange && !hasOpened);

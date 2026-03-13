@@ -32,6 +32,7 @@ public class Movement : MonoBehaviour
     bool isInvisible = false;
 
     public bool canOpenPaperGame = false;
+    public bool canOpenAmongUs = false;
 
     void Start()
     {
@@ -79,6 +80,7 @@ public class Movement : MonoBehaviour
     {
         float speed = isDashing ? dashSpeed : moveSpeed;
         playerRb.linearVelocity = moveVector * speed;
+        
     }
 
     IEnumerator Dashcor()
@@ -115,6 +117,7 @@ public class Movement : MonoBehaviour
             SpriteRenderer sr = animSide.GetComponent<SpriteRenderer>();
             sr.flipX = dir.x < 0;
             sr.enabled = true; // Only this direction visible
+            
         }
         else
         {
@@ -122,11 +125,13 @@ public class Movement : MonoBehaviour
             {
                 animUpA.SetBool("isMoving", isMoving);
                 animUp.GetComponent<SpriteRenderer>().enabled = true;
+                
             }
             else
             {
                 animDownA.SetBool("isMoving", isMoving);
                 animDown.GetComponent<SpriteRenderer>().enabled = true;
+                
             }
         }
     }
@@ -157,20 +162,28 @@ public class Movement : MonoBehaviour
     }
 
 
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("PaperGame"))
-        {
             canOpenPaperGame = true;
-        }
+
+        if (other.CompareTag("CandyC"))
+            canOpenAmongUs = true;
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("PaperGame"))
-        {
             canOpenPaperGame = false;
-        }
+
+        if (other.CompareTag("CandyC"))
+            canOpenAmongUs = false;
+    }
+
+    public void PlayFootStep()
+    {
+        FindAnyObjectByType<AudioManager>().PlaySound(0);
     }
 
 }
