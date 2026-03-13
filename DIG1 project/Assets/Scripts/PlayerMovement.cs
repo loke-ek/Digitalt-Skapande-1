@@ -32,6 +32,7 @@ public class Movement : MonoBehaviour
     bool isInvisible = false;
 
     public bool canOpenPaperGame = false;
+    public bool canOpenAmongUs = false;
 
     void Start()
     {
@@ -157,20 +158,23 @@ public class Movement : MonoBehaviour
     }
 
 
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("PaperGame"))
-        {
             canOpenPaperGame = true;
-        }
+
+        if (other.CompareTag("CandyC"))
+            canOpenAmongUs = true;
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("PaperGame"))
-        {
             canOpenPaperGame = false;
-        }
+
+        if (other.CompareTag("CandyC"))
+            canOpenAmongUs = false;
     }
 
 }
