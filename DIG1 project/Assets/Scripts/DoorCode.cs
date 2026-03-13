@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class DoorCode : MonoBehaviour
 {
@@ -10,7 +12,7 @@ public class DoorCode : MonoBehaviour
     public int valueThree;
     public int valueFour;
 
-    [SerializeField] List<int> entries;
+    // [SerializeField] List<int> entries =);
 
     public int entryOne;
     public int entryTwo;
@@ -26,7 +28,11 @@ public class DoorCode : MonoBehaviour
     [Header("Code Lock")]
     bool inRange;
     bool inLock;
+    [SerializeField] TextMeshProUGUI numberDisplay;
+    string numberDisplayValue = "";
+
     [SerializeField] GameObject codeLock;
+    
 
     void Start()
     {
@@ -40,10 +46,35 @@ public class DoorCode : MonoBehaviour
 
     private void Update()
     {
+
         if (inRange && Keyboard.current.eKey.wasPressedThisFrame)
         {
+            Debug.Log("open code lock");
             codeLock.SetActive(true);
             inLock = true;
+        }
+    }
+
+    public void AddDigit(string digit)
+    {
+        numberDisplayValue += digit;
+        numberDisplay.text = numberDisplayValue;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            inRange = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            inRange = false;
+            codeLock.SetActive(false);
         }
     }
 
