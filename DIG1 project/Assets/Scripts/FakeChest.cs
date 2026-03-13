@@ -76,6 +76,7 @@ public class FakeChest : MonoBehaviour
         sr.sprite = Open;
         uiText.SetActive(false);
         WorkText.SetActive(true);
+        FindAnyObjectByType<AudioManager>().PlaySound(3);
 
         trappingPlayer = true;
         mashCount = 0;
