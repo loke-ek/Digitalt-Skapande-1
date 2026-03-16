@@ -8,6 +8,7 @@ public class Painting : MonoBehaviour
 {
 
     [SerializeField] bool inRange;
+    [SerializeField] DoorCode door_s;
 
     [Header("Sprites")]
 
