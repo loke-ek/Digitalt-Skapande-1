@@ -87,11 +87,12 @@ public class PlayerStatsScript : MonoBehaviour
             CandyB();
             Destroy(collision.gameObject);
         }
+        
     }
    
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Vision") && playerSr.enabled == true)
+        if (collision.gameObject.CompareTag("Vision") == true)
         {
             FindAnyObjectByType<AudioManager>().PlaySound(4);
             stress = Mathf.Min(stress + rechargeRate * Time.deltaTime, 100f);
