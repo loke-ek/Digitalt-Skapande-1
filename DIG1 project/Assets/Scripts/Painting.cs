@@ -23,6 +23,7 @@ public class Painting : MonoBehaviour
     void Start()
     {
         cover_sr.sprite = coverNormal;
+        hiddenType = door_s.valueOne;
 
         hiddenType = Random.Range(0, hiddenSprites.Count);
         hidden_sr.sprite = hiddenSprites[hiddenType];
