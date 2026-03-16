@@ -1,47 +1,45 @@
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class DoorCode : MonoBehaviour
 {
+    SpriteRenderer doorSr;
+    BoxCollider2D doorCollider;
+
     [Header("Code Digits")]
     public int valueOne;
     public int valueTwo;
     public int valueThree;
     public int valueFour;
-
-    // [SerializeField] List<int> entries =);
-
-    public int entryOne;
-    public int entryTwo;
-    public int entryThree;
-    public int entryFour;
-
-    [Header("Posters")]
-    [SerializeField] Painting posterOne;
-    [SerializeField] Painting posterTwo;
-    [SerializeField] Painting posterThree;
-    [SerializeField] Painting posterFour;
+    [SerializeField] string codeValues;
 
     [Header("Code Lock")]
     bool inRange;
     bool inLock;
     [SerializeField] TextMeshProUGUI numberDisplay;
     string numberDisplayValue = "";
-
     [SerializeField] GameObject codeLock;
     
 
     void Start()
     {
+        doorSr = GetComponent<SpriteRenderer>();
+        doorCollider = GetComponent<BoxCollider2D>();
+
+        doorSr.enabled = true;
+        doorCollider.enabled = true;
         codeLock.SetActive(false);
 
         valueOne = Random.Range(0, 10);
         valueTwo = Random.Range(0, 10);
         valueThree = Random.Range(0, 10);
         valueFour = Random.Range(0, 10);
+
+        codeValues = valueOne.ToString() + valueTwo.ToString() + valueThree.ToString() + valueFour.ToString();
     }
 
     private void Update()
@@ -78,11 +76,13 @@ public class DoorCode : MonoBehaviour
         }
     }
 
-    private void CodeProceed()
+    public void CodeProceed()
     {
-        if(inRange && inLock && valueOne == entryOne && valueTwo == entryTwo && valueThree == entryThree && valueFour == entryFour)
+        if(inRange && inLock && codeValues == numberDisplayValue)
         {
-            //lås upp dörr (ta bort collision och ändra sprite)
+            doorCollider.enabled = false;
+            doorSr.enabled = false;
+            codeLock.SetActive(false);
         }
     }
 
