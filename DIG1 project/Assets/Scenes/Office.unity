@@ -548,6 +548,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 536752253361197109, guid: d86e0820dae3a994fb6b004a59f120e4, type: 3}
+      propertyPath: AmongUsM
+      value: 
+      objectReference: {fileID: 1778156477}
+    - target: {fileID: 536752253361197109, guid: d86e0820dae3a994fb6b004a59f120e4, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1409327374772516485}
     - target: {fileID: 6473248005025170000, guid: d86e0820dae3a994fb6b004a59f120e4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.057709
@@ -2389,6 +2397,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1059980535 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2284291789713293549, guid: acc292dec9187e547ab80c985a181429, type: 3}
+  m_PrefabInstance: {fileID: 2067964737}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1059980536 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1229920370623248480, guid: acc292dec9187e547ab80c985a181429, type: 3}
@@ -2852,7 +2865,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3916637212758644264, guid: 76c49883c8517354284d033553dc9964, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7245956645141838267, guid: 76c49883c8517354284d033553dc9964, type: 3}
       propertyPath: m_Pivot.x
@@ -3112,6 +3125,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1778156477 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3916637212758644264, guid: 76c49883c8517354284d033553dc9964, type: 3}
+  m_PrefabInstance: {fileID: 1626480575}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1815103119
 GameObject:
   m_ObjectHideFlags: 0
@@ -3796,6 +3814,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaperDesk (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6272974711252777135, guid: 524c4d69ce28c8f4888bcb3613f43539, type: 3}
+      propertyPath: paperMenu
+      value: 
+      objectReference: {fileID: 1059980535}
+    - target: {fileID: 6272974711252777135, guid: 524c4d69ce28c8f4888bcb3613f43539, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1409327374772516485}
     - target: {fileID: 7106622947438257744, guid: 524c4d69ce28c8f4888bcb3613f43539, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.43097
@@ -4537,6 +4563,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3425818550218043910, guid: 7c41bb51bc6544849a43892ccc96b87d, type: 3}
   m_PrefabInstance: {fileID: 2850646742917470050}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1409327374772516485 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2892180980411441351, guid: 7c41bb51bc6544849a43892ccc96b87d, type: 3}
+  m_PrefabInstance: {fileID: 2850646742917470050}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb3d39f3d97c3864da0d22b3fd22aefe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Movement
 --- !u!1001 &2850646742917470050
 PrefabInstance:
   m_ObjectHideFlags: 0
