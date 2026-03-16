@@ -34,6 +34,8 @@ public class Movement : MonoBehaviour
     public bool canOpenPaperGame = false;
     public bool canOpenAmongUs = false;
 
+    AudioManager audioManager;
+
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
@@ -45,6 +47,7 @@ public class Movement : MonoBehaviour
         animDownA = animDown.GetComponent<Animator>();
         animSideA = animSide.GetComponent<Animator>();
 
+        audioManager = FindAnyObjectByType<AudioManager>();
     }
 
     void Update()
@@ -181,9 +184,12 @@ public class Movement : MonoBehaviour
             canOpenAmongUs = false;
     }
 
-    public void PlayFootStep()
+    public void PlayFootstep()
     {
-        FindAnyObjectByType<AudioManager>().PlaySound(0);
+
+        audioManager.PlaySound(0);
+        
+
     }
 
 }
