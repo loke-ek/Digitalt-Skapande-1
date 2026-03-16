@@ -3,60 +3,57 @@ using UnityEngine;
 
 public class EnemyBadger : MonoBehaviour
 {
-    public float walkSpeed = 2f;
-    public float walkTime = 3f;
+    public float moveSpeed = 2f;
+    public float moveTime = 2f;
     public float idleTime = 2f;
 
-    private Rigidbody2D rb;
-    private Animator animator;
-    private SpriteRenderer spriteRenderer;
-
-    private bool walkingUp = true;
-
-
+    public Animator frontAnimator;
+    public Animator backAnimator;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-
-        spriteRenderer.flipX = true;  // facing left
-        spriteRenderer.flipX = false; // facing right
-
-        StartCoroutine(PatrolRoutine());
+        StartCoroutine(PatrolLoop());
     }
 
-    IEnumerator PatrolRoutine()
+    IEnumerator PatrolLoop()
     {
         while (true)
         {
-            // WALK
-            animator.SetBool("isWalking", true);
-            animator.SetFloat("direction", walkingUp ? 1 : -1);
+            // WALK DOWN (front visible)
+            frontAnimator.gameObject.SetActive(true);
+            backAnimator.gameObject.SetActive(false);
 
-            spriteRenderer.flipX = !walkingUp;
+            frontAnimator.Play("walk");
 
-            float timer = 0;
-
-            while (timer < walkTime)
+            float t = 0;
+            while (t < moveTime)
             {
-                float dir = walkingUp ? 1 : -1;
-                rb.linearVelocity = new Vector2(dir * walkSpeed, 0);
-
-                timer += Time.deltaTime;
+                transform.Translate(Vector2.down * moveSpeed * Time.deltaTime);
+                t += Time.deltaTime;
                 yield return null;
             }
 
-            rb.linearVelocity = Vector2.zero;
-
-            // IDLE
-            animator.SetBool("isWalking", false);
-
+            // IDLE FRONT
+            frontAnimator.Play("badger idle");
             yield return new WaitForSeconds(idleTime);
 
-            // TURN
-            walkingUp = !walkingUp;
+            // WALK UP (back visible)
+            frontAnimator.gameObject.SetActive(false);
+            backAnimator.gameObject.SetActive(true);
+
+            backAnimator.Play("badger enemy back animation");
+
+            t = 0;
+            while (t < moveTime)
+            {
+                transform.Translate(Vector2.up * moveSpeed * Time.deltaTime);
+                t += Time.deltaTime;
+                yield return null;
+            }
+
+            // IDLE BACK
+            backAnimator.Play("badger back idle");
+            yield return new WaitForSeconds(idleTime);
         }
     }
 }

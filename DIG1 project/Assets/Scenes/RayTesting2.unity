@@ -119,11 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &99501881 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9160379309695114188, guid: 76c49883c8517354284d033553dc9964, type: 3}
-  m_PrefabInstance: {fileID: 3921746440401978587}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &400233144
 GameObject:
   m_ObjectHideFlags: 0
@@ -938,7 +933,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3916637212758644264, guid: 76c49883c8517354284d033553dc9964, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5928355631702018143, guid: 76c49883c8517354284d033553dc9964, type: 3}
       propertyPath: gameManager
@@ -1101,16 +1096,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7928214574027082797, guid: d86e0820dae3a994fb6b004a59f120e4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8937316061563618910, guid: d86e0820dae3a994fb6b004a59f120e4, type: 3}
       propertyPath: hiddenNumber
       value: 
-      objectReference: {fileID: 99501881}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4611158035776251485, guid: d86e0820dae3a994fb6b004a59f120e4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: d86e0820dae3a994fb6b004a59f120e4, type: 3}
 --- !u!1001 &6079550700634091672
 PrefabInstance:
@@ -1179,10 +1177,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5788216616288854368, guid: 524c4d69ce28c8f4888bcb3613f43539, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 524c4d69ce28c8f4888bcb3613f43539, type: 3}
 --- !u!4 &8185792829714786561 stripped
 Transform:

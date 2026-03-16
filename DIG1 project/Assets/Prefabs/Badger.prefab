@@ -12,9 +12,7 @@ GameObject:
   - component: {fileID: 2056865963057973747}
   - component: {fileID: 6649865969978548749}
   - component: {fileID: 5147166098110711620}
-  - component: {fileID: 685025161210752566}
-  - component: {fileID: 50653162965740349}
-  - component: {fileID: 955070352469263020}
+  - component: {fileID: 5138664608695254706}
   m_Layer: 0
   m_Name: Badger
   m_TagString: Enemy
@@ -36,8 +34,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6922729687677497909}
-  - {fileID: 5774071431254597340}
   - {fileID: 6625068886213468452}
+  - {fileID: 7028473084240294077}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2056865963057973747
@@ -162,41 +160,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &685025161210752566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1512993529966425750}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d43f5b51a01d0f4799fdd532500902c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  moveSpeed: 0.5
-  moveTime: 1
-  waitTime: 1
-  Right: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  Left: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
---- !u!114 &50653162965740349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1512993529966425750}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c15a52eaab5501548b838bbc0e461cca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  moveSpeed: 2
-  moveTime: 1
-  waitTime: 1
-  animatorUp: {fileID: 0}
-  animatorDown: {fileID: 0}
---- !u!114 &955070352469263020
+--- !u!114 &5138664608695254706
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -205,14 +169,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1512993529966425750}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6584e2d608758b049aa08d2276a8c3b1, type: 3}
+  m_Script: {fileID: 11500000, guid: f5ec7078ebc437f4bb534e7e0d494267, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyBadger
   moveSpeed: 2
-  moveTime: 1
-  waitTime: 1
-  characterUp: {fileID: 6046006412529306669}
-  characterDown: {fileID: 8546793612823538758}
+  moveTime: 2
+  idleTime: 2
+  frontAnimator: {fileID: 3233154507235460082}
+  backAnimator: {fileID: 4503114946234577522}
 --- !u!1 &8753518965167089743
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,17 +366,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d08703c96d7b5af46aea852a7022e3b4, type: 3}
+--- !u!95 &3233154507235460082 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4158579593792380465, guid: d08703c96d7b5af46aea852a7022e3b4, type: 3}
+  m_PrefabInstance: {fileID: 1542560935310777795}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6625068886213468452 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5663487579512175847, guid: d08703c96d7b5af46aea852a7022e3b4, type: 3}
   m_PrefabInstance: {fileID: 1542560935310777795}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8546793612823538758 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7202392138653069701, guid: d08703c96d7b5af46aea852a7022e3b4, type: 3}
-  m_PrefabInstance: {fileID: 1542560935310777795}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &8559231132187077732
+--- !u!1001 &5144174047237079557
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -424,13 +388,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: badger enemy back urklippt
       objectReference: {fileID: 0}
+    - target: {fileID: 2679577530422435913, guid: d0d5df231bf5a404c8ee7a0e52aff413, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2804018543951147704, guid: d0d5df231bf5a404c8ee7a0e52aff413, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2804018543951147704, guid: d0d5df231bf5a404c8ee7a0e52aff413, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2804018543951147704, guid: d0d5df231bf5a404c8ee7a0e52aff413, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2804018543951147704, guid: d0d5df231bf5a404c8ee7a0e52aff413, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.03999996
       objectReference: {fileID: 0}
     - target: {fileID: 2804018543951147704, guid: d0d5df231bf5a404c8ee7a0e52aff413, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.09737999
       objectReference: {fileID: 0}
     - target: {fileID: 2804018543951147704, guid: d0d5df231bf5a404c8ee7a0e52aff413, type: 3}
       propertyPath: m_LocalPosition.z
@@ -473,13 +453,13 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0d5df231bf5a404c8ee7a0e52aff413, type: 3}
---- !u!4 &5774071431254597340 stripped
+--- !u!95 &4503114946234577522 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8727272549807419511, guid: d0d5df231bf5a404c8ee7a0e52aff413, type: 3}
+  m_PrefabInstance: {fileID: 5144174047237079557}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7028473084240294077 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2804018543951147704, guid: d0d5df231bf5a404c8ee7a0e52aff413, type: 3}
-  m_PrefabInstance: {fileID: 8559231132187077732}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6046006412529306669 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2679577530422435913, guid: d0d5df231bf5a404c8ee7a0e52aff413, type: 3}
-  m_PrefabInstance: {fileID: 8559231132187077732}
+  m_PrefabInstance: {fileID: 5144174047237079557}
   m_PrefabAsset: {fileID: 0}
