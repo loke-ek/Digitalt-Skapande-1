@@ -1019,6 +1019,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8309216018533160922, guid: 76c49883c8517354284d033553dc9964, type: 3}
+      propertyPath: wireColor
+      value: Blue
+      objectReference: {fileID: 0}
     - target: {fileID: 8752944432743293393, guid: 76c49883c8517354284d033553dc9964, type: 3}
       propertyPath: gameManager
       value: 

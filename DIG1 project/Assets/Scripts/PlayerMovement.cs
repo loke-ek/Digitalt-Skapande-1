@@ -83,7 +83,7 @@ public class Movement : MonoBehaviour
     {
         float speed = isDashing ? dashSpeed : moveSpeed;
         playerRb.linearVelocity = moveVector * speed;
-        
+
     }
 
     IEnumerator Dashcor()
