@@ -37,7 +37,7 @@ public class WireDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnDrag(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        rectTransform.anchoredPosition += eventData.delta; // / canvas.scaleFactor;
 
         UpdateWire();
     }
@@ -49,8 +49,13 @@ public class WireDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     void UpdateWire()
     {
-        Vector2 start = startPoint.anchoredPosition;
-        Vector2 end = rectTransform.anchoredPosition;
+        Vector2 start = startPoint.position;
+        Vector2 end = rectTransform.position;
+
+        
+        //Vector2 start = startPoint.anchoredPosition;
+        //Vector2 end = rectTransform.anchoredPosition;
+
 
         Vector2 dir = end - start;
         float distance = dir.magnitude;
@@ -68,13 +73,11 @@ public class WireDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     void DetectConnection()
     {
-        float dist = Vector2.Distance(rectTransform.anchoredPosition, correctTarget.anchoredPosition);
+        float dist = Vector2.Distance(rectTransform.position, correctTarget.position);
 
-        float threshold = 40f * canvas.scaleFactor;
-
-        if (dist < threshold)
+        if (dist < 40f)
         {
-            rectTransform.anchoredPosition = correctTarget.anchoredPosition;
+            rectTransform.position = correctTarget.position;
 
             ConnectWire();
 
