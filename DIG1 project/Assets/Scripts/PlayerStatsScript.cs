@@ -24,7 +24,7 @@ public class PlayerStatsScript : MonoBehaviour
     [SerializeField] private Volume globalVolume;
     [SerializeField] private Volume invisibilityVolume;
 
-    private bool isStressRising;
+    public bool isStressRising;
 
     // STRESS EFFECT
     private Vignette vignette;
