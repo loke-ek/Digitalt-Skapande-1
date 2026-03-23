@@ -14,7 +14,10 @@ public class WireGameManager : MonoBehaviour
         {
             Debug.Log("yayyyy");
 
-            screenController.FixScreen(); // trigger screen change
+            int result = CodeManager.instance.wireNumber;
+
+            screenController.ShowNumber(result);
         }
     }
+
 }

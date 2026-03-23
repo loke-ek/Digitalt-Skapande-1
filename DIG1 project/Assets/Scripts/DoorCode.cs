@@ -35,13 +35,15 @@ public class DoorCode : MonoBehaviour
         codeLock.SetActive(false);
 
         // The door code is randomly chosen
-        valueOne = Random.Range(0, 10);
-        valueTwo = Random.Range(0, 10);
-        valueThree = Random.Range(0, 10);
-        valueFour = Random.Range(0, 10);
+        //valueOne = Random.Range(0, 10);
+        //valueTwo = Random.Range(0, 10);
+        //valueThree = Random.Range(0, 10);
+        //valueFour = Random.Range(0, 10);
 
         // Door code is added and converted to a string in order to be compared to the code you entered
-        codeValues = valueOne.ToString() + valueTwo.ToString() + valueThree.ToString() + valueFour.ToString();
+        //codeValues = valueOne.ToString() + valueTwo.ToString() + valueThree.ToString() + valueFour.ToString();
+
+        codeValues = CodeManager.instance.GetFullCode();
     }
 
     private void Update()

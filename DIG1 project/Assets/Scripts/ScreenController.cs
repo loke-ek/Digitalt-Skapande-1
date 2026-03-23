@@ -6,7 +6,7 @@ public class ScreenController : MonoBehaviour
 
     [Header("Sprites")]
     public Sprite brokenScreen;
-    public Sprite[] randomScreens; // assign 10 sprites here
+    public Sprite[] randomScreens;
 
     private bool isFixed = false;
 
@@ -25,5 +25,14 @@ public class ScreenController : MonoBehaviour
         // Pick random sprite
         int index = Random.Range(0, randomScreens.Length);
         screenRenderer.sprite = randomScreens[index];
+    }
+
+    public void ShowNumber(int number)
+    {
+        if (isFixed) return;
+
+        isFixed = true;
+
+        screenRenderer.sprite = randomScreens[number];
     }
 }
