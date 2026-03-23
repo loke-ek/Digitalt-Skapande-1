@@ -191,13 +191,15 @@ public class PlayerStatsScript : MonoBehaviour
         {
             vignette.color.value = Color.red;
 
-            vignette.intensity.value = Mathf.MoveTowards(
+            vignette.intensity.value = Mathf.MoveTowards
+            (
                 vignette.intensity.value,
                 maxIntensity,
                 Time.deltaTime * 4f
             );
 
-            vignette.smoothness.value = Mathf.MoveTowards(
+            vignette.smoothness.value = Mathf.MoveTowards
+            (
                 vignette.smoothness.value,
                 maxSmoothness,
                 Time.deltaTime * 4f
