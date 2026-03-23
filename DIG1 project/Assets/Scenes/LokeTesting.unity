@@ -1394,6 +1394,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 170649066011689944, guid: 1df48b636aba9bf4898a37b408224ba9, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2282521511992345269, guid: 1df48b636aba9bf4898a37b408224ba9, type: 3}
       propertyPath: candyPic
       value: 
@@ -2922,50 +2926,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Codelock
       objectReference: {fileID: 0}
-    - target: {fileID: 4745728519216993550, guid: a13da48f04bae704db861d00be34c927, type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4745728519216993550, guid: a13da48f04bae704db861d00be34c927, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 5971163448259425431, guid: 2cc91c3480f86504b9f2e308b9c43fe1, type: 3}
-    - target: {fileID: 4745728519216993550, guid: a13da48f04bae704db861d00be34c927, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4745728519216993550, guid: a13da48f04bae704db861d00be34c927, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4745728519216993550, guid: a13da48f04bae704db861d00be34c927, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5282145902030207460, guid: a13da48f04bae704db861d00be34c927, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1597869451}
-    - target: {fileID: 6192829672406176924, guid: a13da48f04bae704db861d00be34c927, type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6192829672406176924, guid: a13da48f04bae704db861d00be34c927, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -3050908948441489812, guid: 84e288021d041824fa1e188df062da11, type: 3}
-    - target: {fileID: 6192829672406176924, guid: a13da48f04bae704db861d00be34c927, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6192829672406176924, guid: a13da48f04bae704db861d00be34c927, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6192829672406176924, guid: a13da48f04bae704db861d00be34c927, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6616383572988652872, guid: a13da48f04bae704db861d00be34c927, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
