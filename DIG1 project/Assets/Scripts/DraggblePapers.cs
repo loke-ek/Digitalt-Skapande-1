@@ -16,7 +16,7 @@ public class DraggblePapers : MonoBehaviour,
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        transform.SetAsLastSibling(); // bring paper to front
+        transform.SetAsLastSibling(); 
     }
 
     public void OnDrag(PointerEventData eventData)
