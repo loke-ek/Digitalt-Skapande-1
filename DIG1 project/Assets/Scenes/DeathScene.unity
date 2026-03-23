@@ -562,8 +562,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: StartButton, Assembly-CSharp
+      - m_Target: {fileID: 1421491579}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
         m_MethodName: OnStartClick
         m_Mode: 1
         m_Arguments:
