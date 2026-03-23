@@ -37,7 +37,7 @@ public class WireDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnDrag(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        rectTransform.anchoredPosition += eventData.delta; // / canvas.scaleFactor;
 
         UpdateWire();
     }

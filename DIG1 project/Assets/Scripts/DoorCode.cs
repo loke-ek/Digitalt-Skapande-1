@@ -51,6 +51,11 @@ public class DoorCode : MonoBehaviour
             codeLock.SetActive(true);
             inLock = true;
         }
+
+        if(numberDisplay.textInfo.characterCount > 4)
+        {
+            CodeReset();
+        }
     }
 
     public void AddDigit(string digit)
@@ -86,4 +91,12 @@ public class DoorCode : MonoBehaviour
         }
     }
 
+    public void CodeReset()
+    {
+        if (inRange && inLock )
+        {
+            numberDisplayValue = "";
+            numberDisplay.text = numberDisplayValue;
+        }
+    }
 }

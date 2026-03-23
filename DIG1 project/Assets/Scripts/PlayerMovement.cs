@@ -83,7 +83,7 @@ public class Movement : MonoBehaviour
     {
         float speed = isDashing ? dashSpeed : moveSpeed;
         playerRb.linearVelocity = moveVector * speed;
-        
+
     }
 
     IEnumerator Dashcor()
@@ -95,8 +95,6 @@ public class Movement : MonoBehaviour
 
     void UpdateVisuals()
     {
-        if (isInvisible) return;
-
         bool isMoving = moveVector.sqrMagnitude > 0.01f;
 
         Vector2 dir = isMoving ? moveVector : lastMoveDir;

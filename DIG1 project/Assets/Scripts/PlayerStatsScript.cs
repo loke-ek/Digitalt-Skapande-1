@@ -22,23 +22,32 @@ public class PlayerStatsScript : MonoBehaviour
     Movement movement;
 
     [SerializeField] private Volume globalVolume;
+    [SerializeField] private Volume invisibilityVolume;
 
-    private bool isStressRising;
+    public bool isStressRising;
 
+    // STRESS EFFECT
     private Vignette vignette;
-
     private float maxIntensity = 0.53f;
     private float maxSmoothness = 0.16f;
 
-    private float lastStress;
+    // INVISIBILITY EFFECTS
+    private Bloom bloom;
+    private ChromaticAberration chromaticAberration;
+    private WhiteBalance whiteBalance;
 
-
+    private Coroutine invisCoroutine;
 
     private void Start()
     {
         playerSr = GetComponent<SpriteRenderer>();
         movement = GetComponent<Movement>();
 
+        // Ensure invisibility effects OFF at start
+        if (invisibilityVolume != null)
+            invisibilityVolume.weight = 0f;
+
+        // VIGNETTE (STRESS)
         if (globalVolume.profile.TryGet(out vignette))
         {
             vignette.intensity.overrideState = true;
@@ -47,54 +56,85 @@ public class PlayerStatsScript : MonoBehaviour
             vignette.intensity.value = 0f;
             vignette.smoothness.value = 0f;
         }
+
+        // INVISIBILITY EFFECTS
+        if (invisibilityVolume.profile.TryGet(out bloom))
+        {
+            bloom.intensity.overrideState = true;
+            bloom.intensity.value = 0f;
+        }
+
+        if (invisibilityVolume.profile.TryGet(out chromaticAberration))
+        {
+            chromaticAberration.intensity.overrideState = true;
+            chromaticAberration.intensity.value = 0f;
+        }
+
+        if (invisibilityVolume.profile.TryGet(out whiteBalance))
+        {
+            whiteBalance.temperature.overrideState = true;
+            whiteBalance.temperature.value = 0f;
+        }
     }
 
     private void Update()
     {
-        stressBar.fillAmount = stress / 100; // uppdaterar stressbar
-        sugarBar.fillAmount = sugar / 100; // uppdaterar sugarbar
+        // UI
+        stressBar.fillAmount = stress / 100f;
+        sugarBar.fillAmount = sugar / 100f;
 
-
+        // TRIGGER INVISIBILITY
         if (sugar >= 100)
         {
             FindAnyObjectByType<AudioManager>().PlaySound(2);
-            StartCoroutine(InvisibilityCor());
+
+            if (invisCoroutine != null)
+                StopCoroutine(invisCoroutine);
+
+            invisCoroutine = StartCoroutine(InvisibilityCor());
+
             sugar = 0;
             stress = 0;
         }
-        
-        if(stress >= 100)
+
+        // DEATH
+        if (stress >= 100)
         {
             SceneManager.LoadScene("DeathScene");
         }
 
+        // STRESS EFFECT
         HandleVignette();
-        lastStress = stress;
     }
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("CandyA"))
+        if (collision.CompareTag("CandyA"))
         {
             FindAnyObjectByType<AudioManager>().PlaySound(1);
             sugar += 15;
             Destroy(collision.gameObject);
         }
-        if (collision.gameObject.CompareTag("CandyB"))
+
+        if (collision.CompareTag("CandyB"))
         {
             FindAnyObjectByType<AudioManager>().PlaySound(1);
-            CandyB();
+            sugar += 30;
             Destroy(collision.gameObject);
         }
-        
     }
-   
+
+    public void CandyB()
+    {
+        sugar += 30;
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Vision") == true)
+        if (collision.CompareTag("Vision"))
         {
             FindAnyObjectByType<AudioManager>().PlaySound(4);
+
             stress = Mathf.Min(stress + rechargeRate * Time.deltaTime, 100f);
             isStressRising = true;
         }
@@ -102,7 +142,7 @@ public class PlayerStatsScript : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Vision"))
+        if (collision.CompareTag("Vision"))
         {
             isStressRising = false;
         }
@@ -111,16 +151,36 @@ public class PlayerStatsScript : MonoBehaviour
     IEnumerator InvisibilityCor()
     {
         Debug.Log("started coroutine");
+
         movement.SetInvisible(true);
+
+        // TURN ON EFFECTS
+        invisibilityVolume.weight = 1f;
+
+        if (bloom != null)
+            bloom.intensity.value = 5f;
+
+        if (chromaticAberration != null)
+            chromaticAberration.intensity.value = 1f;
+
+        if (whiteBalance != null)
+            whiteBalance.temperature.value = -50f;
+
         yield return new WaitForSeconds(3);
+
         movement.SetInvisible(false);
 
-    }
+        // TURN OFF EFFECTS
+        invisibilityVolume.weight = 0f;
 
+        if (bloom != null)
+            bloom.intensity.value = 0f;
 
-    public void CandyB()
-    {
-        sugar += 30;
+        if (chromaticAberration != null)
+            chromaticAberration.intensity.value = 0f;
+
+        if (whiteBalance != null)
+            whiteBalance.temperature.value = 0f;
     }
 
     void HandleVignette()
@@ -131,13 +191,15 @@ public class PlayerStatsScript : MonoBehaviour
         {
             vignette.color.value = Color.red;
 
-            vignette.intensity.value = Mathf.MoveTowards(
+            vignette.intensity.value = Mathf.MoveTowards
+            (
                 vignette.intensity.value,
                 maxIntensity,
                 Time.deltaTime * 4f
             );
 
-            vignette.smoothness.value = Mathf.MoveTowards(
+            vignette.smoothness.value = Mathf.MoveTowards
+            (
                 vignette.smoothness.value,
                 maxSmoothness,
                 Time.deltaTime * 4f
@@ -158,5 +220,4 @@ public class PlayerStatsScript : MonoBehaviour
             );
         }
     }
-
 }

@@ -26,7 +26,7 @@ public class Painting : MonoBehaviour
         hiddenType = door_s.valueOne;
 
         hiddenType = Random.Range(0, hiddenSprites.Count);
-        hidden_sr.sprite = hiddenSprites[hiddenType];
+        hidden_sr.sprite = hiddenSprites[door_s.valueOne];
     }
 
 

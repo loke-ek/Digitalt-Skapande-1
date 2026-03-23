@@ -61,7 +61,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   wiresSolved: 0
   totalWires: 4
-  hiddenNumber: {fileID: 0}
 --- !u!1 &4611158035776251485
 GameObject:
   m_ObjectHideFlags: 0
