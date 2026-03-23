@@ -29,7 +29,7 @@ public class Movement : MonoBehaviour
     Animator animSideA;
 
     bool canMove = true;
-    bool isInvisible = false;
+    public bool isInvisible { get; private set; }
 
     public bool canOpenPaperGame = false;
     public bool canOpenAmongUs = false;

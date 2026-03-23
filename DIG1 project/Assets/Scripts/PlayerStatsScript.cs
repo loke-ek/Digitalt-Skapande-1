@@ -133,6 +133,8 @@ public class PlayerStatsScript : MonoBehaviour
     {
         if (collision.CompareTag("Vision"))
         {
+            if (movement.isInvisible) return; 
+
             FindAnyObjectByType<AudioManager>().PlaySound(4);
 
             stress = Mathf.Min(stress + rechargeRate * Time.deltaTime, 100f);
@@ -150,9 +152,9 @@ public class PlayerStatsScript : MonoBehaviour
 
     IEnumerator InvisibilityCor()
     {
-        Debug.Log("started coroutine");
-
         movement.SetInvisible(true);
+
+        isStressRising = false;
 
         // TURN ON EFFECTS
         invisibilityVolume.weight = 1f;
@@ -186,6 +188,14 @@ public class PlayerStatsScript : MonoBehaviour
     void HandleVignette()
     {
         if (vignette == null) return;
+
+        if (movement.isInvisible)
+        {
+            // Force it OFF while invisible
+            vignette.intensity.value = 0f;
+            vignette.smoothness.value = 0f;
+            return;
+        }
 
         if (isStressRising)
         {
