@@ -79,7 +79,14 @@ public class PauseMenu : MonoBehaviour
 
     public void SetVolume(float volume)
     {
-        audioMixer.SetFloat("volume", volume);
+        Debug.Log(volume);
+
+        volume = Mathf.Clamp(volume, 0.0001f, 1f);
+        float dB = Mathf.Log10(volume) * 20;
+
+        Debug.Log(dB);
+
+        audioMixer.SetFloat("volume", dB);
     }
 
     public void SetQuality(int qualityIndex)
