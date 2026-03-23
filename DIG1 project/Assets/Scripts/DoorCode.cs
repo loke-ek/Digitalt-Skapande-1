@@ -89,6 +89,10 @@ public class DoorCode : MonoBehaviour
             doorSr.enabled = false;
             codeLock.SetActive(false);
         }
+        if(inRange && inLock && codeValues != numberDisplayValue)
+        {
+            CodeReset();
+        }
     }
 
     public void CodeReset()
