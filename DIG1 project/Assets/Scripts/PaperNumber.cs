@@ -8,11 +8,14 @@ public class PaperNumber : MonoBehaviour
 
     void Start()
     {
+        // Wait until CodeManager.instance exists
+        if (CodeManager.instance == null)
+        {
+            Debug.LogError("CodeManager missing!");
+            return;
+        }
+
         int number = CodeManager.instance.paperNumber;
-
-        // Assign the correct sprite based on code number
         img.sprite = numberSprites[number];
-
-        Debug.Log("Maya is stupid");
     }
 }

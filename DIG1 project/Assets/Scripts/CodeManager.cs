@@ -13,11 +13,16 @@ public class CodeManager : MonoBehaviour
     void Awake()
     {
         if (instance == null)
+        {
             instance = this;
-        else
+            DontDestroyOnLoad(gameObject); // persist across scenes
+        }
+        else if (instance != this)
+        {
             Destroy(gameObject);
+            return;
+        }
 
-        Debug.Log("Maya is stupid");
         GenerateCode();
     }
 

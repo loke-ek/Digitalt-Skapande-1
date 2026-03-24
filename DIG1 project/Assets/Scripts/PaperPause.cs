@@ -34,14 +34,14 @@ public class PaperPause : MonoBehaviour
     public void PauseGame()
     {
         paperMenu.SetActive(true);
-        Time.timeScale = 0f;
+        playerMovement.Freeze();
         isPaused = true;
     }
 
     public void ResumeGame()
     {
         paperMenu.SetActive(false);
-        Time.timeScale = 1f;
+        playerMovement.Unfreeze();
         isPaused = false;
 
         Debug.Log("Maya is stupid");
