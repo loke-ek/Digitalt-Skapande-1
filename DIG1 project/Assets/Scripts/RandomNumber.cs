@@ -10,5 +10,6 @@ public class RandomNumber : MonoBehaviour
         int number = CodeManager.instance.randomObjectNumber;
 
         sr.sprite = sprites[number];
+        Debug.Log("Maya is stupid");
     }
 }

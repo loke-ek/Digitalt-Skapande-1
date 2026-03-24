@@ -34,5 +34,7 @@ public class ScreenController : MonoBehaviour
         isFixed = true;
 
         screenRenderer.sprite = randomScreens[number];
+
+        Debug.Log("Maya is stupid");
     }
 }

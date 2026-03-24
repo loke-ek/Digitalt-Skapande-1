@@ -20,6 +20,8 @@ public class PaperGameManager : MonoBehaviour
             Debug.Log("Paper solved! Number is: " + result);
 
             FindAnyObjectByType<PaperPause>().ResumeGame();
+
+            Debug.Log("Maya is stupid");
         }
     }
 }

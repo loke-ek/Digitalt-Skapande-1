@@ -12,5 +12,7 @@ public class PaperNumber : MonoBehaviour
 
         // Assign the correct sprite based on code number
         img.sprite = numberSprites[number];
+
+        Debug.Log("Maya is stupid");
     }
 }
