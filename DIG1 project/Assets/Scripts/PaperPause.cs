@@ -43,5 +43,7 @@ public class PaperPause : MonoBehaviour
         paperMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+
+        Debug.Log("Maya is stupid");
     }
 }

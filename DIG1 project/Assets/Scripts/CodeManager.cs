@@ -17,6 +17,7 @@ public class CodeManager : MonoBehaviour
         else
             Destroy(gameObject);
 
+        Debug.Log("Maya is stupid");
         GenerateCode();
     }
 
@@ -36,5 +37,7 @@ public class CodeManager : MonoBehaviour
                wireNumber.ToString() +
                paperNumber.ToString() +
                randomObjectNumber.ToString();
+
+
     }
 }
