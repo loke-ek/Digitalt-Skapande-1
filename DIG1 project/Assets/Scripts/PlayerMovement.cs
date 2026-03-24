@@ -36,6 +36,9 @@ public class Movement : MonoBehaviour
 
     AudioManager audioManager;
 
+    bool isInCutscene = false;
+    [SerializeField] float cutsceneSpeed = 2f;
+
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
@@ -49,24 +52,31 @@ public class Movement : MonoBehaviour
 
         audioManager = FindAnyObjectByType<AudioManager>();
     }
-
     void Update()
     {
-        Debug.Log("Update running");
+        if (isInCutscene)
+        {
+            ForceWalkLeft();
+            return;
+        }
 
         if (!canMove) return;
 
         ReadPlayerMoveInput();
         UpdateVisuals();
     }
-
     void FixedUpdate()
     {
+        if (isInCutscene)
+        {
+            playerRb.linearVelocity = Vector2.left * cutsceneSpeed;
+            return;
+        }
+
         if (!canMove) return;
 
         MovePlayer();
     }
-
     void ReadPlayerMoveInput()
     {
         moveVector = moveAction.ReadValue<Vector2>();
@@ -78,21 +88,18 @@ public class Movement : MonoBehaviour
         if (dashAction.WasPerformedThisFrame())
             StartCoroutine(Dashcor());
     }
-
     void MovePlayer()
     {
         float speed = isDashing ? dashSpeed : moveSpeed;
         playerRb.linearVelocity = moveVector * speed;
 
     }
-
     IEnumerator Dashcor()
     {
         isDashing = true;
         yield return new WaitForSeconds(0.1f);
         isDashing = false;
     }
-
     void UpdateVisuals()
     {
         bool isMoving = moveVector.sqrMagnitude > 0.01f;
@@ -136,9 +143,6 @@ public class Movement : MonoBehaviour
             }
         }
     }
-
-
-
     public void Freeze()
     {
         canMove = false;
@@ -146,12 +150,10 @@ public class Movement : MonoBehaviour
 
 
     }
-
     public void Unfreeze()
     {
         canMove = true;
     }
-
     public void SetInvisible(bool invisible)
     {
         isInvisible = invisible;
@@ -162,8 +164,6 @@ public class Movement : MonoBehaviour
         }
     }
 
-
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("PaperGame"))
@@ -172,7 +172,6 @@ public class Movement : MonoBehaviour
         if (other.CompareTag("CandyC"))
             canOpenAmongUs = true;
     }
-
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("PaperGame"))
@@ -188,6 +187,32 @@ public class Movement : MonoBehaviour
         audioManager.PlaySound(0);
         
 
+    }
+    public void StartWinWalk()
+    {
+        isInCutscene = true;
+        canMove = false; // extra safety
+    }
+    void ForceWalkLeft()
+    {
+        // Force direction
+        Vector2 dir = Vector2.left;
+
+        // Turn OFF all first
+        animUpA.SetBool("isMoving", false);
+        animDownA.SetBool("isMoving", false);
+        animSideA.SetBool("isMoving", false);
+
+        animUp.GetComponent<SpriteRenderer>().enabled = false;
+        animDown.GetComponent<SpriteRenderer>().enabled = false;
+        animSide.GetComponent<SpriteRenderer>().enabled = false;
+
+        // Turn ON side animation
+        animSideA.SetBool("isMoving", true);
+
+        SpriteRenderer sr = animSide.GetComponent<SpriteRenderer>();
+        sr.flipX = true; // facing left
+        sr.enabled = true;
     }
 
 }

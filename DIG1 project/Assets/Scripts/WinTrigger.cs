@@ -10,13 +10,21 @@ public class WinTrigger : MonoBehaviour
 
     private bool triggered = false;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (triggered) return;
 
         if (other.CompareTag("Player"))
         {
             triggered = true;
+
+            Movement player = other.GetComponent<Movement>();
+
+            if (player != null)
+            {
+                player.StartWinWalk();
+            }
+
             StartCoroutine(FadeAndLoad());
         }
     }
