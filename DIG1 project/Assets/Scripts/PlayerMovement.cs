@@ -39,6 +39,8 @@ public class Movement : MonoBehaviour
     bool isInCutscene = false;
     [SerializeField] float cutsceneSpeed = 2f;
 
+    bool isIntroWalking = false;
+
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
@@ -60,6 +62,12 @@ public class Movement : MonoBehaviour
             return;
         }
 
+        if (isIntroWalking)
+        {
+            ForceWalkDown();
+            return;
+        }
+
         if (!canMove) return;
 
         ReadPlayerMoveInput();
@@ -70,6 +78,12 @@ public class Movement : MonoBehaviour
         if (isInCutscene)
         {
             playerRb.linearVelocity = Vector2.left * cutsceneSpeed;
+            return;
+        }
+
+        if (isIntroWalking)
+        {
+            playerRb.linearVelocity = Vector2.down * cutsceneSpeed;
             return;
         }
 
@@ -191,14 +205,12 @@ public class Movement : MonoBehaviour
     public void StartWinWalk()
     {
         isInCutscene = true;
-        canMove = false; // extra safety
+        canMove = false; // just for safety
     }
     void ForceWalkLeft()
     {
-        // Force direction
         Vector2 dir = Vector2.left;
 
-        // Turn OFF all first
         animUpA.SetBool("isMoving", false);
         animDownA.SetBool("isMoving", false);
         animSideA.SetBool("isMoving", false);
@@ -207,12 +219,37 @@ public class Movement : MonoBehaviour
         animDown.GetComponent<SpriteRenderer>().enabled = false;
         animSide.GetComponent<SpriteRenderer>().enabled = false;
 
-        // Turn ON side animation
         animSideA.SetBool("isMoving", true);
 
         SpriteRenderer sr = animSide.GetComponent<SpriteRenderer>();
-        sr.flipX = true; // facing left
+        sr.flipX = true; 
         sr.enabled = true;
+    }
+
+    void ForceWalkDown()
+    {
+        animUpA.SetBool("isMoving", false);
+        animDownA.SetBool("isMoving", false);
+        animSideA.SetBool("isMoving", false);
+
+        animUp.GetComponent<SpriteRenderer>().enabled = false;
+        animDown.GetComponent<SpriteRenderer>().enabled = false;
+        animSide.GetComponent<SpriteRenderer>().enabled = false;
+
+        animDownA.SetBool("isMoving", true);
+        animDown.GetComponent<SpriteRenderer>().enabled = true;
+    }
+
+    public void StartIntroWalkDown()
+    {
+        isIntroWalking = true;
+        canMove = false;
+    }
+
+    public void EndIntroWalk()
+    {
+        isIntroWalking = false;
+        canMove = true;
     }
 
 }
