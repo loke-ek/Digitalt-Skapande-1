@@ -28,18 +28,17 @@ public class AmongUs : MonoBehaviour
     }
 
 
-
     public void PauseGame()
     {
         AmongUsM.SetActive(true);
-        Time.timeScale = 0f;
+        playerMovement.Freeze();
         isPaused = true;
     }
 
     public void ResumeGame()
     {
         AmongUsM.SetActive(false);
-        Time.timeScale = 1f;
+        playerMovement.Unfreeze();
         isPaused = false;
     }
 }

@@ -14,8 +14,13 @@ public class WireGameManager : MonoBehaviour
         {
             Debug.Log("yayyyy");
 
-            int result = CodeManager.instance.wireNumber;
+            if (screenController == null)
+            {
+                Debug.LogError("ScreenController missing!");
+                return;
+            }
 
+            int result = CodeManager.instance.wireNumber;
             screenController.ShowNumber(result);
         }
     }
