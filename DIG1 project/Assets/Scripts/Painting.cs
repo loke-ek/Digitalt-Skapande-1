@@ -1,5 +1,3 @@
-using Microsoft.Unity.VisualStudio.Editor;
-using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
