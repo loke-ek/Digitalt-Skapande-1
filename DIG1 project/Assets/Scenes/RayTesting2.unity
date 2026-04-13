@@ -1194,6 +1194,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FadeInObjectThingi
       objectReference: {fileID: 0}
+    - target: {fileID: 7044729718511683947, guid: cdaaea235b2d4974dbdf4bd1c640b4f4, type: 3}
+      propertyPath: fadeImage
+      value: 
+      objectReference: {fileID: 6384164891942053730}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1540,6 +1544,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9315fecf0db8ba4399dc3e520cbf787, type: 3}
+--- !u!114 &6384164891942053730 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3300599029105882584, guid: f9315fecf0db8ba4399dc3e520cbf787, type: 3}
+  m_PrefabInstance: {fileID: 6384164891942053729}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!4 &8185792829714786561 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1229920370623248480, guid: acc292dec9187e547ab80c985a181429, type: 3}

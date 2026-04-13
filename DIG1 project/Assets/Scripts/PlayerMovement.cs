@@ -12,6 +12,8 @@ public class Movement : MonoBehaviour
     Vector2 moveVector;
     Vector2 lastMoveDir = Vector2.down;
 
+    [SerializeField] CameraScript cam;
+
     [Header("Movement Settings")]
     [SerializeField] float moveSpeed = 5f;
 
@@ -204,6 +206,7 @@ public class Movement : MonoBehaviour
     }
     public void StartWinWalk()
     {
+        cam.SetBounds(false);
         isInCutscene = true;
         canMove = false; // just for safety
     }

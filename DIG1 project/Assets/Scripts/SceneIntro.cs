@@ -6,7 +6,7 @@ public class SceneIntro : MonoBehaviour
 {
     [SerializeField] Image fadeImage;
     [SerializeField] float fadeDuration = 2f;
-    [SerializeField] float walkDuration = 2f;
+    //[SerializeField] float walkDuration = 2f;
 
     Movement player;
 
