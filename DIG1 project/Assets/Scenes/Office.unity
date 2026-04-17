@@ -25821,7 +25821,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &347650876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29542,7 +29542,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4441518795650815105, guid: f9315fecf0db8ba4399dc3e520cbf787, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7896093443701800730, guid: f9315fecf0db8ba4399dc3e520cbf787, type: 3}
       propertyPath: m_Pivot.x
@@ -32384,6 +32384,10 @@ PrefabInstance:
       propertyPath: fadeCanvas
       value: 
       objectReference: {fileID: 1339591595}
+    - target: {fileID: 5147673250715731399, guid: a8186f3f69c22594b995c7a4b3284a9a, type: 3}
+      propertyPath: nextSceneNumber
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7196379259319643731, guid: a8186f3f69c22594b995c7a4b3284a9a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -32.1
@@ -34438,7 +34442,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2113252132
 MonoBehaviour:
   m_ObjectHideFlags: 0

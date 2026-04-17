@@ -6,9 +6,12 @@ public class WinTrigger : MonoBehaviour
 {
     public CanvasGroup fadeCanvas;
     public float fadeDuration = 2f;
-    public string winSceneName = "WinScene";
+    // public string winSceneName = "WinScene";
 
     private bool triggered = false;
+
+    // EXPERIMNETAL
+    [SerializeField] int nextSceneNumber;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -42,6 +45,6 @@ public class WinTrigger : MonoBehaviour
 
         fadeCanvas.alpha = 1f;
 
-        SceneManager.LoadScene(winSceneName);
+        SceneManager.LoadScene(nextSceneNumber);
     }
 }
