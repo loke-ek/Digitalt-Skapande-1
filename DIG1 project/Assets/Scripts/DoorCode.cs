@@ -20,7 +20,6 @@ public class DoorCode : MonoBehaviour
     [SerializeField] TextMeshProUGUI numberDisplay;
     string numberDisplayValue = "";
     [SerializeField] GameObject codeLock;
-    
 
     void Start()
     {
