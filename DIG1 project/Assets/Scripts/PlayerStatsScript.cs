@@ -24,7 +24,11 @@ public class PlayerStatsScript : MonoBehaviour
     [SerializeField] private Volume globalVolume;
     [SerializeField] private Volume invisibilityVolume;
 
+
     public bool isStressRising;
+
+    // LEVEL TRACKING
+    [SerializeField] int LevelNumber;
 
     // STRESS EFFECT
     private Vignette vignette;
@@ -42,6 +46,8 @@ public class PlayerStatsScript : MonoBehaviour
     {
         playerSr = GetComponent<SpriteRenderer>();
         movement = GetComponent<Movement>();
+
+        PlayerPrefs.SetInt("LastPlayedLevel", LevelNumber); // LOCAL FILE - keeps track of reset point
 
         // Ensure invisibility effects OFF at start
         if (invisibilityVolume != null)
