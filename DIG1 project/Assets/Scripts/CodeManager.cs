@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CodeManager : MonoBehaviour
 {
@@ -42,7 +43,25 @@ public class CodeManager : MonoBehaviour
                wireNumber.ToString() +
                paperNumber.ToString() +
                randomObjectNumber.ToString();
-
-
     }
+
+
+
+  void OnEnable()
+  {
+    SceneManager.sceneLoaded += OnSceneLoaded;
+  }
+
+  void OnDisable()
+  {
+    SceneManager.sceneLoaded -= OnSceneLoaded;
+  }
+
+  void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+  {
+    if (scene.name == "Office") 
+    {
+        GenerateCode();
+    }
+  }
 }
