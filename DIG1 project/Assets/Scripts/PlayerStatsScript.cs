@@ -48,7 +48,7 @@ public class PlayerStatsScript : MonoBehaviour
         playerSr = GetComponent<SpriteRenderer>();
         movement = GetComponent<Movement>();
 
-        PlayerPrefs.SetInt("LastPlayedLevel", LevelNumber);
+        PlayerPrefs.SetInt("LastPlayedLevel", LevelNumber); //LOCAL FILE - keep track of resent point
 
         // invisibility effects off at start
         if (invisibilityVolume != null)
