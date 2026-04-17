@@ -19,7 +19,7 @@ public class EnemyBadger : MonoBehaviour
     {
         while (true)
         {
-            // WALK DOWN (front visible)
+
             frontAnimator.gameObject.SetActive(true);
             backAnimator.gameObject.SetActive(false);
 
@@ -33,11 +33,11 @@ public class EnemyBadger : MonoBehaviour
                 yield return null;
             }
 
-            // IDLE FRONT
+
             frontAnimator.Play("badger idle");
             yield return new WaitForSeconds(idleTime);
 
-            // WALK UP (back visible)
+
             frontAnimator.gameObject.SetActive(false);
             backAnimator.gameObject.SetActive(true);
 
@@ -51,7 +51,7 @@ public class EnemyBadger : MonoBehaviour
                 yield return null;
             }
 
-            // IDLE BACK
+
             backAnimator.Play("badger back idle");
             yield return new WaitForSeconds(idleTime);
         }
