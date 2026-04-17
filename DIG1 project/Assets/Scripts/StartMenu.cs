@@ -25,4 +25,21 @@ public class StartMenu : MonoBehaviour
         SceneManager.LoadScene("DeathScene");
     }
     
+    public void LoadPrevious()
+    {
+        if(PlayerPrefs.GetInt("LastPlayedLevel", 1) == 1)
+        {
+            SceneManager.LoadScene("Office");
+        }
+
+        //if (PlayerPrefs.GetInt("LastPlayedLevel", 1) == 2)
+        {
+            // SceneManager.LoadScene("[LEVEL 2 HÄR]");
+        }
+
+        //if (PlayerPrefs.GetInt("LastPlayedLevel", 1) == 3)
+        {
+            // SceneManager.LoadScene("[LEVEL 3 HÄR]"); etc etc etc...
+        }
+    }
 }

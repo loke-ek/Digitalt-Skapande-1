@@ -24,7 +24,11 @@ public class PlayerStatsScript : MonoBehaviour
     [SerializeField] private Volume globalVolume;
     [SerializeField] private Volume invisibilityVolume;
 
+
     public bool isStressRising;
+
+    // LEVEL TRACKING
+    [SerializeField] int LevelNumber;
 
     // STRESS EFFECT
     private Vignette vignette;
@@ -37,17 +41,20 @@ public class PlayerStatsScript : MonoBehaviour
     private WhiteBalance whiteBalance;
 
     private Coroutine invisCoroutine;
+    bool inVision = false;
 
     private void Start()
     {
         playerSr = GetComponent<SpriteRenderer>();
         movement = GetComponent<Movement>();
 
-        // Ensure invisibility effects OFF at start
+        PlayerPrefs.SetInt("LastPlayedLevel", LevelNumber);
+
+        // invisibility effects off at start
         if (invisibilityVolume != null)
             invisibilityVolume.weight = 0f;
 
-        // VIGNETTE (STRESS)
+        //red stress
         if (globalVolume.profile.TryGet(out vignette))
         {
             vignette.intensity.overrideState = true;
@@ -57,7 +64,7 @@ public class PlayerStatsScript : MonoBehaviour
             vignette.smoothness.value = 0f;
         }
 
-        // INVISIBILITY EFFECTS
+        //invivible stuff
         if (invisibilityVolume.profile.TryGet(out bloom))
         {
             bloom.intensity.overrideState = true;
@@ -83,7 +90,17 @@ public class PlayerStatsScript : MonoBehaviour
         stressBar.fillAmount = stress / 100f;
         sugarBar.fillAmount = sugar / 100f;
 
-        // TRIGGER INVISIBILITY
+        if (inVision && !movement.isInvisible)
+        {
+            stress = Mathf.Min(stress + rechargeRate * Time.deltaTime, 100f);
+            isStressRising = true;
+        }
+        else
+        {
+            isStressRising = false;
+        }
+
+        //invisible
         if (sugar >= 100)
         {
             FindAnyObjectByType<AudioManager>().PlaySound(2);
@@ -97,18 +114,18 @@ public class PlayerStatsScript : MonoBehaviour
             stress = 0;
         }
 
-        // DEATH
+        //deathh
         if (stress >= 100)
         {
             SceneManager.LoadScene("DeathScene");
         }
 
-        // STRESS EFFECT
         HandleVignette();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //candy
         if (collision.CompareTag("CandyA"))
         {
             FindAnyObjectByType<AudioManager>().PlaySound(1);
@@ -122,30 +139,27 @@ public class PlayerStatsScript : MonoBehaviour
             sugar += 30;
             Destroy(collision.gameObject);
         }
-    }
 
+        //vision
+        if (collision.CompareTag("Vision"))
+        {
+            if (movement.isInvisible) return;
+
+            inVision = true;
+
+            FindAnyObjectByType<AudioManager>().PlaySound(4);
+        }
+    }
     public void CandyB()
     {
         sugar += 30;
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Vision"))
-        {
-            if (movement.isInvisible) return; 
-
-            FindAnyObjectByType<AudioManager>().PlaySound(4);
-
-            stress = Mathf.Min(stress + rechargeRate * Time.deltaTime, 100f);
-            isStressRising = true;
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Vision"))
         {
+            inVision = false;
             isStressRising = false;
         }
     }
@@ -156,7 +170,7 @@ public class PlayerStatsScript : MonoBehaviour
 
         isStressRising = false;
 
-        // TURN ON EFFECTS
+        // turn on
         invisibilityVolume.weight = 1f;
 
         if (bloom != null)
@@ -172,7 +186,7 @@ public class PlayerStatsScript : MonoBehaviour
 
         movement.SetInvisible(false);
 
-        // TURN OFF EFFECTS
+        //turn off
         invisibilityVolume.weight = 0f;
 
         if (bloom != null)
