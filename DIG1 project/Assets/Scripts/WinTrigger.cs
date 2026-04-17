@@ -6,7 +6,7 @@ public class WinTrigger : MonoBehaviour
 {
     public CanvasGroup fadeCanvas;
     public float fadeDuration = 2f;
-    public string winSceneName = "LevelsOptions";
+    public string winSceneName = "WinScene";
 
     private bool triggered = false;
 
@@ -42,6 +42,6 @@ public class WinTrigger : MonoBehaviour
 
         fadeCanvas.alpha = 1f;
 
-        SceneManager.LoadScene("LevelsOptions");
+        SceneManager.LoadScene(winSceneName);
     }
 }
