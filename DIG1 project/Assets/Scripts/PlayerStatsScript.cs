@@ -54,6 +54,9 @@ public class PlayerStatsScript : MonoBehaviour
         if (invisibilityVolume != null)
             invisibilityVolume.weight = 0f;
 
+        stress = 0;
+        sugar = 0;
+
         //red stress
         if (globalVolume.profile.TryGet(out vignette))
         {

@@ -59,9 +59,9 @@ public class CodeManager : MonoBehaviour
 
   void OnSceneLoaded(Scene scene, LoadSceneMode mode)
   {
-    if (scene.name == "Office") 
-    {
-        GenerateCode();
-    }
+        if (scene.name != "LevelsOptions")
+        {
+            GenerateCode();
+        }
   }
 }
