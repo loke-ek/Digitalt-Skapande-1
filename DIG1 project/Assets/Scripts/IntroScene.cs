@@ -12,9 +12,16 @@ public class IntroScene : MonoBehaviour
 
     void Start()
     {
+        playerStats.GetComponent<PlayerStatsScript>();
+
         if (candybarText.activeInHierarchy)
         {
             StartCoroutine(HideIntroText());
+        }
+
+        if (playerStats.GetComponent<PlayerStatsScript>().sugar == 50)
+        {
+            StartCoroutine(FullCandyBar());
         }
     }
 
