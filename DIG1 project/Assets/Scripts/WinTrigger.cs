@@ -33,6 +33,11 @@ public class WinTrigger : MonoBehaviour
     {
         float time = 0f;
 
+        if (LevelTimer.instance != null)
+        {
+            LevelTimer.instance.StopTimer();
+        }
+
         LevelTimer.instance.StopTimer();
 
         while (time < fadeDuration)
@@ -48,9 +53,15 @@ public class WinTrigger : MonoBehaviour
 
         LevelSettings settings = FindAnyObjectByType<LevelSettings>();
 
-        int stars = settings.CalculateStars(finalTime);
-
-        LevelDataManager.instance.SaveStars(settings.levelName, stars);
+        if (settings != null && LevelDataManager.instance != null)
+        {
+            int stars = settings.CalculateStars(finalTime);
+            LevelDataManager.instance.SaveStars(settings.levelName, stars);
+        }
+        else
+        {
+            Debug.LogWarning("LevelSettings or LevelDataManager missing!");
+        }
 
         SceneManager.LoadScene("LevelsOptions");
     }
