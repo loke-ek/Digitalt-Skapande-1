@@ -6,23 +6,17 @@ public class IntroScene : MonoBehaviour
     [SerializeField] GameObject candybarText;
     [SerializeField] GameObject stressbarText;
     [SerializeField] GameObject candybartextFull;
+    [SerializeField] GameObject timerText;
 
-    [SerializeField] GameObject playerStats;
 
 
     void Start()
     {
-        playerStats.GetComponent<PlayerStatsScript>();
 
-        if (candybarText.activeInHierarchy)
-        {
-            StartCoroutine(HideIntroText());
-        }
+        
+            StartCoroutine(IntroText());
+        
 
-        if (playerStats.GetComponent<PlayerStatsScript>().sugar == 50)
-        {
-            StartCoroutine(FullCandyBar());
-        }
     }
 
     void Update()
@@ -30,17 +24,23 @@ public class IntroScene : MonoBehaviour
 
     }
 
-    IEnumerator HideIntroText()
+    IEnumerator IntroText()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(5);
         candybarText.SetActive(false);
         stressbarText.SetActive(false);
+
+        yield return new WaitForSeconds(0);
+        timerText.SetActive(true);
+        yield return new WaitForSeconds(6);
+        timerText.SetActive(false);
+
+        yield return new WaitForSeconds(0);
+        candybartextFull.SetActive(true);
+        yield return new WaitForSeconds(6);
+        candybartextFull.SetActive(false);
     }
 
-    IEnumerator FullCandyBar()
-    {
-        yield return new WaitForSeconds(10);
-        candybarText.SetActive(true);
-    }
+  
 
 }
