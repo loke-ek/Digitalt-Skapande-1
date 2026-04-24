@@ -10,8 +10,10 @@ public class WinTrigger : MonoBehaviour
 
     private bool triggered = false;
 
+
     void OnTriggerEnter2D(Collider2D other)
     {
+        
         if (triggered) return;
 
         if (other.CompareTag("Player"))
@@ -53,6 +55,11 @@ public class WinTrigger : MonoBehaviour
         {
             finalTime = LevelTimer.instance.GetTime();
         }
+        else
+        {
+            Debug.LogError("Timer missing!");
+            yield break;
+        }
 
         LevelSettings settings = FindAnyObjectByType<LevelSettings>();
 
@@ -60,10 +67,6 @@ public class WinTrigger : MonoBehaviour
         {
             int stars = settings.CalculateStars(finalTime);
             LevelDataManager.instance.SaveStars(settings.levelName, stars);
-        }
-        else
-        {
-            Debug.LogWarning("LevelSettings or LevelDataManager missing!");
         }
 
         SceneManager.LoadScene("LevelsOptions");

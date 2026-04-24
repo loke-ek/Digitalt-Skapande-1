@@ -25851,6 +25851,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 186816718109456952, guid: 9097d05d84ffeeb4fae3c629ec52dd08, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8933125694810801820, guid: 9097d05d84ffeeb4fae3c629ec52dd08, type: 3}
       propertyPath: m_Name
       value: Lemur (2)
@@ -34646,7 +34650,7 @@ GameObject:
   - component: {fileID: 2056457138}
   - component: {fileID: 2056457137}
   m_Layer: 0
-  m_Name: Slenderman furrsona
+  m_Name: Slendermans furrsona
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
