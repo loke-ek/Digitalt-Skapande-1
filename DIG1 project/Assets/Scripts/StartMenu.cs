@@ -4,6 +4,10 @@ using UnityEngine.SceneManagement;
 
 public class StartMenu : MonoBehaviour
 {
+    void Start()
+    {
+        PlayerPrefs.DeleteAll(); //stars resest can be taken off later
+    }
     public void OnStartClick()
     {
         SceneManager.LoadScene("IntroScene");
