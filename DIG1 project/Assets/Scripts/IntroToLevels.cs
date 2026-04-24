@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using static UnityEngine.Timeline.DirectorControlPlayable;
 
 public class IntroToLevels : MonoBehaviour
 {
@@ -8,10 +9,19 @@ public class IntroToLevels : MonoBehaviour
 
     public GameObject uiText;
 
+    InputAction interactAction;
+
+    private void Start()
+    {
+        interactAction = InputSystem.actions.FindAction("Interact");
+        uiText.SetActive(false);
+    }
+
+
     void Update()
     {
 
-        if (playerInRange && Keyboard.current.eKey.wasPressedThisFrame)
+        if (interactAction.WasPerformedThisFrame() && playerInRange)
         {
             ButtonPress();
         }
