@@ -38,8 +38,6 @@ public class WinTrigger : MonoBehaviour
             LevelTimer.instance.StopTimer();
         }
 
-        LevelTimer.instance.StopTimer();
-
         while (time < fadeDuration)
         {
             time += Time.deltaTime;
@@ -49,7 +47,12 @@ public class WinTrigger : MonoBehaviour
 
         fadeCanvas.alpha = 1f;
 
-        float finalTime = LevelTimer.instance.GetTime();
+        float finalTime = 0f;
+
+        if (LevelTimer.instance != null)
+        {
+            finalTime = LevelTimer.instance.GetTime();
+        }
 
         LevelSettings settings = FindAnyObjectByType<LevelSettings>();
 

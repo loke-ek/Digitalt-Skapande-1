@@ -6,7 +6,7 @@ public class StartMenu : MonoBehaviour
 {
     public void OnStartClick()
     {
-        SceneManager.LoadScene("Office");
+        SceneManager.LoadScene("IntroScene");
     }
 
     public void OnWinClick()
