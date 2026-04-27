@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2744542134342975155}
   - component: {fileID: 4340336792482822096}
+  - component: {fileID: 8731881006994209282}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -47,3 +48,20 @@ MonoBehaviour:
   pauseMenu: {fileID: 0}
   optionsMenu: {fileID: 0}
   audioMixer: {fileID: 24100000, guid: d437f0aaf0d73b643b105aede13a83ff, type: 2}
+--- !u!114 &8731881006994209282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7579333678848311350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 158c13ac0d822c145b3c0f0bf9a6d57c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IntroScene
+  candybarText: {fileID: 0}
+  stressbarText: {fileID: 0}
+  candybartextFull: {fileID: 0}
+  timerText: {fileID: 0}
+  invisibleWall: {fileID: 0}

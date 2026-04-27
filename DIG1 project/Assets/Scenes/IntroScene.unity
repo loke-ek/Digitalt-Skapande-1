@@ -419,7 +419,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1119, y: 362}
+  m_AnchoredPosition: {x: 1064, y: 371}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &179381014
@@ -12151,41 +12151,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8731881006994209282, guid: 95cf80a75331cc843a53eea6762051fd, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 345721929}
+    - target: {fileID: 8731881006994209282, guid: 95cf80a75331cc843a53eea6762051fd, type: 3}
+      propertyPath: candybarText
+      value: 
+      objectReference: {fileID: 271323171}
+    - target: {fileID: 8731881006994209282, guid: 95cf80a75331cc843a53eea6762051fd, type: 3}
+      propertyPath: invisibleWall
+      value: 
+      objectReference: {fileID: 1777385860}
+    - target: {fileID: 8731881006994209282, guid: 95cf80a75331cc843a53eea6762051fd, type: 3}
+      propertyPath: stressbarText
+      value: 
+      objectReference: {fileID: 239932092}
+    - target: {fileID: 8731881006994209282, guid: 95cf80a75331cc843a53eea6762051fd, type: 3}
+      propertyPath: candybartextFull
+      value: 
+      objectReference: {fileID: 162731514}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7579333678848311350, guid: 95cf80a75331cc843a53eea6762051fd, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1445526217}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95cf80a75331cc843a53eea6762051fd, type: 3}
 --- !u!4 &1373594168 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5259992928835418377, guid: 1df48b636aba9bf4898a37b408224ba9, type: 3}
   m_PrefabInstance: {fileID: 1805564986}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1445526216 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7579333678848311350, guid: 95cf80a75331cc843a53eea6762051fd, type: 3}
-  m_PrefabInstance: {fileID: 1358430330}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1445526217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1445526216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 158c13ac0d822c145b3c0f0bf9a6d57c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IntroScene
-  candybarText: {fileID: 271323171}
-  stressbarText: {fileID: 239932092}
-  candybartextFull: {fileID: 162731514}
-  timerText: {fileID: 345721929}
-  invisibleWall: {fileID: 1777385860}
 --- !u!1001 &1449357452
 PrefabInstance:
   m_ObjectHideFlags: 0
