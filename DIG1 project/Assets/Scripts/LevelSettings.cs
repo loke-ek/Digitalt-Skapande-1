@@ -4,7 +4,7 @@ public class LevelSettings : MonoBehaviour
 {
     public string levelName;
 
-    [Header("Time thresholds")]
+    [Header("Time")]
     public float threeStarTime = 60f;
     public float twoStarTime = 120f;
     public float oneStarTime = 180f;

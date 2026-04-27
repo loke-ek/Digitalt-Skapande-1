@@ -15,6 +15,7 @@ public class LevelDataManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        Debug.Log("LevelDataManager created: " + gameObject.GetInstanceID());
     }
 
     public void SaveStars(string levelName, int stars)

@@ -65,7 +65,13 @@ public class WinTrigger : MonoBehaviour
 
         if (settings != null && LevelDataManager.instance != null)
         {
+            Debug.Log("Saving level: " + settings.levelName);
+
             int stars = settings.CalculateStars(finalTime);
+
+            Debug.Log("Stars earned: " + stars);
+            Debug.Log("Final time: " + finalTime);
+
             LevelDataManager.instance.SaveStars(settings.levelName, stars);
         }
 
