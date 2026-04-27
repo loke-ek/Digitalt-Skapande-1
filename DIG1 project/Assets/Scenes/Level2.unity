@@ -12278,7 +12278,6 @@ GameObject:
   - component: {fileID: 1727322586}
   - component: {fileID: 1727322589}
   - component: {fileID: 1727322588}
-  - component: {fileID: 1727322587}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -12305,21 +12304,6 @@ RectTransform:
   m_AnchoredPosition: {x: 755, y: 460}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1727322587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1727322585}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68caf19bc0ceef641b0ff3b50a6d1079, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  time: 0
-  running: 0
-  timerText: {fileID: 1727322588}
 --- !u!114 &1727322588
 MonoBehaviour:
   m_ObjectHideFlags: 0

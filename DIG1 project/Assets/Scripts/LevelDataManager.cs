@@ -26,10 +26,15 @@ public class LevelDataManager : MonoBehaviour
         {
             PlayerPrefs.SetInt(levelName, stars);
         }
+        Debug.Log("SAVE " + levelName + " = " + stars + " (previous: " + current + ")");
     }
 
     public int GetStars(string levelName)
     {
-        return PlayerPrefs.GetInt(levelName, 0);
+        int stars = PlayerPrefs.GetInt(levelName, 0);
+
+        Debug.Log("LOAD " + levelName + " = " + stars);
+
+        return stars;
     }
 }

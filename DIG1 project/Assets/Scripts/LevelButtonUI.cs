@@ -16,7 +16,7 @@ public class LevelButtonUI : MonoBehaviour
 
     void Start()
     {
-        
+        Debug.Log("Instance check: " + LevelDataManager.instance);
         if (LevelDataManager.instance == null)
         {
             Debug.LogError("LevelDataManager missing in scene!");

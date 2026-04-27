@@ -26412,7 +26412,6 @@ GameObject:
   - component: {fileID: 459034696}
   - component: {fileID: 459034699}
   - component: {fileID: 459034698}
-  - component: {fileID: 459034697}
   m_Layer: 5
   m_Name: count down
   m_TagString: Untagged
@@ -26439,21 +26438,6 @@ RectTransform:
   m_AnchoredPosition: {x: 767, y: 452}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &459034697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 459034695}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68caf19bc0ceef641b0ff3b50a6d1079, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LevelTimer
-  time: 0
-  running: 0
-  timerText: {fileID: 459034698}
 --- !u!114 &459034698
 MonoBehaviour:
   m_ObjectHideFlags: 0
