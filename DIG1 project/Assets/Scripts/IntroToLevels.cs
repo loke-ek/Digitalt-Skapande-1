@@ -30,7 +30,7 @@ public class IntroToLevels : MonoBehaviour
 
     private void ButtonPress()
     {
-        SceneManager.LoadScene("Levels Options");
+        SceneManager.LoadScene("LevelsOptions");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
