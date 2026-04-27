@@ -12,8 +12,11 @@ public class LevelButtonUI : MonoBehaviour
     public Sprite filledStar;
     public Sprite emptyStar;
 
+
+
     void Start()
     {
+        
         if (LevelDataManager.instance == null)
         {
             Debug.LogError("LevelDataManager missing in scene!");
@@ -21,9 +24,11 @@ public class LevelButtonUI : MonoBehaviour
         }
 
         int stars = LevelDataManager.instance.GetStars(levelName);
+        Debug.Log("Loading level: " + levelName + " stars: " + stars);
 
         star1.sprite = stars >= 1 ? filledStar : emptyStar;
         star2.sprite = stars >= 2 ? filledStar : emptyStar;
         star3.sprite = stars >= 3 ? filledStar : emptyStar;
+
     }
 }
