@@ -395,7 +395,6 @@ GameObject:
   - component: {fileID: 179381013}
   - component: {fileID: 179381016}
   - component: {fileID: 179381015}
-  - component: {fileID: 179381014}
   m_Layer: 5
   m_Name: countdown
   m_TagString: Untagged
@@ -419,24 +418,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 505, y: -108}
+  m_AnchoredPosition: {x: 1109, y: 382}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &179381014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179381012}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68caf19bc0ceef641b0ff3b50a6d1079, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LevelTimer
-  time: 0
-  running: 0
-  timerText: {fileID: 179381015}
 --- !u!114 &179381015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12094,6 +12078,10 @@ PrefabInstance:
     - target: {fileID: 2744542134342975155, guid: 95cf80a75331cc843a53eea6762051fd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4340336792482822096, guid: 95cf80a75331cc843a53eea6762051fd, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4340336792482822096, guid: 95cf80a75331cc843a53eea6762051fd, type: 3}
       propertyPath: pauseMenu

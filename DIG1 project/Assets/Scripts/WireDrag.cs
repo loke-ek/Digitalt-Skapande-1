@@ -38,7 +38,7 @@ public class WireDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     public void OnDrag(PointerEventData eventData)
     {
         rectTransform.anchoredPosition += eventData.delta; // / canvas.scaleFactor;
-
+            
         UpdateWire();
     }
 
@@ -65,6 +65,8 @@ public class WireDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         wireLine.rotation = Quaternion.Euler(0, 0, angle);
     }
+
+  
 
     void DetectConnection()
     {
