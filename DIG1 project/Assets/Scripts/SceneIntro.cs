@@ -37,6 +37,5 @@ public class SceneIntro : MonoBehaviour
 
         yield return new WaitForSeconds(0.3f);
 
-        player.StartIntroWalkDown();
     }
 }

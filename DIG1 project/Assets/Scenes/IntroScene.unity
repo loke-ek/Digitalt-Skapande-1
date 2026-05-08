@@ -11170,6 +11170,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 847499544}
+    - target: {fileID: 2892180980411441351, guid: 7c41bb51bc6544849a43892ccc96b87d, type: 3}
+      propertyPath: winWalkDirection.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3425818550218043910, guid: 7c41bb51bc6544849a43892ccc96b87d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.38
