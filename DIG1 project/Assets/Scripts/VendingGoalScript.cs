@@ -5,8 +5,8 @@ using UnityEngine.InputSystem;
 public class VendingGoalScript : MonoBehaviour
 {
     [Header("MINIGAME")]
-    private float goalPosMin = -0.45f;
-    private float goalPosMax = 0.45f;
+    [SerializeField] private float goalPosMin;
+    [SerializeField] private float goalPosMax;
 
     private bool inMinigame;
     private bool gameWon;
@@ -39,7 +39,8 @@ public class VendingGoalScript : MonoBehaviour
 
     void NewGoalPosition()
     {
-        float randomXValue = Random.Range(goalPosMin, goalPosMax);
+        float y = Random.Range(goalPosMin, goalPosMax);
+        transform.localPosition = new Vector3(transform.localPosition.x, y, 0);
     }
 
     void ReadStopAction()
@@ -50,5 +51,5 @@ public class VendingGoalScript : MonoBehaviour
             Debug.Log("Stop Indicator");
         }
     }
-    
+
 }
