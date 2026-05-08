@@ -521,6 +521,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 179381012}
   m_CullTransparentMesh: 1
+--- !u!1 &223618944
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 223618946}
+  - component: {fileID: 223618945}
+  m_Layer: 0
+  m_Name: IntroManeger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &223618945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223618944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c911ce66dde6f94684c50d1c0071435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  playerMovement: {fileID: 1807921137}
+  introDuration: 17
+--- !u!4 &223618946
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223618944}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.81157, y: -0.22958, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &239932092
 GameObject:
   m_ObjectHideFlags: 0
@@ -12995,6 +13041,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3425818550218043910, guid: 7c41bb51bc6544849a43892ccc96b87d, type: 3}
   m_PrefabInstance: {fileID: 874155215}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1807921137 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2892180980411441351, guid: 7c41bb51bc6544849a43892ccc96b87d, type: 3}
+  m_PrefabInstance: {fileID: 874155215}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb3d39f3d97c3864da0d22b3fd22aefe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Movement
 --- !u!4 &1812574494 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7949987887173770726, guid: 3e090e23b6294d44faa6731a02a18ea4, type: 3}
@@ -13875,3 +13932,4 @@ SceneRoots:
   - {fileID: 886292991}
   - {fileID: 1739694202}
   - {fileID: 1795089945}
+  - {fileID: 223618946}

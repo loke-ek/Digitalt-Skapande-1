@@ -26,6 +26,7 @@ public class PlayerStatsScript : MonoBehaviour
 
 
     public bool isStressRising;
+    public bool forceStressEffect;
 
     // LEVEL TRACKING
     [SerializeField] int LevelNumber;
@@ -214,7 +215,7 @@ public class PlayerStatsScript : MonoBehaviour
             return;
         }
 
-        if (isStressRising)
+        if (isStressRising || forceStressEffect)
         {
             vignette.color.value = Color.red;
 
