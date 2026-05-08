@@ -275,5 +275,15 @@ public class Movement : MonoBehaviour
         canMove = true;
     }
 
+    public void FreezeAtStart()
+    {
+        canMove = false;
+        playerRb.linearVelocity = Vector2.zero;
+    }
+
+    public void AllowMovement()
+    {
+        canMove = true;
+    }
 }
 
