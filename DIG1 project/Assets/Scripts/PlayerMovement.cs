@@ -42,6 +42,7 @@ public class Movement : MonoBehaviour
     [SerializeField] float cutsceneSpeed = 2f;
 
     bool isIntroWalking = false;
+    [SerializeField] Vector2 winWalkDirection = Vector2.left;
 
     void Start()
     {
@@ -60,7 +61,7 @@ public class Movement : MonoBehaviour
     {
         if (isInCutscene)
         {
-            ForceWalkLeft();
+            ForceWalk();
             return;
         }
 
@@ -79,7 +80,7 @@ public class Movement : MonoBehaviour
     {
         if (isInCutscene)
         {
-            playerRb.linearVelocity = Vector2.left * cutsceneSpeed;
+            playerRb.linearVelocity = winWalkDirection.normalized * cutsceneSpeed;
             return;
         }
 
@@ -210,10 +211,8 @@ public class Movement : MonoBehaviour
         isInCutscene = true;
         canMove = false; // just for safety
     }
-    void ForceWalkLeft()
+    void ForceWalk()
     {
-        Vector2 dir = Vector2.left;
-
         animUpA.SetBool("isMoving", false);
         animDownA.SetBool("isMoving", false);
         animSideA.SetBool("isMoving", false);
@@ -222,11 +221,32 @@ public class Movement : MonoBehaviour
         animDown.GetComponent<SpriteRenderer>().enabled = false;
         animSide.GetComponent<SpriteRenderer>().enabled = false;
 
-        animSideA.SetBool("isMoving", true);
+        // Horizontal movement
+        if (Mathf.Abs(winWalkDirection.x) > Mathf.Abs(winWalkDirection.y))
+        {
+            animSideA.SetBool("isMoving", true);
 
-        SpriteRenderer sr = animSide.GetComponent<SpriteRenderer>();
-        sr.flipX = true; 
-        sr.enabled = true;
+            SpriteRenderer sr = animSide.GetComponent<SpriteRenderer>();
+
+            // flip when walking left
+            sr.flipX = winWalkDirection.x < 0;
+
+            sr.enabled = true;
+        }
+        else
+        {
+            // Vertical movement
+            if (winWalkDirection.y > 0)
+            {
+                animUpA.SetBool("isMoving", true);
+                animUp.GetComponent<SpriteRenderer>().enabled = true;
+            }
+            else
+            {
+                animDownA.SetBool("isMoving", true);
+                animDown.GetComponent<SpriteRenderer>().enabled = true;
+            }
+        }
     }
 
     void ForceWalkDown()
@@ -255,5 +275,15 @@ public class Movement : MonoBehaviour
         canMove = true;
     }
 
+    public void FreezeAtStart()
+    {
+        canMove = false;
+        playerRb.linearVelocity = Vector2.zero;
+    }
+
+    public void AllowMovement()
+    {
+        canMove = true;
+    }
 }
 
