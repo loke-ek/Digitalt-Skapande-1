@@ -44,7 +44,7 @@ public class FakeChest : MonoBehaviour
         if(trappingPlayer)
         {
             Stress.stress = Mathf.Min(Stress.stress + Stress.rechargeRate * Time.deltaTime, 100f);
-            Stress.isStressRising = true;
+            Stress.forceStressEffect = true;
         }
 
         // Mash to escape phase
@@ -96,7 +96,7 @@ public class FakeChest : MonoBehaviour
         if (playerMovement != null)
         {
             playerMovement.Unfreeze();
-            Stress.isStressRising = false;
+            Stress.forceStressEffect = false;
         }
     }
 

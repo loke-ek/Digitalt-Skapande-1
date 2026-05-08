@@ -9,9 +9,13 @@ public class IntroLockMovement : MonoBehaviour
 
     IEnumerator Start()
     {
-        playerMovement.Freeze();
+        Debug.Log("FREEZE");
+
+        playerMovement.FreezeIntro();
 
         yield return new WaitForSeconds(introDuration);
+
+        Debug.Log("UNFREEZE");
 
         playerMovement.Unfreeze();
     }

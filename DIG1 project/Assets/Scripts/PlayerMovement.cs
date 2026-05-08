@@ -44,7 +44,7 @@ public class Movement : MonoBehaviour
     bool isIntroWalking = false;
     [SerializeField] Vector2 winWalkDirection = Vector2.left;
 
-    void Start()
+    void Awake()
     {
         playerRb = GetComponent<Rigidbody2D>();
 
@@ -56,7 +56,13 @@ public class Movement : MonoBehaviour
         animSideA = animSide.GetComponent<Animator>();
 
         audioManager = FindAnyObjectByType<AudioManager>();
+
+        animUp.GetComponent<SpriteRenderer>().enabled = false;
+        animSide.GetComponent<SpriteRenderer>().enabled = false;
+        animDown.GetComponent<SpriteRenderer>().enabled = true;
     }
+
+
     void Update()
     {
         if (isInCutscene)
@@ -164,8 +170,6 @@ public class Movement : MonoBehaviour
     {
         canMove = false;
         playerRb.linearVelocity = Vector2.zero;
-
-
     }
     public void Unfreeze()
     {
@@ -274,7 +278,6 @@ public class Movement : MonoBehaviour
         isIntroWalking = false;
         canMove = true;
     }
-
     public void FreezeAtStart()
     {
         canMove = false;
@@ -285,5 +288,25 @@ public class Movement : MonoBehaviour
     {
         canMove = true;
     }
+
+    public void FreezeIntro()
+    {
+        canMove = false;
+
+        playerRb.linearVelocity = Vector2.zero;
+
+        //animations
+        animUpA.SetBool("isMoving", false);
+        animDownA.SetBool("isMoving", false);
+        animSideA.SetBool("isMoving", false);
+
+        //sprites
+        animUp.GetComponent<SpriteRenderer>().enabled = false;
+        animSide.GetComponent<SpriteRenderer>().enabled = false;
+
+        //face forward idle
+        animDown.GetComponent<SpriteRenderer>().enabled = true;
+    }
+
 }
 
