@@ -3960,7 +3960,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5fdb0db40ee8bce499616354624c1451, type: 2}
+  - {fileID: 2100000, guid: f66099845774ec740b0696b3702d77c3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -21779,7 +21779,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: -3679152118646909287, guid: 8160d06f0c6e920428517d0c6df52b50, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -22303,7 +22303,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 984300714665032416, guid: fb54e5ec70fd4834aaaafdf877a0efe1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.26
+      value: 17.98
       objectReference: {fileID: 0}
     - target: {fileID: 984300714665032416, guid: fb54e5ec70fd4834aaaafdf877a0efe1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -22347,7 +22347,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5138664608695254706, guid: fb54e5ec70fd4834aaaafdf877a0efe1, type: 3}
       propertyPath: moveSpeed
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23106,7 +23106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 984300714665032416, guid: fb54e5ec70fd4834aaaafdf877a0efe1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.26
+      value: 18.02
       objectReference: {fileID: 0}
     - target: {fileID: 984300714665032416, guid: fb54e5ec70fd4834aaaafdf877a0efe1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -23149,8 +23149,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5138664608695254706, guid: fb54e5ec70fd4834aaaafdf877a0efe1, type: 3}
+      propertyPath: moveTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5138664608695254706, guid: fb54e5ec70fd4834aaaafdf877a0efe1, type: 3}
       propertyPath: moveSpeed
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
