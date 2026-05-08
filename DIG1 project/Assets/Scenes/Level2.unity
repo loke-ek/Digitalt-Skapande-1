@@ -1405,6 +1405,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: INviblie tini
       objectReference: {fileID: 0}
+    - target: {fileID: 7833502477703799809, guid: c7e19762acb69e340a12e29fee61a7d3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1715,6 +1719,10 @@ PrefabInstance:
     - target: {fileID: 3393856720201008015, guid: 800b68be74363d547a25d0bde8dcc1a3, type: 3}
       propertyPath: m_Name
       value: RedTint
+      objectReference: {fileID: 0}
+    - target: {fileID: 3393856720201008015, guid: 800b68be74363d547a25d0bde8dcc1a3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4296339607926716114, guid: 800b68be74363d547a25d0bde8dcc1a3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13243,6 +13251,10 @@ PrefabInstance:
       value: Desks (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1540391647872455816, guid: 861fbf5e1e72d404fbb5f8cc8224ff2d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7502333068939301418, guid: 39303df53a2ecef41a9fc878bce3824c, type: 3}
+    - target: {fileID: 1540391647872455816, guid: 861fbf5e1e72d404fbb5f8cc8224ff2d, type: 3}
       propertyPath: m_SortingLayer
       value: 2
       objectReference: {fileID: 0}
@@ -13250,6 +13262,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -2011234599
       objectReference: {fileID: 0}
+    - target: {fileID: 2399317542470234280, guid: 861fbf5e1e72d404fbb5f8cc8224ff2d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8207076456662395663, guid: cf661e1cf1f124646ad83f5e3afb6e48, type: 3}
     - target: {fileID: 2399317542470234280, guid: 861fbf5e1e72d404fbb5f8cc8224ff2d, type: 3}
       propertyPath: m_SortingLayer
       value: 2
