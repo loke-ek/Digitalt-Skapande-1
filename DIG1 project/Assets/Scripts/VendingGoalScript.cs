@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class VendingGoalScript : MonoBehaviour
 {
+    [Header("MINIGAME")]
     private float goalPosMin = -0.45f;
     private float goalPosMax = 0.45f;
 
@@ -11,7 +12,14 @@ public class VendingGoalScript : MonoBehaviour
     private bool gameWon;
 
     InputAction stopAction;
-    
+
+    [Header("INDICATOR")]
+    [SerializeField] GameObject indicator_obj;
+    [SerializeField] private float indicatorPosMin;
+    [SerializeField] private float indicatorPosMax;
+    [SerializeField] private float indicatorSpeed;
+    bool indicatorActive = true;
+
     void Start()
     {
         stopAction = InputSystem.actions.FindAction("Attack");
@@ -21,7 +29,12 @@ public class VendingGoalScript : MonoBehaviour
 
     void Update()
     {
-        
+        ReadStopAction();
+        if (indicatorActive)
+        {
+            float y = Mathf.PingPong(Time.time * indicatorSpeed, 1) * indicatorPosMax - indicatorPosMin;
+            indicator_obj.transform.position = new Vector3(indicator_obj.transform.position.x, y, 0);
+        }
     }
 
     void NewGoalPosition()
