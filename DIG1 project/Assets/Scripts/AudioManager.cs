@@ -39,5 +39,6 @@ public class AudioManager : MonoBehaviour
     //Element4: Player in enemy fov 
     //Element5: Key pickup 
     //Element6: Destroyed object 
+    //Element7: Door opens
 }
 
