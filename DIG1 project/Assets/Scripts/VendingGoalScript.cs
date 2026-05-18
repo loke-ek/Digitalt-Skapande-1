@@ -11,6 +11,9 @@ public class VendingGoalScript : MonoBehaviour
     private bool inMinigame;
     private bool gameWon;
 
+    [Header("ANIMATION")]
+    [SerializeField] Animator can_below_anim;
+
     InputAction stopAction;
 
     [Header("INDICATOR")]
@@ -51,7 +54,16 @@ public class VendingGoalScript : MonoBehaviour
             // stoppa pilen och känn igen om målet nuddar den
             Debug.Log("Stop Indicator");
             indicatorActive = false;
+            can_below_anim.SetTrigger("Won");
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Indicator"))
+        {
+            Debug.Log("HIT GOAL!!!");
+            can_below_anim.SetTrigger("Won");
+        }
+    }
 }

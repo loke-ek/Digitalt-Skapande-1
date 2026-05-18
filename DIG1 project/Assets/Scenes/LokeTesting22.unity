@@ -1243,6 +1243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VendingGoalScript
   goalPosMin: -400
   goalPosMax: 400
+  can_below_anim: {fileID: 1782524291}
   indicator_obj: {fileID: 2015716311}
   indicatorPosMin: -105
   indicatorPosMax: 870
@@ -1315,7 +1316,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -2349,6 +2350,7 @@ GameObject:
   - component: {fileID: 1782524290}
   - component: {fileID: 1782524289}
   - component: {fileID: 1782524291}
+  - component: {fileID: 1782524292}
   m_Layer: 5
   m_Name: Can_below
   m_TagString: Untagged
@@ -2435,6 +2437,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1782524292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782524287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c87c3093b96d01145b3c5320280251fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  can_above_anim: {fileID: 658914501}
 --- !u!1 &1812511514
 GameObject:
   m_ObjectHideFlags: 0
@@ -2818,7 +2833,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -2881,6 +2896,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   goalPosMin: -0.45
   goalPosMax: 0.45
+  can_below_anim: {fileID: 0}
   indicator_obj: {fileID: 265313285}
   indicatorPosMin: 4
   indicatorPosMax: 8
