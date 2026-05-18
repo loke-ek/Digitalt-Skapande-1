@@ -22,29 +22,30 @@ public class DoorOpen : MonoBehaviour
 
     private void Update()
     {
-        OpenDoor();
+        if (playerInRange && interactAction.WasPerformedThisFrame())
+        {
+            OpenDoor();
+        }
     }
 
     public void OpenDoor()
     {
-        if (playerInRange && interactAction.WasPerformedThisFrame())
-        {
             FindAnyObjectByType<AudioManager>().PlaySound(6);
             gameObject.SetActive(false);
-        }
+        
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             playerInRange = true;
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             playerInRange = false;
         }
