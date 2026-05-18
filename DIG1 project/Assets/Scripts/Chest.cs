@@ -13,18 +13,12 @@ public class Chest : MonoBehaviour
     private bool hasOpened = false;
 
     public GameObject uiText;
-    public Image candyPic;          // UI Image (from Canvas)
     private PlayerStatsScript sugar;
 
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         sr.sprite = Closed;
-
-        if (candyPic != null)
-            candyPic.gameObject.SetActive(false);
-
-
     }
 
     void Update()
@@ -42,18 +36,10 @@ public class Chest : MonoBehaviour
     {
         hasOpened = true;
         sr.sprite = Open;
-
-        StartCoroutine(ShowCandyPic());
         sugar.CandyB(); 
         
     }
 
-    private IEnumerator ShowCandyPic()
-    {
-        candyPic.gameObject.SetActive(true);
-        yield return new WaitForSeconds(2f);
-        candyPic.gameObject.SetActive(false);
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

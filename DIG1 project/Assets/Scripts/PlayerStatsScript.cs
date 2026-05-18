@@ -19,6 +19,8 @@ public class PlayerStatsScript : MonoBehaviour
 
     [SerializeField] public float rechargeRate = 10.0f;
 
+    [SerializeField] ParticleSystem pickupParticles;
+
     Movement movement;
 
     [SerializeField] private Volume globalVolume;
