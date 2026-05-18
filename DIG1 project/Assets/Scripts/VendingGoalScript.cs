@@ -24,6 +24,7 @@ public class VendingGoalScript : MonoBehaviour
     {
         stopAction = InputSystem.actions.FindAction("Attack");
         NewGoalPosition();
+        inMinigame = true;
     }
 
 
@@ -49,6 +50,7 @@ public class VendingGoalScript : MonoBehaviour
         {
             // stoppa pilen och känn igen om målet nuddar den
             Debug.Log("Stop Indicator");
+            indicatorActive = false;
         }
     }
 
