@@ -5,6 +5,8 @@ public class PaperGameManager : MonoBehaviour
     public int papersPlaced;
     public int totalPapers = 3;
 
+    [SerializeField] int codeIndex;
+
     private bool completed = false;
 
     public void PaperPlacedCorrectly()
@@ -15,13 +17,11 @@ public class PaperGameManager : MonoBehaviour
         {
             completed = true;
 
-            int result = CodeManager.instance.paperNumber;
+            int result = CodeManager.instance.GetDigit(codeIndex);
 
             Debug.Log("Paper solved! Number is: " + result);
 
             FindAnyObjectByType<PaperPause>().ResumeGame();
-
-            Debug.Log("Maya is stupid");
         }
     }
 }

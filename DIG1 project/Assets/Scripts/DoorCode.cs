@@ -7,11 +7,6 @@ public class DoorCode : MonoBehaviour
     SpriteRenderer doorSr;
     BoxCollider2D doorCollider;
 
-    [Header("Code Digits")]
-    public int valueOne;
-    public int valueTwo;
-    public int valueThree;
-    public int valueFour;
     [SerializeField] string codeValues;
 
     [Header("Code Lock")]

@@ -31,7 +31,7 @@ public class PlayerStatsScript : MonoBehaviour
     public bool forceStressEffect;
 
     // LEVEL TRACKING
-    [SerializeField] int LevelNumber;
+    [SerializeField] string sceneName;
 
     // STRESS EFFECT
     private Vignette vignette;
@@ -51,7 +51,7 @@ public class PlayerStatsScript : MonoBehaviour
         playerSr = GetComponent<SpriteRenderer>();
         movement = GetComponent<Movement>();
 
-        PlayerPrefs.SetInt("LastPlayedLevel", LevelNumber); //LOCAL FILE - keep track of resent point
+        PlayerPrefs.SetString("LastPlayedScene", sceneName); //LOCAL FILE - keep track of resent point
 
         // invisibility effects off at start
         if (invisibilityVolume != null)

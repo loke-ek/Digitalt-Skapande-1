@@ -291,15 +291,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2746932232148876214, guid: 5c65253f0255cd74387ba81aada70a2d, type: 3}
       propertyPath: m_LocalScale.x
-      value: 5.3404756
+      value: 6.284672
       objectReference: {fileID: 0}
     - target: {fileID: 2746932232148876214, guid: 5c65253f0255cd74387ba81aada70a2d, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.3582356
+      value: 1.5983716
       objectReference: {fileID: 0}
     - target: {fileID: 2746932232148876214, guid: 5c65253f0255cd74387ba81aada70a2d, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.03125
+      value: 1.213575
       objectReference: {fileID: 0}
     - target: {fileID: 2746932232148876214, guid: 5c65253f0255cd74387ba81aada70a2d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -331,11 +331,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2746932232148876214, guid: 5c65253f0255cd74387ba81aada70a2d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -605
+      value: -626
       objectReference: {fileID: 0}
     - target: {fileID: 2746932232148876214, guid: 5c65253f0255cd74387ba81aada70a2d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 409
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 2746932232148876214, guid: 5c65253f0255cd74387ba81aada70a2d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -417,7 +417,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: <--- When this bar is full, enemies wont be able to see you!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fa76c598f60bf0844b6bad215dcb55b7, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -484,7 +484,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -263.6616, w: 6.2499084}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &162731517
@@ -780,8 +780,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: <--- This is your stress bar... avoid filling it up!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fa76c598f60bf0844b6bad215dcb55b7, type: 2}
+  m_sharedMaterial: {fileID: -7482118654194975307, guid: fa76c598f60bf0844b6bad215dcb55b7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -844,7 +844,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -474.90585, w: 6.2499084}
+  m_margin: {x: 0, y: 0, z: -290.47214, w: 6.2499084}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -874,7 +874,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -160, y: 309}
+  m_AnchoredPosition: {x: -160, y: 300}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &254204146 stripped
@@ -922,7 +922,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -82, y: 420}
+  m_AnchoredPosition: {x: -82, y: 441}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &271323173
@@ -947,8 +947,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: <--- This is your candy bar! eat candy to fill it up and get powerups!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fa76c598f60bf0844b6bad215dcb55b7, type: 2}
+  m_sharedMaterial: {fileID: -7482118654194975307, guid: fa76c598f60bf0844b6bad215dcb55b7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1011,7 +1011,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -283.88748, w: 6.2499084}
+  m_margin: {x: 0, y: 0, z: -321.94437, w: 6.2499084}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1333,7 +1333,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "This is your timer! --> \nTry to complete each level as fast as you can!"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fa76c598f60bf0844b6bad215dcb55b7, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1400,7 +1400,7 @@ MonoBehaviour:
   m_margin: {x: -227.29489, y: 0, z: 16.780952, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &345721931
@@ -11072,8 +11072,8 @@ MonoBehaviour:
 
     gain candy!'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fa76c598f60bf0844b6bad215dcb55b7, type: 2}
+  m_sharedMaterial: {fileID: -7482118654194975307, guid: fa76c598f60bf0844b6bad215dcb55b7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11170,7 +11170,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -7482118654194975307, guid: fa76c598f60bf0844b6bad215dcb55b7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11450,6 +11450,10 @@ PrefabInstance:
       propertyPath: sugarBar
       value: 
       objectReference: {fileID: 554191676}
+    - target: {fileID: 6508458676924293529, guid: 7c41bb51bc6544849a43892ccc96b87d, type: 3}
+      propertyPath: sceneName
+      value: IntroScene
+      objectReference: {fileID: 0}
     - target: {fileID: 6508458676924293529, guid: 7c41bb51bc6544849a43892ccc96b87d, type: 3}
       propertyPath: stressBar
       value: 
@@ -11908,6 +11912,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7474563947607071966, guid: c9c75689d212eed48847cbea86540eeb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.80322635
+      objectReference: {fileID: 0}
+    - target: {fileID: 7474563947607071966, guid: c9c75689d212eed48847cbea86540eeb, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.4263669
       objectReference: {fileID: 0}
@@ -11953,7 +11961,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7949987887173770726, guid: 8610ee00628ff784a990fcc08daaede8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 50.23
+      value: 48.84
       objectReference: {fileID: 0}
     - target: {fileID: 7949987887173770726, guid: 8610ee00628ff784a990fcc08daaede8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12384,8 +12392,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: You've completed the tutorial! Head forward to start your escape!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fa76c598f60bf0844b6bad215dcb55b7, type: 2}
+  m_sharedMaterial: {fileID: -7482118654194975307, guid: fa76c598f60bf0844b6bad215dcb55b7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -12448,7 +12456,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -7.89913, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -12482,7 +12490,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -7482118654194975307, guid: fa76c598f60bf0844b6bad215dcb55b7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12862,7 +12870,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5691716368321330408, guid: 83aca01cbbdb8394a8535c794329dc10, type: 3}
       propertyPath: oneStarTime
-      value: 40
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 5691716368321330408, guid: 83aca01cbbdb8394a8535c794329dc10, type: 3}
       propertyPath: twoStarTime
@@ -12870,7 +12878,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5691716368321330408, guid: 83aca01cbbdb8394a8535c794329dc10, type: 3}
       propertyPath: threeStarTime
-      value: 10
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12979,8 +12987,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fa76c598f60bf0844b6bad215dcb55b7, type: 2}
+  m_sharedMaterial: {fileID: -7482118654194975307, guid: fa76c598f60bf0844b6bad215dcb55b7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -13043,7 +13051,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -5.1109495, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -13077,7 +13085,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -7482118654194975307, guid: fa76c598f60bf0844b6bad215dcb55b7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13117,7 +13125,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 49.28, y: -2.52}
+  m_AnchoredPosition: {x: 47.86, y: -2.52}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1647415866
@@ -13285,7 +13293,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7196379259319643731, guid: a8186f3f69c22594b995c7a4b3284a9a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 84.62
+      value: 86.88
       objectReference: {fileID: 0}
     - target: {fileID: 7196379259319643731, guid: a8186f3f69c22594b995c7a4b3284a9a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13447,7 +13455,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.3, y: -2.00799}
+  m_AnchoredPosition: {x: 12.44, y: -1.96}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1815142610
@@ -13476,8 +13484,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fa76c598f60bf0844b6bad215dcb55b7, type: 2}
+  m_sharedMaterial: {fileID: -7482118654194975307, guid: fa76c598f60bf0844b6bad215dcb55b7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -13540,7 +13548,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -3.520155, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -13574,7 +13582,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -7482118654194975307, guid: fa76c598f60bf0844b6bad215dcb55b7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13608,7 +13616,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 646673272887332811, guid: f0778df6ee9617f47a81adbb89cf1c6d, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.74779886
+      value: 0.7664938
       objectReference: {fileID: 0}
     - target: {fileID: 646673272887332811, guid: f0778df6ee9617f47a81adbb89cf1c6d, type: 3}
       propertyPath: m_LocalScale.y

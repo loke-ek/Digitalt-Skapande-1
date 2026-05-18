@@ -564,7 +564,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1421491579}
         m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
-        m_MethodName: OnStartClick
+        m_MethodName: LoadPrevious
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

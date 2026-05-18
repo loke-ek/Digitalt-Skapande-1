@@ -1,67 +1,58 @@
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class CodeManager : MonoBehaviour
 {
     public static CodeManager instance;
 
-    [Header("Code Digits")]
-    public int paintingNumber;
-    public int wireNumber;
-    public int paperNumber;
-    public int randomObjectNumber;
+    public List<int> currentCode = new List<int>();
 
-    void Awake()
+    private void Awake()
     {
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject); // persist across scenes
+            DontDestroyOnLoad(gameObject);
         }
-        else if (instance != this)
+        else
         {
             Destroy(gameObject);
             return;
         }
-
-        GenerateCode();
     }
 
-    void GenerateCode()
+    public void GenerateCode(int length)
     {
-        paintingNumber = Random.Range(0, 10);
-        wireNumber = Random.Range(0, 10);
-        paperNumber = Random.Range(0, 10);
-        randomObjectNumber = Random.Range(0, 10);
+        currentCode.Clear();
 
-        Debug.Log($"CODE: {paintingNumber}{wireNumber}{paperNumber}{randomObjectNumber}");
+        for (int i = 0; i < length; i++)
+        {
+            currentCode.Add(Random.Range(0, 10));
+        }
+
+        Debug.Log("Generated Code: " + GetFullCode());
+    }
+
+    public int GetDigit(int index)
+    {
+        if (index < 0 || index >= currentCode.Count)
+        {
+            Debug.LogError("Invalid code index!");
+            return 0;
+        }
+
+        return currentCode[index];
     }
 
     public string GetFullCode()
     {
-        return paintingNumber.ToString() +
-               wireNumber.ToString() +
-               paperNumber.ToString() +
-               randomObjectNumber.ToString();
-    }
+        string result = "";
 
-
-
-  void OnEnable()
-  {
-    SceneManager.sceneLoaded += OnSceneLoaded;
-  }
-
-  void OnDisable()
-  {
-    SceneManager.sceneLoaded -= OnSceneLoaded;
-  }
-
-  void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-  {
-        if (scene.name != "LevelsOptions")
+        foreach (int digit in currentCode)
         {
-            GenerateCode();
+            result += digit.ToString();
         }
-  }
+
+        return result;
+    }
 }

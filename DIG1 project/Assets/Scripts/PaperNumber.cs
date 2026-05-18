@@ -3,19 +3,15 @@ using UnityEngine.UI;
 
 public class PaperNumber : MonoBehaviour
 {
-    public Image img;           // UI Image component
-    public Sprite[] numberSprites; // Sprites 0–9
+    [SerializeField] int codeIndex;
+
+    public Image img;
+    public Sprite[] numberSprites;
 
     void Start()
     {
-        // Wait until CodeManager.instance exists
-        if (CodeManager.instance == null)
-        {
-            Debug.LogError("CodeManager missing!");
-            return;
-        }
+        int number = CodeManager.instance.GetDigit(codeIndex);
 
-        int number = CodeManager.instance.paperNumber;
         img.sprite = numberSprites[number];
     }
 }
