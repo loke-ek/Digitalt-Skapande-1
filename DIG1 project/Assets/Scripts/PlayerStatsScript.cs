@@ -134,14 +134,16 @@ public class PlayerStatsScript : MonoBehaviour
         //candy
         if (collision.CompareTag("CandyA"))
         {
-            FindAnyObjectByType<AudioManager>().PlaySound(1);
+            //FindAnyObjectByType<AudioManager>().PlaySound(1);
+            pickupParticles.Play();
             sugar += 15;
             Destroy(collision.gameObject);
         }
 
         if (collision.CompareTag("CandyB"))
         {
-            FindAnyObjectByType<AudioManager>().PlaySound(1);
+            //FindAnyObjectByType<AudioManager>().PlaySound(1);
+            pickupParticles.Play();
             sugar += 30;
             Destroy(collision.gameObject);
         }
