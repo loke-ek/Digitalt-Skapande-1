@@ -43,7 +43,5 @@ public class PaperPause : MonoBehaviour
         paperMenu.SetActive(false);
         playerMovement.Unfreeze();
         isPaused = false;
-
-        Debug.Log("Maya is stupid");
     }
 }

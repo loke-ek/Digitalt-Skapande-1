@@ -40,5 +40,6 @@ public class AudioManager : MonoBehaviour
     //Element5: Key pickup 
     //Element6: Destroyed object 
     //Element7: Door opens
+    //Element8: Pause menu opens
 }
 
