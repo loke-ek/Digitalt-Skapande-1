@@ -10,13 +10,14 @@ public class LevelDataManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+
+            Debug.Log("LevelDataManager created: " + gameObject.GetInstanceID());
         }
         else
         {
             Debug.Log("Duplicate LevelDataManager destroyed");
             Destroy(gameObject);
         }
-        Debug.Log("LevelDataManager created: " + gameObject.GetInstanceID());
     }
 
     public void SaveStars(string levelName, int stars)
