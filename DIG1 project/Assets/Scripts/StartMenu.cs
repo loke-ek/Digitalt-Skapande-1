@@ -35,4 +35,9 @@ public class StartMenu : MonoBehaviour
 
         SceneManager.LoadScene(lastScene);
     }
+
+    public void LoadLevelSelector()
+    {
+        SceneManager.LoadScene("LevelsOptions");
+    }
 }
