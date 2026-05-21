@@ -22,7 +22,6 @@ public class EnemyPatrol : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         spriteRenderer.flipX = true;  // facing left
-        spriteRenderer.flipX = false; // facing right
 
         StartCoroutine(PatrolRoutine());
     }

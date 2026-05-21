@@ -9,12 +9,6 @@ public class Wire : MonoBehaviour
         startPoint = transform.parent.position;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnMouseDrag()
     {
         Vector3 newPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);

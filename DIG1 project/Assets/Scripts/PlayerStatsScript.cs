@@ -46,6 +46,8 @@ public class PlayerStatsScript : MonoBehaviour
     private Coroutine invisCoroutine;
     bool inVision = false;
 
+    AudioManager audioManager;
+
     private void Start()
     {
         playerSr = GetComponent<SpriteRenderer>();
@@ -59,6 +61,8 @@ public class PlayerStatsScript : MonoBehaviour
 
         stress = 0;
         sugar = 0;
+
+        audioManager = FindAnyObjectByType<AudioManager>();
 
         //red stress
         if (globalVolume.profile.TryGet(out vignette))
@@ -109,7 +113,7 @@ public class PlayerStatsScript : MonoBehaviour
         //invisible
         if (sugar >= 100)
         {
-            FindAnyObjectByType<AudioManager>().PlaySound(2);
+            audioManager.PlaySound(2);
 
             if (invisCoroutine != null)
                 StopCoroutine(invisCoroutine);
@@ -134,7 +138,7 @@ public class PlayerStatsScript : MonoBehaviour
         //candy
         if (collision.CompareTag("CandyA"))
         {
-            //FindAnyObjectByType<AudioManager>().PlaySound(1);
+            //audioManager.PlaySound(1);
             pickupParticles.Play();
             sugar += 15;
             Destroy(collision.gameObject);
@@ -142,7 +146,7 @@ public class PlayerStatsScript : MonoBehaviour
 
         if (collision.CompareTag("CandyB"))
         {
-            //FindAnyObjectByType<AudioManager>().PlaySound(1);
+            //audioManager.PlaySound(1);
             pickupParticles.Play();
             sugar += 30;
             Destroy(collision.gameObject);
@@ -155,7 +159,7 @@ public class PlayerStatsScript : MonoBehaviour
 
             inVision = true;
 
-            FindAnyObjectByType<AudioManager>().PlaySound(4);
+            audioManager.PlaySound(4);
         }
     }
     public void CandyB()

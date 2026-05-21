@@ -6,6 +6,13 @@ public class leveldSetUp : MonoBehaviour
 
     private void Awake()
     {
-        CodeManager.instance.GenerateCode(codeLength);
+        if (CodeManager.instance != null)
+        {
+            CodeManager.instance.GenerateCode(codeLength);
+        }
+        else
+        {
+            Debug.LogError("CodeManager missing!");
+        }
     }
 }

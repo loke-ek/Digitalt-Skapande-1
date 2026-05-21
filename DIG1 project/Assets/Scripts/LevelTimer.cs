@@ -49,4 +49,9 @@ public class LevelTimer : MonoBehaviour
     {
         running = false;
     }
+    void OnDestroy()
+    {
+        if (instance == this)
+            instance = null;
+    }
 }

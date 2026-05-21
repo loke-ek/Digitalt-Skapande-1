@@ -42,7 +42,6 @@ public class DoorCode : MonoBehaviour
 
         if (inRange && Keyboard.current.eKey.wasPressedThisFrame)
         {
-            Debug.Log("open code lock");
             codeLock.SetActive(true);
             inLock = true;
         }

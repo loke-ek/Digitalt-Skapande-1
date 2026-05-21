@@ -4,10 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class StartMenu : MonoBehaviour
 {
-    void Start()
-    {
-
-    }
     public void OnStartClick()
     {
         SceneManager.LoadScene("LevelsOptions");

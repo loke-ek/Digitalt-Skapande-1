@@ -17,11 +17,6 @@ public class inventory : MonoBehaviour
         //KeyCardText.text = "x" + KeyCards.ToString();
     }
 
-    private void Update()
-    {
-
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("KeyCard"))
