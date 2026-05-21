@@ -10,7 +10,7 @@ public class StartMenu : MonoBehaviour
     }
     public void OnStartClick()
     {
-        SceneManager.LoadScene("IntroScene");
+        SceneManager.LoadScene("LevelsOptions");
     }
 
     public void OnWinClick()

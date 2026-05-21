@@ -13,6 +13,7 @@ public class LevelDataManager : MonoBehaviour
         }
         else
         {
+            Debug.Log("Duplicate LevelDataManager destroyed");
             Destroy(gameObject);
         }
         Debug.Log("LevelDataManager created: " + gameObject.GetInstanceID());
