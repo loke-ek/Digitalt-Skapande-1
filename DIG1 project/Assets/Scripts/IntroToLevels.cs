@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using static UnityEngine.Timeline.DirectorControlPlayable;
 
 public class IntroToLevels : MonoBehaviour
 {

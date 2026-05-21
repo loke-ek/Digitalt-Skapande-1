@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
 using UnityEngine.Audio;
 
 public class PauseMenu : MonoBehaviour
