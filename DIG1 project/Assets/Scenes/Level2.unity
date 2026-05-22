@@ -129,7 +129,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 817247124915235655, guid: c3d7482f47922c64ba6702fe9af49e51, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.71
+      value: -6.85
       objectReference: {fileID: 0}
     - target: {fileID: 817247124915235655, guid: c3d7482f47922c64ba6702fe9af49e51, type: 3}
       propertyPath: m_LocalPosition.y
@@ -193,7 +193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6699073888504036834, guid: c3d7482f47922c64ba6702fe9af49e51, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.7
+      value: 2.24
       objectReference: {fileID: 0}
     - target: {fileID: 7674003109862186913, guid: c3d7482f47922c64ba6702fe9af49e51, type: 3}
       propertyPath: codeIndex
@@ -20270,6 +20270,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8681377547913921506, guid: 9097d05d84ffeeb4fae3c629ec52dd08, type: 3}
+      propertyPath: idleTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8681377547913921506, guid: 9097d05d84ffeeb4fae3c629ec52dd08, type: 3}
+      propertyPath: walkTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8681377547913921506, guid: 9097d05d84ffeeb4fae3c629ec52dd08, type: 3}
+      propertyPath: walkSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8933125694810801820, guid: 9097d05d84ffeeb4fae3c629ec52dd08, type: 3}
       propertyPath: m_Name
       value: lemur  (1)
@@ -22765,6 +22777,18 @@ PrefabInstance:
     - target: {fileID: 1512993529966425750, guid: fb54e5ec70fd4834aaaafdf877a0efe1, type: 3}
       propertyPath: m_Name
       value: Badger
+      objectReference: {fileID: 0}
+    - target: {fileID: 5138664608695254706, guid: fb54e5ec70fd4834aaaafdf877a0efe1, type: 3}
+      propertyPath: idleTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5138664608695254706, guid: fb54e5ec70fd4834aaaafdf877a0efe1, type: 3}
+      propertyPath: moveTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5138664608695254706, guid: fb54e5ec70fd4834aaaafdf877a0efe1, type: 3}
+      propertyPath: moveSpeed
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25975,6 +25999,75 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1001 &1539884557
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5251108214855378472, guid: 73cd952ad46993245a1601fef32b6b31, type: 3}
+      propertyPath: idleTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5251108214855378472, guid: 73cd952ad46993245a1601fef32b6b31, type: 3}
+      propertyPath: walkTime
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5251108214855378472, guid: 73cd952ad46993245a1601fef32b6b31, type: 3}
+      propertyPath: walkSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6967084211701212294, guid: 73cd952ad46993245a1601fef32b6b31, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6967084211701212294, guid: 73cd952ad46993245a1601fef32b6b31, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11.098237
+      objectReference: {fileID: 0}
+    - target: {fileID: 6967084211701212294, guid: 73cd952ad46993245a1601fef32b6b31, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.012158355
+      objectReference: {fileID: 0}
+    - target: {fileID: 6967084211701212294, guid: 73cd952ad46993245a1601fef32b6b31, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.030547513
+      objectReference: {fileID: 0}
+    - target: {fileID: 6967084211701212294, guid: 73cd952ad46993245a1601fef32b6b31, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6967084211701212294, guid: 73cd952ad46993245a1601fef32b6b31, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.9995333
+      objectReference: {fileID: 0}
+    - target: {fileID: 6967084211701212294, guid: 73cd952ad46993245a1601fef32b6b31, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6967084211701212294, guid: 73cd952ad46993245a1601fef32b6b31, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6967084211701212294, guid: 73cd952ad46993245a1601fef32b6b31, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 183.501
+      objectReference: {fileID: 0}
+    - target: {fileID: 6967084211701212294, guid: 73cd952ad46993245a1601fef32b6b31, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8477668768180043526, guid: 73cd952ad46993245a1601fef32b6b31, type: 3}
+      propertyPath: m_Name
+      value: lemur BETTER  (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 73cd952ad46993245a1601fef32b6b31, type: 3}
 --- !u!4 &1568301617 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7644361257428162240, guid: 5fc8ee420506fb8458da72f6c2f63d2b, type: 3}
@@ -30487,6 +30580,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5251108214855378472, guid: 73cd952ad46993245a1601fef32b6b31, type: 3}
+      propertyPath: idleTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5251108214855378472, guid: 73cd952ad46993245a1601fef32b6b31, type: 3}
+      propertyPath: walkTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5251108214855378472, guid: 73cd952ad46993245a1601fef32b6b31, type: 3}
+      propertyPath: walkSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6967084211701212294, guid: 73cd952ad46993245a1601fef32b6b31, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.42
@@ -30624,3 +30729,4 @@ SceneRoots:
   - {fileID: 474357251}
   - {fileID: 5341329112661218744}
   - {fileID: 1449882367}
+  - {fileID: 1539884557}
