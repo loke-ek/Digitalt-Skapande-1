@@ -24718,6 +24718,14 @@ PrefabInstance:
       propertyPath: levelName
       value: Level2
       objectReference: {fileID: 0}
+    - target: {fileID: 5691716368321330408, guid: 83aca01cbbdb8394a8535c794329dc10, type: 3}
+      propertyPath: oneStarTime
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691716368321330408, guid: 83aca01cbbdb8394a8535c794329dc10, type: 3}
+      propertyPath: twoStarTime
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -24878,7 +24878,7 @@ Transform:
   m_GameObject: {fileID: 506584713}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.077552885, w: 0.99698824}
-  m_LocalPosition: {x: 0.61, y: 0.34, z: 0}
+  m_LocalPosition: {x: 1.51, y: 0.34, z: 0}
   m_LocalScale: {x: 0.30003408, y: 0.30003408, z: 0.30003408}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -37213,6 +37213,14 @@ PrefabInstance:
     - target: {fileID: 5095064296715199015, guid: 83aca01cbbdb8394a8535c794329dc10, type: 3}
       propertyPath: m_Name
       value: STARS COUNTER STUFF
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691716368321330408, guid: 83aca01cbbdb8394a8535c794329dc10, type: 3}
+      propertyPath: oneStarTime
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691716368321330408, guid: 83aca01cbbdb8394a8535c794329dc10, type: 3}
+      propertyPath: twoStarTime
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
