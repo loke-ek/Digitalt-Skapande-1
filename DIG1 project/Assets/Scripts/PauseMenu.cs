@@ -66,7 +66,6 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
-        FindAnyObjectByType<AudioManager>().PlaySound(8);
     }
 
     //for resuming the game
