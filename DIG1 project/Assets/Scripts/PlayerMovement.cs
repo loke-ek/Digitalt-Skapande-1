@@ -104,7 +104,7 @@ public class Movement : MonoBehaviour
     {
         moveVector = moveAction.ReadValue<Vector2>();
 
-        // ONLY update lastMoveDir if actually moving
+        // onöy update lastMoveDir if actually moving
         if (moveVector != Vector2.zero)
             lastMoveDir = moveVector;
 
